@@ -7,3 +7,6 @@ Thumbs.db
 
 # Temp/lock files from Office
 ~$*
+
+# Local working files
+.tmp/
