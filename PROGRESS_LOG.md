@@ -26,6 +26,7 @@ _Newest day first._
 
 ### Other activity, June 12
 
+- **Grocery Outlet (Service Desk Tech L1) — Rejected.** Standard "going with another candidate" email. The lowest-tier, least-aligned of the applications. Noted in `Non-State Applications/`.
 - Classification insight: the IT series (ITT, ITA, ITS I-III) sets pay and seniority, not the work. The real filter is the six domains (Business Technology Management, Client Services, Software Engineering, Information Security, IT Project Management, System Engineering) plus the duty-statement percentages. Best fits for Uriah: Client Services, System Engineering, and especially Information Security (security operations). CalCareers cannot filter by domain, so approximate it by keyword-searching working titles (security, SOC, vulnerability; help desk, desktop support; systems administrator, server) combined with the ITS I or ITA classification.
 - RemoteHunter (job aggregator) flagged as low-trust: ingests unvetted and possibly fake postings, charges job-seekers for "resume optimization," and has opaque ownership. Use only as a discovery tool, then apply through the employer's real ATS. Never pay for optimization.
 - Automation: the Claude Code duty-statement hunting tool is still building. Plan is for it to gather ITS I and ITA postings and their duty statements into the project folder so they can be triaged in batch by domain and duty percentages, replacing the manual one-at-a-time review.
@@ -90,8 +91,8 @@ _Newest day first._
 
 Tracked in `Non-State Applications/` (a README index plus one folder per app with an application-record.md).
 
-- **Grocery Outlet, Service Desk Tech (Level 1).** Submitted June 11 via LinkedIn. Tier 1 service desk support. Known issue, the wrong resume attached (the server operations version instead of the client-services one) because Save was not clicked before Submit. The structured application still carries the customer-service signal through the work history, skills, and behaviors, so decided to let it ride.
-- **Flatiron Dragados, IT Field Specialist.** Submitted June 11 via iCIMS. Tier 2 IT field and desktop support in Sacramento, $70,000 to $80,000 per year. Strong fit, since A+ and Network+ are preferred and both are held, plus Windows, Active Directory, networking, and troubleshooting. The structured Licenses and Certifications field was a broken lookup that would not accept the certs, so it was left blank. The certs are on the attached resume.
+- **Grocery Outlet, Service Desk Tech (Level 1).** Submitted June 11 via LinkedIn. Tier 1 service desk support. The intended client-services resume was attached correctly. **Rejected June 12, 2026** (standard rejection email).
+- **Flatiron Dragados, IT Field Specialist.** Submitted June 11 via iCIMS. Tier 2 IT field and desktop support in Sacramento, $70,000 to $80,000 per year. Strong fit, since A+ and Network+ are preferred and both are held, plus Windows, Active Directory, networking, and troubleshooting. The structured Licenses and Certifications field was a broken lookup that would not accept the certs, so it was left blank. The certs are on the attached resume. Known issue, the wrong resume attached (the server operations version instead of the intended IT support / help desk one) because Save was not clicked before submitting. No response yet.
 
 ### Other activity, June 11
 
