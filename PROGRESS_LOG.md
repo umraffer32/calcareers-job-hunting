@@ -37,3 +37,25 @@ _Last updated: June 11, 2026_
 - ServiceNow is the heaviest keyword we cannot currently mirror truthfully. The new project is the fix.
 - The STD 678 must stand on its own; resume is optional and cannot substitute for it.
 - SOQ format compliance is pass/fail; do not exceed two pages.
+
+---
+
+### Private-sector applications (non-CA-state)
+
+Tracked in `Non-State Applications/` (a README index plus one folder per app with an application-record.md).
+
+- **Grocery Outlet, Service Desk Tech (Level 1).** Submitted June 11 via LinkedIn. Tier 1 service desk support. Known issue, the wrong resume attached (the server operations version instead of the client-services one) because Save was not clicked before Submit. The structured application still carries the customer-service signal through the work history, skills, and behaviors, so decided to let it ride.
+- **Flatiron Dragados, IT Field Specialist.** Submitted June 11 via iCIMS. Tier 2 IT field and desktop support in Sacramento, $70,000 to $80,000 per year. Strong fit, since A+ and Network+ are preferred and both are held, plus Windows, Active Directory, networking, and troubleshooting. The structured Licenses and Certifications field was a broken lookup that would not accept the certs, so it was left blank. The certs are on the attached resume.
+
+### Other activity, June 11
+
+- Eligibility confirmed. Rank 1 (score 95) on the Servicewide Open ITS I list, and also on the ITA list, so reachable for ITS I postings.
+- Fixed the Help Desk (JC-520758) resume job title to "Cybersecurity Analyst (Intern)" so it matches the STD 678 and the submitted JC-520957 resume.
+- Reviewed and declined two state roles. CHP ITA (JC-520014) is almost entirely ServiceNow, which is the current skill gap, and the deadline was the next day. DOJ IT Technician (JC-520577) is entry-level, night shift Thursday through Monday, schedule not wanted, and not currently on the ITT list.
+- Set up a private GitHub repo for this CalCareers folder, plus a Non-State Applications tracking folder for private-sector apps.
+
+### ServiceNow project (planned, the key unlock)
+
+- Build hands-on work in a free ServiceNow Personal Developer Instance, covering incident and request handling, a catalog item with a Flow Designer workflow, knowledge base articles, role-based access control, and a small CMDB example.
+- Publish it as a public GitHub repo in the style of the other portfolio repos.
+- Then re-tailor: add it to the Help Desk resume Projects, swap it into SOQ Q2 (knowledge base articles), and consider it for SOQ Q3. This closes the one honest gap on the Help Desk application before the June 19 filing date.
