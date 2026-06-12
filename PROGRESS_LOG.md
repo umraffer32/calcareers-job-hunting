@@ -66,15 +66,9 @@ Tracked in `Non-State Applications/` (a README index plus one folder per app wit
 - STD 678 reviewed across three drafts and finalized. Three jobs entered with the tailored Duties Performed blocks. Q1 through Q4 all No, Q2 consistent with the Robert's Retirement reason for leaving ("Separated following a workplace conflict"). Block Advisors address corrected to 8645 Elk Grove Blvd, Elk Grove, CA 95624 (verified against public listing, phone matches). Licenses capped at three by the form, so A+, Network+, and Security+ listed; Cloud+ dropped (still on the resume).
 - Reference: CompTIA A+ cert number is TY3T0LYRH2FEQY54 (issued 09/30/2024). Network+ MR59XVZQRBQ1QN5B, Security+ KZEMPPL55EFQ1CKF, Cloud+ G9K17BZ5WEB459D2.
 
-### Other activity, June 11
+### JC-520469 — ESEC Security Analyst (IT Specialist I, State Compensation Insurance Fund)
 
-- Eligibility confirmed. Rank 1 (score 95) on the Servicewide Open ITS I list, and also on the ITA list, so reachable for ITS I postings.
-- Fixed the Help Desk (JC-520758) resume job title to "Cybersecurity Analyst (Intern)" so it matches the STD 678 and the submitted JC-520957 resume.
-- Reviewed and declined two state roles. CHP ITA (JC-520014) is almost entirely ServiceNow, which is the current skill gap, and the deadline was the next day. DOJ IT Technician (JC-520577) is entry-level, night shift Thursday through Monday, schedule not wanted, and not currently on the ITT list.
-- Set up a private GitHub repo for this CalCareers folder, plus a Non-State Applications tracking folder for private-sector apps.
-
-### ServiceNow project (planned, the key unlock)
-
-- Build hands-on work in a free ServiceNow Personal Developer Instance, covering incident and request handling, a catalog item with a Flow Designer workflow, knowledge base articles, role-based access control, and a small CMDB example.
-- Publish it as a public GitHub repo in the style of the other portfolio repos.
-- Then re-tailor: add it to the Help Desk resume Projects, swap it into SOQ Q2 (knowledge base articles), and consider it for SOQ Q3. This closes the one honest gap on the Help Desk application before the June 19 filing date.
+- Status: **SUBMITTED June 12, 2026.** Resume and STD 678 filed. Folder renamed to "JC-520469 (ESEC Security Analyst) - SUBMITTED"; 678 saved as Uriah_Raffer_STD678_JC-520469.pdf.
+- Final filing date: **June 24, 2026.** Fully telework (reside in CA), multiple positions, reports to the CISO. **No SOQ required** (resume + STD 678 only).
+- 678 note: internship Duties field caps near 1,000 characters (not 1,500). Used a trimmed 6-bullet security block (975 chars) leading with Defender EDR, vuln scans + PowerShell, Sentinel/KQL, STIG, SSH key-only, documentation. Dropped the "participating in a remote internship" opener to fit. Block Advisors address cleaned to 8645 Elk Grove Blvd; Total Worked rounded to 0/4.
+- Resume done: `Uriah_Raffer_Resume_JC-520469` (.docx + .pdf), one page, security-operations forward. Leads with Defender EDR alert investigation and root cause, Sentinel/KQL threat hunting, vuln scanning and remediation (30 to 3, all critical cleared), STIG hardening, SSH key-only fix, documentation. Skills regrouped into Security Operations, Frameworks and Hardening, Systems, Networking, Automation, Productivity. Used corrected SSH key-only wording (not the base resume's NSG/firewall 91% line). No em dashes, no mid-sente
