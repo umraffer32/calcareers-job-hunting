@@ -71,4 +71,22 @@ Tracked in `Non-State Applications/` (a README index plus one folder per app wit
 - Status: **SUBMITTED June 12, 2026.** Resume and STD 678 filed. Folder renamed to "JC-520469 (ESEC Security Analyst) - SUBMITTED"; 678 saved as Uriah_Raffer_STD678_JC-520469.pdf.
 - Final filing date: **June 24, 2026.** Fully telework (reside in CA), multiple positions, reports to the CISO. **No SOQ required** (resume + STD 678 only).
 - 678 note: internship Duties field caps near 1,000 characters (not 1,500). Used a trimmed 6-bullet security block (975 chars) leading with Defender EDR, vuln scans + PowerShell, Sentinel/KQL, STIG, SSH key-only, documentation. Dropped the "participating in a remote internship" opener to fit. Block Advisors address cleaned to 8645 Elk Grove Blvd; Total Worked rounded to 0/4.
-- Resume done: `Uriah_Raffer_Resume_JC-520469` (.docx + .pdf), one page, security-operations forward. Leads with Defender EDR alert investigation and root cause, Sentinel/KQL threat hunting, vuln scanning and remediation (30 to 3, all critical cleared), STIG hardening, SSH key-only fix, documentation. Skills regrouped into Security Operations, Frameworks and Hardening, Systems, Networking, Automation, Productivity. Used corrected SSH key-only wording (not the base resume's NSG/firewall 91% line). No em dashes, no mid-sente
+- Resume done: `Uriah_Raffer_Resume_JC-520469` (.docx + .pdf), one page, security-operations forward. Leads with Defender EDR alert investigation and root cause, Sentinel/KQL threat hunting, vuln scanning and remediation (30 to 3, all critical cleared), STIG hardening, SSH key-only fix, documentation. Skills regrouped into Security Operations, Frameworks and Hardening, Systems, Networking, Automation, Productivity. Used corrected SSH key-only wording (not the base resume's NSG/firewall 91% line). No em dashes, no mid-sentence colons.
+- 678 note: use the canonical security-forward Log(N) Duties block from Employment_History_STD678.md AS-IS (no support-reframe needed for this role). Block Advisors and Robert's blocks as canonical.
+- Fit read: best-aligned security role yet, and the right flavor (hands-on security operations, not GRC). Duties: investigating suspicious activity, incident response and forensic analysis, threat intelligence, simulated phishing, security awareness training, writing security procedures. Maps honestly to Uriah's internship (Defender EDR alert investigation, Sentinel/KQL threat hunting, tracing alerts to root cause, STIG hardening, documentation).
+- Catch: pitched at an experienced analyst ("next step in your career," "advanced," "complex incident response and forensic," CISSP a plus). Uriah is a new grad with a ~4-month internship, so he is applying up. But all SOQ/resume material would be truthful, just junior, and with no SOQ and multiple remote openings, low-cost high-upside swing.
+- Note: Duty statement PDF is a dynamic Adobe XFA form that does not render as static text; assessed from the posting's detailed duty list.
+- Next: tailor resume and 678 toward the security-operations angle (lead with the internship's EDR/SIEM/incident/threat-hunting work, frameworks, documentation).
+
+### Other activity, June 11
+
+- Eligibility confirmed. Rank 1 (score 95) on the Servicewide Open ITS I list, and also on the ITA list, so reachable for ITS I postings.
+- Fixed the Help Desk (JC-520758) resume job title to "Cybersecurity Analyst (Intern)" so it matches the STD 678 and the submitted JC-520957 resume.
+- Reviewed and declined two state roles. CHP ITA (JC-520014) is almost entirely ServiceNow, which is the current skill gap, and the deadline was the next day. DOJ IT Technician (JC-520577) is entry-level, night shift Thursday through Monday, schedule not wanted, and not currently on the ITT list.
+- Set up a private GitHub repo for this CalCareers folder, plus a Non-State Applications tracking folder for private-sector apps.
+
+### ServiceNow project (planned, the key unlock)
+
+- Build hands-on work in a free ServiceNow Personal Developer Instance, covering incident and request handling, a catalog item with a Flow Designer workflow, knowledge base articles, role-based access control, and a small CMDB example.
+- Publish it as a public GitHub repo in the style of the other portfolio repos.
+- Then re-tailor: add it to the Help Desk resume Projects, swap it into SOQ Q2 (knowledge base articles), and consider it for SOQ Q3. This closes the one honest gap on the Help Desk application before the June 19 filing date.
