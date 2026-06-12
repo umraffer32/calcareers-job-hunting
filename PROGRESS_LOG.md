@@ -47,6 +47,25 @@ Tracked in `Non-State Applications/` (a README index plus one folder per app wit
 - **Grocery Outlet, Service Desk Tech (Level 1).** Submitted June 11 via LinkedIn. Tier 1 service desk support. Known issue, the wrong resume attached (the server operations version instead of the client-services one) because Save was not clicked before Submit. The structured application still carries the customer-service signal through the work history, skills, and behaviors, so decided to let it ride.
 - **Flatiron Dragados, IT Field Specialist.** Submitted June 11 via iCIMS. Tier 2 IT field and desktop support in Sacramento, $70,000 to $80,000 per year. Strong fit, since A+ and Network+ are preferred and both are held, plus Windows, Active Directory, networking, and troubleshooting. The structured Licenses and Certifications field was a broken lookup that would not accept the certs, so it was left blank. The certs are on the attached resume.
 
+### JC-505723 — Database & Systems Administrator (IT Specialist I, CDSS)
+
+- Status: **Under consideration. Folder created, files saved, not yet drafting.**
+- Final filing date: **June 22, 2026.** Hybrid, Sacramento County. Re-post.
+- Fit read: closest match yet, but a split. Strong on the systems/infrastructure half (servers, Windows/Linux, VMware, PowerShell/Python, IaC, AWS, AD basics, security/IAM). Real gap on the database-administrator half (~40% of duties: SQL Server, NoSQL, MySQL, PostgreSQL modeling, indexing, tuning, failover, ETL). Not a DBA.
+- SOQ is five technical prompts, 2 pages, 12pt Arial. Mapping: Q1 (Ansible/Puppet, IaC at scale) strong (aws-ha-infra Terraform, ansible repo); Q4 (migrate to AWS/Azure, design HA) strong on AWS (two-AZ HA, Multi-AZ RDS); Q5 (AD FSMO roles, seizing) moderate (study + homelab); Q2 (SQL Server Always On AG vs mirroring, failover clustering) and Q3 (clustered vs non-clustered indexes, system DBs) are gaps, answerable from study not experience.
+- Decision: Uriah wants to attempt a strong app here as a stretch while continuing to look. Lead from real strength on Q1/Q4, answer Q2/Q3 honestly without overclaiming DBA experience.
+
+### JC-520089 — IT Business Analyst (IT Associate, Office of Legislative Counsel)
+
+- Status: **SUBMITTED June 11, 2026.** Resume, STD 678, and transcripts filed. STD 678 saved to the folder as Uriah_Raffer_STD678_JC-520089.pdf.
+- Final filing date: **June 19, 2026.** In office, downtown Sacramento. Day shift, 8 to 5, Monday through Friday core hours.
+- **No SOQ required.** Required documents are STD 678, resume (required), and transcripts. Screened competitively on the 678 and resume against the desirable quals.
+- Resume done: `Uriah_Raffer_Resume_JC-520089` (.docx + .pdf), one page, Arial, tailored to the analyst role. Retargeted the summary and bullets to analyze/troubleshoot/resolve/document language, renamed the customer history to "Customer Service Experience" to surface the 2+ years in-person service desirable qual, and reframed the skills into Support and Troubleshooting, Analysis and Documentation, Customer Service, Productivity (MS Office), Networking, Automation. No em dashes, no mid-sentence colons.
+- Fit read: best match to Uriah's actual experience of the recent batch. Despite the "Business Analyst" title, duties are mostly hands-on IT support, troubleshooting, and documentation (40% IT/customer/analytical support, 30% supporting custom software and assisting legislative customers, 25% troubleshooting and resolving Chamber Systems computing problems). Desirable quals he hits honestly: 2+ years in-person customer service (Block Advisors, Robert's Retirement), MS Office and customer training, networking and PC/workstation support (Network+), writing problem analysis and SOPs. Soft spots: formal business-requirements/testing experience and knowledge of the legislative process, both desirable not required.
+- Catch: mandatory seasonal overtime January through September (weekdays, weekends, holidays, up to 7 days/week, not always scheduled in advance). Uriah is fine with the OT, sees it as added pay. Different from DOJ ITT because the base schedule is day M-F, not a permanent nights/weekends shift.
+- STD 678 reviewed across three drafts and finalized. Three jobs entered with the tailored Duties Performed blocks. Q1 through Q4 all No, Q2 consistent with the Robert's Retirement reason for leaving ("Separated following a workplace conflict"). Block Advisors address corrected to 8645 Elk Grove Blvd, Elk Grove, CA 95624 (verified against public listing, phone matches). Licenses capped at three by the form, so A+, Network+, and Security+ listed; Cloud+ dropped (still on the resume).
+- Reference: CompTIA A+ cert number is TY3T0LYRH2FEQY54 (issued 09/30/2024). Network+ MR59XVZQRBQ1QN5B, Security+ KZEMPPL55EFQ1CKF, Cloud+ G9K17BZ5WEB459D2.
+
 ### Other activity, June 11
 
 - Eligibility confirmed. Rank 1 (score 95) on the Servicewide Open ITS I list, and also on the ITA list, so reachable for ITS I postings.
