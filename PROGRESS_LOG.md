@@ -6,6 +6,17 @@ _Newest day first._
 
 ## June 12, 2026
 
+### JC-519717 — Security Analyst (IT Specialist I, California Military Department)
+
+- Status: **SUBMITTED June 12, 2026.** Resume, STD 678, and SOQ filed. 678 saved as Uriah_Raffer_STD678_JC-519717.pdf. (Folder rename to SUBMITTED pending, a file was open on the machine and blocked the rename.)
+- Final filing date: June 12, 2026 (submitted same day). Day shift M-F, Rancho Cordova. Surfaced by the CalCareers scraper; the direct posting URL was live even though the keyword search showed nothing.
+- Fit: security role under the CISO (J6 State Network Team). Hands-on security operations (vuln assessments, incident investigation, root cause, hardening, secure cloud) plus a GRC layer (NIST, SAM, SIMM, policies). Reused the 520469 security materials.
+- SOQ required (2 pages max, Arial 11, single-spaced, restate each question, title top-left, name + JC only). Q1 = the SSH brute-force investigation (his own KQL query and key-only remediation); Q2 = prioritization grounded in the vuln-management risk-and-impact sequencing.
+- **Integrity decision (important for future apps):** Q1 was first drafted around the "Operation Silent Corridor" threat hunt, then pulled after confirming that hunt was solved by his auto-solver (the `sentinel-hunter` skill), not by manual analysis. The TOR project was also ruled out (he only watched a walkthrough). Rule going forward: threat-hunt writeups are NOT usable as personal-investigation SOQ material until he re-runs them manually with his tutor skill. The SSH story is genuinely his and defensible.
+- Resume: light truthful pass on the 520469 security resume, surfaced "security assessments" and "security controls," removed "NIST concepts" from skills (Security+ stays in certs) since current NIST recall is low.
+- 678: internship 6-bullet security block (fits the page-4 box, includes the SSH line so it corroborates the SOQ), Block Advisors and Robert's canonical, Q1 through Q4 all No.
+- Follow-up: the auto-solver and tutor (`sentinel-hunter`) are strong portfolio pieces, frame on the resume as a security-automation tool, not as manual hunting. Re-study hunts manually before any interview.
+
 ### JC-520469 — ESEC Security Analyst (IT Specialist I, State Compensation Insurance Fund)
 
 - Status: **SUBMITTED June 12, 2026.** Resume and STD 678 filed. Folder renamed to "JC-520469 (ESEC Security Analyst) - SUBMITTED"; 678 saved as Uriah_Raffer_STD678_JC-520469.pdf.
