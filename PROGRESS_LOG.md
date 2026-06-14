@@ -1,8 +1,19 @@
 # CalCareers Job Hunt — Progress Log
 
-_Last updated: June 12, 2026_
+_Last updated: June 14, 2026_
 
 _Newest day first._
+
+## June 14, 2026
+
+### JC-520934 — Systems Security Specialist (IT Specialist I, Commission on POST)
+
+- Status: **SUBMITTED June 14, 2026.** Resume, SOQ, and STD 678 filed. Folder renamed to "JC-520934 (Systems Security Specialist) - SUBMITTED"; 678 saved as Uriah_Raffer_STD678_JC-520934.pdf.
+- Final filing date: June 19, 2026. Hybrid, West Sacramento (Yolo County). Position 421-034-1402-012.
+- Fit read: genuine security-plus-support blend. Duty statement is 45% information security (POAM, vulnerability and threat management, incident response), 30% helpdesk (ticketing, Windows/M365, hardware, troubleshooting, Azure), 10% backup/recovery, 10% service requests and Cal-CSIRS incident reporting. Security half maps strongly to the internship; support half carried by the WGU lab troubleshooting and customer-service history.
+- SOQ (1 page, 12pt, name + date at top only — no JC/title per posting instructions). Q1 = what he knows about POST (SB 2, 2021 decertification authority) plus why he applied; Q2 = education/certs/experience across both halves, closing with the aws-ha-infra recovery test (destroyed instances, measured ASG recovery ~2 min). Honest framing held: no Azure claim (has AWS + Cloud+), WGU work labeled as lab assessment.
+- Resume: tailored to the blend — summary leads with security and support; added a "Technical Support and Lab Experience" entry (WGU trouble tickets, labeled lab); AWS project reframed around recovery testing and monitoring; cloud kept honest (AWS + Cloud+). One page.
+- 678: certs A+, Network+, Security+ this time (Cloud+ dropped — A+ is the support cert for a helpdesk-heavy role). Internship total 0/4. Q1-Q4 all No. Block Advisors and Robert's canonical.
 
 ## June 12, 2026
 
@@ -92,11 +103,11 @@ _Newest day first._
 
 ### JC-505723 — Database & Systems Administrator (IT Specialist I, CDSS)
 
-- Status: **Under consideration. Folder created, files saved, not yet drafting.**
+- Status: **PASSED — declined June 13, 2026.** Folder deleted; only IN-PROGRESS and SUBMITTED folders are kept in the directory. Decision recorded here for history.
 - Final filing date: **June 22, 2026.** Hybrid, Sacramento County. Re-post.
 - Fit read: a split. Strong on the systems/infrastructure half (servers, Windows/Linux, VMware, PowerShell/Python, IaC, AWS, AD basics, security/IAM). Real gap on the database-administrator half (~40% of duties: SQL Server, NoSQL, MySQL, PostgreSQL modeling, indexing, tuning, failover, ETL). Not a DBA.
 - SOQ is five technical prompts, 2 pages, 12pt Arial. Mapping: Q1 (Ansible/Puppet, IaC at scale) strong (aws-ha-infra Terraform, ansible repo); Q4 (migrate to AWS/Azure, design HA) strong on AWS (two-AZ HA, Multi-AZ RDS); Q5 (AD FSMO roles, seizing) moderate (study + homelab); Q2 (SQL Server Always On AG vs mirroring, failover clustering) and Q3 (clustered vs non-clustered indexes, system DBs) are gaps, answerable from study not experience.
-- Decision: Uriah wants to attempt a strong app here as a stretch while continuing to look. Lead from real strength on Q1/Q4, answer Q2/Q3 honestly without overclaiming DBA experience.
+- Decision (June 13, 2026): **Passed, too stretchy.** The IaC half (Q1/Q4) is genuinely his, but the role is ~40% database administration and two of the five SOQ questions (Q2/Q3, SQL Server Always On AG, mirroring, failover clustering, indexes, system databases) are DBA knowledge he does not have. Even a strong SOQ would land him in SQL Server work on day one with no foundation, a different specialty rather than a depth stretch. Cleaner fits queued (520934, 521522, 520338).
 
 ### Private-sector applications (non-CA-state)
 

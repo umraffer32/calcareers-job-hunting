@@ -1,0 +1,37 @@
+
+Network Administrator (HomeLab) - (7/3/2023 - Present)
+
+Designed and implemented active directory domains using Windows Server 2022 to practice core enterprise services such DNS/DHCP, user management, and fail-over scenarios to understand how these services stay running in the event of a domain controller failure.
+
+Create secure virtual networks using various type 2 hypervisors, specifically VMware Workstation, by deploying a pfSense firewall to serve as the default gateway. This allows me to experiment with firewall rules that restrict/allow connectivity to services such as SSH, ICMP, and HTTP/HTTPS. This also allows me to make sure that network traffic stays isolated from my main home network.
+
+Created a physical Homelab network consisting of used Cisco enterprise gear to gain more experience with IOS and the command line interface (CLI). This allowed me to see the difference between using Packet Tracer and bare-metal hardware. Each piece of hardware is connected to a 1000W UPS which allowed me to simulate outages and enforce the importance of proper backups.
+
+Academic Coursework - (6/1/2024 - 10/16/2025)
+Western Governor's University
+4001 S 700 E #300, Millcreek, UT 84107
+Slade Young (Academic Program Mentor)
+(385) 428-1843
+
+LAB BASED PROJECTS:
+
+Automated the creation of VLANs on EXOS switches using Python scripts, as well as the creation of user accounts on Windows 10 and Ubuntu Desktop hosts using an Ansible playbook.
+Diagnosed and resolved simulated system issues including account lockouts, misconfigured DNS/DHCP servers, incorrect default gateways, mismatched MTUs, and incomplete routing tables.
+Re-configured mismatched routing protocols preventing connectivity on Layer 3 managed switches.
+Designed a mock corporate network in Cisco Packet Tracer including VLAN segmentation, Access Control Lists, and a site-to-site VPN.
+
+Tax Preparer - (11/10/22 - 7/3/2023)
+Block Advisors
+8645 Elk Grove Blvd, Elk Grove CA, 95624
+
+Keeping up-to-date with current and upcoming tax law in order to provide guidance to clients regarding their own particular tax situation. For interviews to be carried out thoroughly and accurately, research and analytical skills to conduct an in-depth tax interview were vital to ensuring compliance with IRS guidelines.
+
+
+Directly and electronically communicated with clients  to fill time slots on the appointment calendar. Critical thinking skills were exercised during this process to select the appropriate duration (30 mins, 1 hour, etc.) of the appointment so clients don't feel rushed or brushed off.
+
+Filing annual tax returns, and reviewing/amending prior year tax returns for an any possible missed credits or deductions that clients were eligible for.
+
+
+
+
+
