@@ -1,8 +1,28 @@
 # CalCareers Job Hunt — Progress Log
 
-_Last updated: June 14, 2026_
+_Last updated: June 15, 2026_
 
 _Newest day first._
+
+## June 15, 2026
+
+### ITA pivot — reviewed the open IT Associate postings
+
+- Noticed the pipeline had leaned almost entirely ITS I. Pulled all open ITA postings from the scraper and read each in full (duty statement + posting). Killed 520066 (Cal OES "ITA" that is really an admin/fleet-coordinator role, due 6/15) on fit.
+- **Top 3 ITA fits identified:** JC-521522 (IT Service Technician, DIR) best; JC-521438 (IT Associate vehicle/fleet tech, CHP); JC-519900 (CAS Analyst CLETS, DOJ). Passed on 509020 (web dev), 521441 (software QA), 519812 (physical cabling), 520925 (data engineering/DBA), 521322 (IT procurement/contracts).
+- Also surfaced JC-521544 (Lead Service Desk Technician, ITS I, CA State Lottery, final filing 6/29) from today's scrape — genuine fit but a "lead/mentor/establish standards" stretch for a new grad; queued, not started.
+
+### JC-521522 — IT Service Technician (IT Associate, Dept. of Industrial Relations)
+
+- Status: **SUBMITTED June 15, 2026.** Resume, SOQ, cover letter, and STD 678 filed via CalCareers (diploma + transcript attached as optional docs). Folder renamed to SUBMITTED; 678 saved as Uriah_Raffer_STD678_JC-521522.pdf; application record.pdf in folder. Final filing was 6/26/2026. Permanent, hybrid, Sacramento. Position 400-175-1401-129. Strongest ITA fit of the batch and the first permanent ITA application.
+- Created `JC-521522 (IT Service Technician) - IN-PROGRESS/`, saved posting + duty statement.
+- Fit read: strongest ITA in the batch. Duties are real Tier 1/2 service desk + desktop tech: 30% on-call phone support (Verizon VCC) + ticket creation, 25% resolve/close to SLA + deploy workstations/printers/scanners/mobile devices, 25% application/system support (ISO imaging, VM/ESXi/VMware troubleshooting, Windows security updates), 15% ServiceNow inventory. ServiceNow appears only as the ticketing/inventory tool (use, not administer), so not a blocker.
+- **Resume DONE:** `Uriah_Raffer_Resume_JC-521522` (.docx + .pdf), one page. Tailored to mirror the duty statement: summary leads with service desk + field support, hardware/software/peripheral diagnosis, workstation deployment/imaging, VM building/troubleshooting, SLA language. **Integrity corrections Uriah caught:** removed VMware ESXi (he has only Proxmox for Type 1; VMware Workstation/Hyper-V/VirtualBox for Type 2), removed ServiceNow (never used), and removed any "Windows security update" troubleshooting claim (the duty means fixing a broken Windows Update mechanism, which he has never done — remediating outdated software in the vuln project is NOT the same). New memory rules written to cover all three. No em dashes, no mid-sentence colons.
+- **SOQ DONE:** `Uriah_Raffer_SOQ_JC-521522` (.docx + .pdf), 2 pages, 12pt Arial, name + JC header, each full question bolded above its answer. Q1 = issues across Tier 1/2/3 (NIC static IP; DNS rogue-zone with the network-wide scoping test; EXOS routing typo on the next-hop IP, minimal-fix framing) — vuln project deliberately held out of Q1. Q2 = explaining tech to non-technical users (neighbor Jason's internet-upgrade hardware explained in plain terms; Block Advisors tax clients). Q3 = duty match (troubleshooting; Proxmox imaging/VM with honest Proxmox-to-ESXi ramp; documentation; vuln scanning ~90% reduction; honest "have not used ServiceNow" note). ITIL 4 NOT cited as evidence anywhere (Uriah can't speak to it; stays in certs list only). Acronyms spelled on first use, no em dashes, no mid-sentence colons.
+- **Cover letter DONE:** `Uriah_Raffer_CoverLetter_JC-521522` (.docx + .pdf), one page, resume-matching header, addressed to "Members of the Selection Committee" (posting names only the Certification Unit, no individual). Researched CA-state cover-letter best practices first (brief saved in `Cover Letter Research/`). Key research finding that CHANGED our plan: the posting's "Training and Development assignment may be considered" line does NOT apply to external applicants (T&D legally requires existing permanent state status, Cal. Code Regs. tit. 2 §439.1 / CalHR HR Manual §3401) — so T&D was dropped entirely, not mentioned. Letter complements the SOQ instead of duplicating it: positive transferable-skills framing (Proxmox/VM, troubleshooting, documentation), NO gap-enumeration (ESXi/ServiceNow not mentioned per "bridges not apologies"). Para 3 motivation is Uriah's three real reasons only (work he trained for, stable long-term career, local/Sacramento) — he explicitly declined the public-service-mission angle, so it's framed as a light "glad to support" line, not faked zeal.
+- **STD 678 DONE** (built by Uriah in CalCareers; reviewed here). Internship Duties block re-weighted support-forward and trimmed to ~913 chars (under the ~1,000 clip limit); Block Advisors and Robert's carried over verbatim from the JC-520338 form (no edits). Certs: Network+, Security+, A+. JC-521522 / position 400-175-1401-129. Q1-Q4 all No. Internship reason-for-leaving blank (still employed). Education shows WGU 111 units / BA-BS conferred 10/16/2025.
+- **Full-package review (6/15) before submit.** Caught one real error: the resume still claimed "Windows security update" troubleshooting in three places (summary, an experience bullet, and the skills line) — the same unfounded claim we'd already removed from the SOQ/678. Fixed all three and rebuilt the resume (one page, verified). Final sweep of all three docs confirms: ESXi and ServiceNow appear ONLY as the honest "have not used / would ramp" lines in the SOQ; resume and cover letter are clean; zero Windows-update claims anywhere.
+- **Status: cleared to submit.** Package complete in CalCareers (cover letter, resume, SOQ all green; diploma + transcript attached optional). Awaiting Uriah's submit confirmation to run the post-submission routine.
 
 ## June 14, 2026
 
