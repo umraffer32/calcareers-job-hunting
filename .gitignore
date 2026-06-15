@@ -10,3 +10,6 @@ Thumbs.db
 
 # Local working files
 .tmp/
+
+# Old state apps kept locally for reference only (not part of the repo)
+State Job Apps (Just for reference and context)/
