@@ -6,6 +6,14 @@ _Newest day first._
 
 ## June 14, 2026
 
+### JC-520338 — Service Desk Support Specialist (IT Specialist I, CalEPA / Air Resources Board)
+
+- Status: **SUBMITTED June 14, 2026.** Resume, SOQ, and STD 678 filed. Folder renamed to SUBMITTED; 678 saved as Uriah_Raffer_STD678_JC-520338.pdf. Found via the scraper after passing on 520495 (webmaster) and 520980 (physical security engineer, too stretchy). Final filing 6/24/2026. Hybrid, Sacramento. Position 812-010-1402-946. 12-month Limited Term (may extend to 24 mo or convert to permanent).
+- Fit read: genuine support fit. 40% service desk (troubleshooting, device imaging, ticketing), 25% Microsoft 365 admin and Active Directory account provisioning, 20% IT asset management, 10% video conferencing. Desirable quals name A+, Network+, ITIL Foundation, AD/user provisioning, basic networking (DNS/DHCP/VPN/TCP-IP), RCA, KB documentation, M365 — he hits most honestly. Gaps: ServiceNow (the ticketing system here) and M365 Certified.
+- **ServiceNow decision:** not a blocker for this role (uses it to log tickets, not administer). Applying now without it is honest; the planned ServiceNow project would strengthen this and 520758 both. osTicket/GLPI homelab self-host offered as a waitlist-free way to get real ITSM ticketing experience.
+- SOQ DONE (1 page, 12pt, 1-inch margins, name + JC on top, 3 prompts restated). Q1 = WGU lab + homelab support, explicit hardware (workstations, servers, switches) + software/systems (Windows, Linux, AD, DNS, DHCP), framed honestly as lab, no invented volume (left the number out per his call). Q2 = communication-to-non-technical strength, with an honest "I have not advised senior executives directly" line pivoting to the insurance-owner relationship. Q3 = prioritize-by-impact (vuln-management 30→3) tied to customer service. Acronyms spelled out on first use per the field-guide rule.
+- Remaining: tailored resume (support-forward) and the STD 678 (carries over, set JC-520338 / position 812-010-1402-946).
+
 ### JC-520934 — Systems Security Specialist (IT Specialist I, Commission on POST)
 
 - Status: **SUBMITTED June 14, 2026.** Resume, SOQ, and STD 678 filed. Folder renamed to "JC-520934 (Systems Security Specialist) - SUBMITTED"; 678 saved as Uriah_Raffer_STD678_JC-520934.pdf.
