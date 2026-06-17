@@ -31,11 +31,13 @@ Removed from the application: Options Trading (self-employed) and the online bus
 
 ## 3. Administrative Insurance Assistant — Robert's Retirement | May 2019 to Sep 2020
 
-- Completed and submitted client life insurance and annuity applications through two carriers, Athene and Securian, after the agent interviewed and approved each prospective client, making sure all required documentation was included.
+- Completed and submitted client life insurance applications through Securian after the agent interviewed and approved each prospective client, making sure all required documentation was included.
 - Reviewed every application for completeness and accuracy, and called clients to confirm or correct any missing or questionable information before submitting.
 - Worked with the agent and the Athene and Securian teams by email, monitored the agent's business accounts on both carriers, and kept applications moving through the process.
 - Served as a point of contact for clients who called with questions, assisting them where I could while handling sensitive personal and financial information such as Social Security numbers and financial details.
 - Earned my California Life-Only Agent license during this role on my own initiative, even though the position did not require it.
+
+**Carrier note (do not re-introduce annuities into bullet 1):** Routine work was LIFE insurance applications through Securian only. Annuities went through Athene and were the coworker Karen's responsibility; Uriah only covered annuity processing during her one-week vacation (this is the teamwork story used in the JC-521631 SOQ). So bullet 1 must say life applications through Securian, not "life and annuity applications through Athene and Securian." Bullet 3 may still reference working with both carrier teams, since he genuinely worked with the Athene team during that coverage week.
 
 ---
 

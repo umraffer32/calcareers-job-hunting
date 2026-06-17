@@ -1,10 +1,32 @@
 # CalCareers Job Hunt — Progress Log
 
-_Last updated: June 15, 2026_
+_Last updated: June 17, 2026_
 
 _Newest day first._
 
+## June 17, 2026
+
+### JC-520758 — Help Desk Specialist (IT Specialist I, DGS Enterprise Technology Solutions) — PASSED
+
+- Status: **PASSED June 17, 2026.** Folder deleted per convention. Previously parked (June 11 drafts existed: resume + SOQ).
+- Re-read the full posting and the (image-only/XFA) duty statement. Despite the "Help Desk Specialist" title, this is a senior service-desk analyst + IT project coordinator role at ITS I ($6,513-$10,537/mo), not Tier 1.
+- **Reason for pass: ServiceNow saturation.** ServiceNow is named in ~65% of essential duties (KB authoring in the ServiceNow knowledge base 20%, triage via ServiceNow Dashboards/Reports 20%, IT Service Request fulfillment via the ServiceNow Portal 15%, complex incident RCA in ServiceNow 10%). Unlike 520338/521631/521522 where ServiceNow was incidental ticket-logging (use-not-administer, not a blocker), here the daily workflow IS ServiceNow. Uriah has zero hands-on; the in-progress GLPI ticketing lab is an honest adjacent but would not survive an interview probe on a role built around ServiceNow. Secondary stretch: 30% is leading IT projects with formal weekly status reporting (Project Lite) plus desirables wanting coaching/training and stakeholder facilitation, which are senior competencies for a new grad.
+- Duty weighting for the record: 30% lead/track IT projects + weekly status reporting (Project Lite); 20% process improvement + KB articles in ServiceNow; 20% incident/request triage via ServiceNow Dashboards/Reports; 15% IT Service Request fulfillment to SLA via ServiceNow Portal; 10% complex incident RCA via ServiceNow + remote access tools; 5% desktop/software deployment project support. Permanent, hybrid (telework up to 3 days), Yolo County / West Sacramento, position 306-072-1402-076, RPA #30622, final filing 6/19/2026, Form 700 / Conflict of Interest required.
+- This removes the prior "parked, gated on a ServiceNow portfolio project" status. Do not re-pursue.
+
 ## June 15, 2026
+
+### JC-521631 — Service Desk Technician (IT Associate, Dept. of Social Services / CDSS)
+
+- Status: **SUBMITTED June 15, 2026.** Resume, SOQ, and STD 678 filed via CalCareers (transcript + diploma attached). Folder renamed to SUBMITTED; 678 saved as Uriah_Raffer_STD678_JC-521631.pdf. Surfaced by the scraper 6/15. Permanent, hybrid (after training), Sacramento, ITA, $4,935/mo start. Position 800-761-1401-910. Final filing 6/25/2026.
+- **SOQ DONE:** `Uriah_Raffer_SOQ_JC-521631` (.docx + .pdf), 1 page, single-spaced, 12pt Arial, verified to fit. Header set to the confirmed default (name + "Statement of Qualifications" + "JC-521631, Service Desk Technician"). Two behavioral prompts: Q1 handling difficult customers (Block Advisors 1098 client, approach-led, jewelry beat cut), Q2 teamwork (the Robert's annuity-coverage story — covered Karen's annuity processing for a week, coordinated with the Athene carrier team, zero complaints + manager recognition). Q2 was first drafted on the NAT/Packet Tracer story, then replaced when Uriah recalled the stronger annuity example.
+- **Resume DONE:** `Uriah_Raffer_Resume_JC-521631` (.docx + .pdf), 1 page, tailored from the JC-521522 resume to mirror this duty statement (single point of contact, incident logging/escalation, identify and categorize service requests/incidents, computer refresh/deployment, AD security groups). Honesty: deliberately omitted SCCM, Citrix, ActiveSync, MDM, and video-conferencing-equipment support (named in the duty statement, no real experience). Dropped the "(ITIL 4)" tag off the customer-service skill; kept acronyms bare per resume rule. Matched the established blue-header styling + clickable LinkedIn/GitHub links after a first pass came out black/plain.
+- **STD 678 DONE** (built by Uriah in CalCareers; reviewed here). Position 800-761-1401-910, certs A+/Network+/Security+, Q1-Q4 all No, Robert's reason-for-leaving "Separated following a workplace conflict." Internship Duties re-weighted support-forward (5 bullets, under the clip limit). **Review caught two real fixes, both applied before submit:** (1) the SOQ and 678 contradicted each other on annuities — 678 bullet 1 claimed routine "life and annuity applications through Athene and Securian," but annuities were only Karen's one-week coverage. Corrected 678 bullet 1 to "life insurance applications through Securian" and fixed the canonical `Employment_History_STD678.md` at the source (life=Securian routine, annuities=Athene one-week coverage). (2) Education said "Western Governor's University"; corrected to "Western Governors University."
+- **Process note:** Uriah asked for stronger, reality-first pushback on app decisions (saved to memory). Header convention researched and confirmed against CalHR/DGS guidance (name + JC + "Statement of Qualifications" default; saved to `SOQ Header Formatting/`).
+- Fit read: strong, honest fit, same lane as JC-521522 / JC-520338. Pure Tier 1 Single Point of Contact service desk. Duties: 45% SPOC phone/remote support + ITSM ticket logging + escalation (Windows, Office/O365, Adobe, Citrix, AD, SCCM, ActiveSync, MDM; hardware desktops/laptops/printers/phones/mobile/video conf); 30% troubleshooting/liaison + computer refresh/deployment; 20% vendor coordination + Daily Stand-Up/Change Advisory Board; 5% learning. Reachable on the ITA list (exp Dec 2026).
+- Honesty flags to handle in tailoring: do NOT claim SCCM, Citrix, ActiveSync, or MDM hands-on unless Uriah confirms; ITSM/ticketing is generic (use-not-administer, not a blocker); AD/Windows/Office/hardware are genuinely his. Physical: lift up to 35 lbs + some regional travel; DOJ/FBI fingerprint background investigation (IRS Pub 1075).
+- Required docs: STD 678 with full employment history (resume will not substitute), SOQ (REQUIRED), unofficial transcript (qualifying via education). Resume OPTIONAL.
+- **SOQ instructions:** 1 page, single-spaced, 12pt Arial. Two BEHAVIORAL prompts only: (1) approach to handling frustrated/difficult customers; (2) what being a good team member means to you. No technical write-up needed, so lower-effort than most apps.
 
 ### ITA pivot — reviewed the open IT Associate postings
 
