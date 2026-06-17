@@ -32,5 +32,8 @@ The deeper experience banks (WGU coursework and lab trouble-tickets, homelab/vir
 
 ## Experience log (newest first)
 
+### 2026-06-17 — Cowork cannot run the scraper
+Cowork's sandbox has no network or process access, so it cannot run the CalCareers scraper. Workflow in Cowork: run the scraper manually first (in a normal Claude Code session), THEN invoke recommend-job, so candidates.json is already fresh. The recommend-job skill is built for this — if the data is stale and it cannot refresh, it stops and asks Uriah to scrape first rather than hanging.
+
 ### 2026-06-17 — Memory store established
 Created this project-local memory file and migrated the four facts above out of the opaque built-in auto-memory store, so nothing gets lost and Uriah can see and edit it directly. Going forward, append real experiences and decisions here as they come up.

@@ -39,14 +39,21 @@ Optional override: if the user passes an argument, it sets the lookback window �
 number = days (e.g. "7" = last 7 days), or a date = since that date (e.g. "since
 2026-06-10").
 
-## Step 1 — Refresh if stale
-Check freshness first. Read the generated_at timestamp at the top of
-../CalCareers Job Scraper/data/candidates.json.
-- If it is older than about 1 day, or the file is missing, refresh by running the
-  run-scraper skill, then re-read candidates.json.
-- If it is current (within ~1 day), use it as-is.
-- Tell Uriah which path you took (refreshed now, or using existing data generated at the
-  recorded timestamp).
+## Step 1 — Check freshness
+Read the generated_at timestamp at the top of ../CalCareers Job Scraper/data/candidates.json.
+- If it is current (within about 1 day), use it as-is.
+- If it is stale (older than ~1 day) or the file is missing, the data needs a refresh before
+  scoring. Try to refresh by running the run-scraper skill. IMPORTANT: in a sandboxed
+  environment such as Cowork the scraper cannot run (no network or process access), so the
+  refresh will fail there. If you cannot run the scraper, do NOT keep retrying — stop and
+  tell Uriah the data is stale (give the generated_at date) and that he should run the
+  scraper manually first, then re-invoke this skill. Offer to proceed on the existing stale
+  data if he would rather not wait.
+- Either way, tell Uriah which data you are using (freshly refreshed, or existing data from
+  the recorded timestamp).
+
+Normal Cowork workflow: Uriah runs the scraper manually first, then invokes this skill, so
+candidates.json is already fresh and no refresh is needed.
 
 ## Step 2 — Build the candidate set
 - candidates.json is a single JSON object with a "postings" array; each record has
