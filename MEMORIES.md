@@ -6,9 +6,39 @@ Canonical, always-loaded memory for this project. CLAUDE.md imports this file (`
 
 ---
 
+## SOQ header — title first, then name/JC/position; NO phone/email
+
+SOQ header sits at the top of the body in this exact order: line 1 is the title **"Statement of Qualifications"** (centered, bold), line 2 directly below is the lean identification line **"Uriah Raffer | JC-521435 | <Position/Classification>"** (centered). Use the actual JC number and position for the posting. **Do NOT put phone number or email in the SOQ header** (that is resume/cover-letter convention, not CA SOQ), and do not use a running page header for it (Uriah wants both lines in the body, title on top). Confirmed 2026-06-18 (JC-521435). Full rationale and sourcing are in `SOQ Header Formatting/soq-header-formatting.md`.
+
+## SOQ strategy — never CLAIM a missing tool, but don't CONFESS gaps either
+
+Two separate things. (1) Never claim a tool/skill Uriah hasn't used - mandatory, always. (2) Do NOT volunteer or narrate his gaps in writing on a scored SOQ either - that spends limited, competitively-scored space arguing against himself. Honesty = not making false claims; it does NOT require confessing weaknesses. So: answer truthfully, lead with and dwell on what he HAS done, never name a tool he lacks, and DON'T add disclaimer sentences like "I haven't used X yet" or "I'm still weak at Y." If the question names a tool he lacks (e.g. JC-521435 Q3, Microsoft endpoint management tools), reframe to describe the real, adjacent work he does and let the gap surface at INTERVIEW, where he handles it in person with honest fast-ramp framing (capture that in the Interview_Prep doc). Guard: the SOQ must never IMPLY a tool he hasn't used - just not name it. Settled with Uriah 2026-06-18 on JC-521435 (cut the Q2 Group Policy confession and the Q3 Intune/SCCM disclaimer, backfilled with real strengths).
+
+## ⛔ ALWAYS START FROM THE LATEST SUBMITTED VERSION (resume / SOQ / 678)
+
+Before producing ANY recurring deliverable (resume, SOQ, STD 678, cover letter), FIRST open the most recent SUBMITTED version of that document in the JC-* folders and use it as the template for BOTH formatting (house style) and content density - then tailor the content to the new posting. Do NOT build from the plain BASE resume and do NOT generate fresh formatting from scratch. Uriah's resume house style (from submitted resumes, e.g. JC-520957): **Calibri** font; name in dark blue (1F3864) bold ~17pt; ALL-CAPS dark-blue (1F3864) section headers each with a blue (2E5496) bottom-border rule; gray (595959) contact line and dates; dense one page with a sub-line under the job title, ~6 experience bullets, 3 projects, 4 skills rows. Root cause of the 2026-06-18 miss: drafted a resume from scratch off the base resume with generic styling because I didn't open a finished submitted one first. Pattern to kill: starting from raw material or scratch when a proven finished artifact already exists in the project.
+
+## ⛔ SOQ FORMATTING — FONT SIZE APPLIES TO EVERY CHARACTER (title + header too)
+
+Follow the posting's SOQ format TO THE LETTER. If it says "12-point font," then EVERYTHING is 12pt - the "Statement of Qualifications" title, the name/JC/position line, the question headings, and the body. No larger title, no smaller header line, one font family throughout. After building, unzip the docx and confirm only the one required size appears (no stray larger/smaller runs) and only the required font - verify the actual file, don't just trust the build label. Same for page limit and spacing (single vs double) when specified. Settled 2026-06-18 after an audit: body text of all submitted SOQs matched spec, but JC-519717, JC-520934, and JC-521438 had an oversized TITLE (13-14pt) versus their required 11-12pt - header-only deviations, already submitted, unfixable. JC-521435 was rebuilt to uniform 12pt. Root cause of the live miss: I labeled the JC-521435 SOQ "12pt verified" while the body was actually 11pt, because I trusted the build label instead of checking the rendered size.
+
+## ⛔ SOQ RULE — RESTATE THE FULL QUESTION VERBATIM
+
+Every SOQ answer must be headed by the **complete, word-for-word question** from the posting, numbered in order, then the answer below it. Do NOT paraphrase or shorten the question into a topic label. Pull the exact text from the posting's SOQ instructions. Confirmed 2026-06-18 (JC-521435), where the headings were wrongly shortened. This overrides the old soq-writing-guide note about "don't restate the prompt" (that note is about not echoing the question inside the answer prose, not about the heading).
+
+## ⛔ HARD WRITING RULE — NO MID-SENTENCE COLONS (do not violate, ever)
+
+Uriah has flagged this 4-5 times and is rightly fed up. **Never use a colon mid-sentence** before a single explanatory word, clause, or example, in ANYTHING — SOQ, STD 678, resume, cover letter, AND chat messages to him. A colon may ONLY introduce a real list or formatted series. If you are about to write "X: Y" where Y explains or expands X, STOP and rewrite with a period or comma. Example of the violation he hates: "I administer Active Directory directly: creating users and groups." Fix: "I administer Active Directory directly. I create users and groups." Before sending any draft or message, scan every colon and confirm each one introduces a list, not an explanation. This is a zero-tolerance item.
+
+---
+
 ## Who Uriah is
 
 Uriah Raffer (umraffer32@gmail.com), Sacramento-area. Recent B.S. in Network Engineering and Security (WGU, conferred Oct 2025). Holds CompTIA A+, Network+, Security+, Cloud+, and ITIL 4. Job hunting for California state IT roles via CalCareers; list-eligible for INFORMATION TECHNOLOGY ASSOCIATE and INFORMATION TECHNOLOGY SPECIALIST I through Dec 2026. Scripts in Python and Bash. Target roles: hands-on technical IT at the IT Associate / IT Specialist I level (support, server, network, security, client services, help desk, desktop/field). Not qualified for higher IT levels (Spec II/III, Supervisor, Manager). Prefers Sacramento-area, day shift, Mon to Fri.
+
+## Always use the recommend-job skill for job-finding requests
+
+When Uriah asks to **find / pick / triage / rank / recommend a job** (any phrasing: "find me a job", "find me jobs to apply for today", "what jobs look good", "best jobs this week", "what should I apply to next"), use the **`recommend-job` skill** (`.claude/skills/recommend-job/SKILL.md` in this repo). Do NOT hand-triage from the scraper manifest. If the request lands while working in the sibling "CalCareers Job Scraper" repo the skill may not auto-surface there, so read and follow that SKILL.md directly. (Added 2026-06-18 at Uriah's request.)
 
 ## How Uriah likes to work
 
@@ -20,17 +50,68 @@ Uriah Raffer (umraffer32@gmail.com), Sacramento-area. Recent B.S. in Network Eng
 ## Verified real experience (hands-on, confirmed by Uriah)
 
 - **Remote access:** self-installed and actively uses Tailscale + RustDesk together to reach his own machines. Considers RustDesk paired with Tailscale "incredibly useful." Genuine remote-access and networking hands-on.
+- **Active Directory / Windows domain (hands-on, homelab + WGU):** real hands-on with AD-backed services — DNS, DHCP, **DHCP failover across two domain controllers**, and user/group management. Comfortable administering an enterprise-style domain at this level. **GPO (Group Policy) is still weak** — learnable, but do NOT claim GPO depth on any doc; frame as "expanding into Group Policy." Confirmed 2026-06-18 while triaging JC-521435 (CHP IT System Administrator).
 
 The deeper experience banks (WGU coursework and lab trouble-tickets, homelab/virtualization, the AWS project, the Block Advisors customer-service story, the Robert's Retirement teamwork story) live in the **SUBMITTED SOQs in the JC-* folders** and in `Employment_History_STD678.md` — reuse those rather than re-asking. If Uriah wants any captured as standalone bullets here, add them when he confirms the specifics.
 
 ## Honest-fit gaps and settled decisions
 
 - **ServiceNow = ZERO hands-on experience (hard gap).** The "ServiceNow ITSM portfolio project" on his GitHub is PARKED, not done — he has been waitlisted for a Personal Developer Instance (PDI) every time, none was provisioned before the 2026-06-19 deadline, and the repo is left up only for whenever an instance is eventually granted. Do NOT read the project, repo, or session title as experience. Never claim ServiceNow on a resume, SOQ, or STD 678. PASS roles where ServiceNow runs through a large share of the duties (the JC-520758 kill was roughly 65%); incidental basic use such as just logging tickets in it is not a blocker. Revisit only if Uriah confirms he has actually worked in a provisioned instance.
+- **Microsoft endpoint MANAGEMENT tools (Intune / SCCM / Configuration Manager / MDM) = ZERO hands-on (gap).** Confirmed 2026-06-18. His internship uses **Azure** and **Microsoft Defender for Endpoint** (the advanced threat-hunting tool, i.e. EDR/security), but NOTHING with Intune, SCCM/Configuration Manager, or any MDM/device-management platform. Defender for Endpoint is EDR, NOT endpoint management — do not let one stand in for the other on a resume, SOQ, or 678. When a posting asks for "Microsoft endpoint management tools" experience (as JC-521435's SOQ Q3 did), that is a real gap: answer honestly with adjacent endpoint work (PowerShell remediation, DISA STIG hardening, Defender monitoring of Win10/11 + Linux endpoints) plus fast-ramp framing; never claim Intune/SCCM.
 - **Settled STD 678 wording (pin exact text when reconfirmed):** the Robert's Retirement reason-for-leaving wording and its Q2 answer, and the per-role cert-slot picks, were treated as settled in past sessions. The authoritative versions live in the SUBMITTED applications — reuse from there and do not re-raise them with Uriah. Capture the exact wording here the next time he confirms it.
 
 ---
 
+## GitHub portfolio index (repo, then what it proves)
+
+Public at github.com/umraffer32. Fetch a README via the /blob/main/README.md URL (the /raw/ URL and the repos-tab page return empty). Use this index for quick duty-to-project mapping and only fetch the full README when you need specifics. Security projects marked [internship] were done on the internship's Tenable and Azure platforms; the rest are personal/homelab.
+
+- **win11-stigs** [internship] — DISA Windows 11 STIG v2r6 compliance. Ran the STIG audit in Tenable Nessus, remediated 10 failing controls with PowerShell (disable WDigest, 14-char passwords, Kerberos DES/RC4 removal, PowerShell script-block logging, restrict Remote SAM calls to Admins, audit process creation), re-scanned each to PASS. Best proof for control and compliance auditing against a baseline.
+- **vulnerability-management** [internship] — Nessus vuln-scan-driven remediation. Seeded a Windows Server with weaknesses, scanned, remediated one-by-one (Wireshark, SMB signing, RDP NLA, LAN Manager auth level, Edge/ICMP), 30 to 3 (~90%, criticals gone by scan 2) charted across 6 scans, ran down a SQLite finding as a false positive. Best proof for documenting/prioritizing/tracking findings and validating evidence.
+- **threat-hunting** [internship] — Microsoft Sentinel/EDR/KQL hunt scenarios. The SSH brute-force investigation (~100 failed logins via KQL) is genuine. RULE: auto-solved hunts are NOT usable as manual-investigation SOQ material.
+- **powershell-scripts / bash-scripts** — remediation and automation scripts (back the PowerShell/Bash automation claims).
+- **aws-ha-infra** — Terraform HA AWS (two availability zones, Multi-AZ RDS, tested failover recovery ~2 min).
+- **terraform-aws / ansible / aws-sso-project** — infrastructure-as-code plus config automation (Terraform, Ansible, AWS SSM/SSO).
+- **glpi-ticketing-lab** — self-hosted GLPI ITSM ticketing lab (honest adjacent for ITSM/ticketing familiarity).
+- **proxmox-spice-VV** — Proxmox SPICE console launcher (homelab virtualization).
+- **servicenow-itsm** — PARKED, no provisioned instance. Do NOT count as ServiceNow experience (see the ServiceNow gap note).
+- **Codecademy-Projects / learn-python** — learning exercises, low signal.
+
 ## Experience log (newest first)
+
+### 2026-06-18 — GitHub portfolio access + the TWO distinct security projects (clarified)
+Uriah's GitHub is public at github.com/umraffer32 (13 repos). It can be read in Cowork by fetching a repo's README via the blob URL with web_fetch (e.g. https://github.com/umraffer32/<repo>/blob/main/README.md returns the rendered text; the /raw/ URL and the repos-tab page return empty, and the API repos JSON is huge so jq it from the saved file). Use this to pull real, specific project details for SOQs instead of re-asking him.
+
+These GitHub security projects WERE part of his cybersecurity internship, done on the internship's platforms (Tenable and Azure are the platforms the internship is based on). So they are legitimately internship/professional work, not just personal portfolio pieces. Frame them as internship work (consistent with the submitted JC-519717 and JC-520934 SOQs), which reads stronger to a panel than "personal project." Confirmed by Uriah 2026-06-18.
+
+Two SEPARATE real projects that were previously blurred together. Keep them distinct:
+- **win11-stigs repo = the real DISA STIG compliance-auditing work.** He ran a DISA Microsoft Windows 11 STIG v2r6 compliance scan in Tenable Nessus against a Win11 Pro VM, then remediated 10 failing controls with PowerShell (tools: PowerShell, auditpol.exe, secedit.exe, net accounts), verifying each with a Nessus re-scan to PASS. The 10 controls include WN11-CC-000038 (disable WDigest auth), WN11-AC-000035 (14-char min password), WN11-SO-000190 (Kerberos must exclude DES/RC4), WN11-CC-000326 (PowerShell script block logging), WN11-SO-000167 (restrict Remote SAM calls to Admins), WN11-AU-000050 (audit process creation). THIS is what backs any "auditing configurations against a control baseline / DISA STIG" claim.
+- **vulnerability-management repo = NOT STIG checking.** It is a Nessus vuln-scan-driven lab. He manually seeded a Windows Server with weaknesses, ran an authenticated Tenable scan (~30 findings), remediated one at a time with PowerShell/Bash, and re-scanned after each to watch the count fall 30 -> 3 (~90%, criticals gone by scan 2), charting the decline. Real fixes documented: remove outdated Wireshark, re-enable SMB signing, re-enable RDP Network Level Authentication, restore LAN Manager auth level, update Edge / ICMP 13->14. Also ran down a SQLite finding as a FALSE POSITIVE by searching the system for binaries/DLLs with PowerShell (good "validate the evidence" beat).
+Other repos: threat-hunting (Sentinel/EDR/KQL scenarios; note the prior rule that auto-solved hunts are NOT usable as manual-investigation SOQ material), powershell-scripts, bash-scripts, aws-ha-infra, terraform-aws, ansible, aws-sso-project, glpi-ticketing-lab, servicenow-itsm (PARKED, see ServiceNow gap note), proxmox-spice-VV. All used on the JC-521525 SOQ (control-assessment = STIG project; documenting/validating findings = vuln project; data analysis + comparative progress = KQL + the 30->3 chart).
+
+### 2026-06-18 — Triage strategy: weight the ITA support lane, don't force stretches
+Settled with Uriah while triaging. His genuine, level-matched fits are the ITA-level service desk / IT support / desktop-and-field roles (e.g. JC-521631 Service Desk Tech, JC-521522 IT Service Technician, JC-520089 IT Business Analyst that was really hands-on support). Those are real fits, NOT "applying up." The reaches were the ITS I security-analyst and sysadmin roles (520469, 519717, 521435, 521660) and oddballs like the CHP vehicle installer. He got discouraged because the recent batch skewed almost entirely to those ITS I stretches, making it feel like every app is a reach. Going forward, in recommend-job runs: surface and prioritize the ITA Tier-1 support/service-desk/desktop roles where he is both a true fit and rank 1 on the list, treat ITS I security/sysadmin as bonus lottery tickets, and do NOT push a weak stretch just to keep volume up. Honest no-fit calls (like JC-521906 below) are preferred over a forced thin SOQ. The pipeline not converting yet is a timing issue (state hiring is slow, ~2 weeks in), not evidence his fits aren't real.
+
+### 2026-06-18 — Robert's Retirement application volumes (real, for quantification decisions)
+Confirmed by Uriah. His ROUTINE work was LIFE insurance applications through Securian at a LOW volume, about 4 to 5 per week. ANNUITY applications (through Athene) were coworker Karen's job and sold at much higher volume (Ronald said annuities were easier to sell); Uriah only covered annuities during Karen's one-week vacation, doing 3 to 4 annuity apps PER DAY that week. Quantification guidance: do NOT put the life volume (4-5/week) on the 678 - it is low and reads as low-impact. The stronger number (3-4 annuity apps/day) belongs ONLY in the teamwork/coverage framing (it is the JC-521631 teamwork story), never in the routine Robert's duties bullet, and annuities must not re-enter Robert's bullet 1 (settled carrier rule). For IT applications Robert's is low-weight non-IT history anyway.
+
+
+### 2026-06-18 — Lab AD domain build (full specifics) and the WGU routing ticket; endpoint-scaling approach
+Pulled while drafting JC-521435 (CHP IT System Administrator) SOQ. All confirmed by Uriah as his own real work.
+
+**Lab Active Directory domain (homelab, built from scratch).** Stood up on Windows Server 2022 (eval). Promoted both domain controllers himself, DC01 and DC02. Created two Windows 11 clients and manually joined them to the domain. Built mock Finance and Sales departments (OUs) with one user in each. Set a password policy requiring at least 16 characters, complex (uppercase, lowercase, number, symbol). Runs DNS and DHCP for the domain. Built forward and reverse lookup zones, manually placed his pfSense firewall in them, and DHCP auto-registers clients as they connect. Configured and tested DHCP failover by powering off one DC and watching address assignment carry over to the second. pfSense acts as the recursive DNS resolver that both DCs forward to. This is the authoritative detail behind the [[ad-domain-experience]] summary.
+
+**WGU DHCP exhaustion ticket (reusable Q1 troubleshooting example, preferred over the routing one).** HALF a department kept intermittently dropping off the network (some machines on, some off, changing through the day). He traced it to an exhausted DHCP scope (no free addresses to lease). Fixed the symptom by widening the scope, then fixed the root cause: leases were held a full month so addresses from machines long gone were still tied up, so he shortened the lease time to recycle stale addresses in days instead of a month. Beat to reuse: fix the cause, not just the symptom. Uriah considers this a stronger "complex technical issue" than the routing ticket (intermittent = harder, and root-cause discipline shows). USED in the JC-521435 SOQ Q1. (Also in SUBMITTED JC-520934 and JC-520338 SOQs.)
+
+**WGU routing trouble ticket (reusable Q1 troubleshooting example).** A whole department lost internet access. He used traceroute to follow the path and localized the failure to a single switch carrying a dead static route (a next hop pointing at a router address that no longer led anywhere). The heavy-handed fix would have been to wipe the switch configs and convert everything to OSPF so routes recalculate automatically; he judged that too large for the fault and instead corrected the static next-hop IP to the right router, restoring traffic, and left the routing design alone. The beat to reuse: match the size of the fix to the size of the fault. (Also appears in the SUBMITTED JC-520934 and JC-520338 SOQs.)
+
+**Endpoint remediation scope (Q3 honesty).** His Tenable + PowerShell remediation work has been hands-on on a SINGLE lab machine, not a fleet. He has NOT done imaging or software deployment. To scale remediation across many machines he WOULD add hosts to the Tenable scan list and drive fixes with Ansible (which he already uses for Linux config automation) - this is his stated approach, not done work, so frame it as approach/ramp, never as fleet experience. "Provisioning" for him means spinning up VMs across type 1 and type 2 hypervisors, not endpoint deployment. Still ZERO Intune/SCCM/MDM (see the endpoint-management gap note above).
+
+**Non-technical user help (modest, personal).** Only real instance of helping a non-technical user is his neighbor Jason, upgrading Jason's hardware to handle faster ISP speeds. No experience writing formal procedures/desk documentation.
+
+**No CLETS / DOJ / CJIS, no SQL.** Confirmed no exposure to law-enforcement/criminal-justice data systems. Only "database"-style exposure is KQL, used purely for threat hunting in Sentinel - not SQL and not database administration. Do not claim SQL.
+
+
 
 ### 2026-06-17 — Driving/driver-license fields on the 678 are template-managed (do NOT flag as blank)
 Anything driving-related on the STD 678 (Q8 California Driver License: the Yes/No, license number, class, restrictions) is already filled out in Uriah's saved CalCareers application template and auto-populates when he applies to a position where it is relevant. So if the driver-license field shows up BLANK on a given application, that is intentional and correct for that posting (he/the template suppressed it), NOT an oversight. In future STD 678 reviews, do not raise a blank Q8/driver-license field as a fix or a missed-signal item. Treat it as deliberate. Came up on JC-521438 (CHP Fleet ITA), where Q8 was blank and that was on purpose.

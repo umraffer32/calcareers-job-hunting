@@ -34,6 +34,12 @@ Use these unless the data is missing or genuinely ambiguous:
 - Skip jobs already handled (SUBMITTED, IN-PROGRESS, or PASSED).
 - Weight honest fit first; use the filing deadline only as the tiebreaker between
   comparable fits.
+- LANE HEURISTIC (Uriah's real target lane). Weight ITA-level support, service desk,
+  desktop/field, and IT support roles as his TRUE fits and lead with them. Treat ITS I
+  security-analyst and systems-administrator roles as defensible STRETCHES (applying up), a
+  notch below. When a week is thin, say plainly that there is no clean level-matched fit
+  rather than pushing a stretch to fill the list. He is rank 1 on both the ITA and ITS I
+  lists, so reachability is not the constraint, honest duty-fit is.
 - Output a ranked top 3 (lead pick first), each with a verdict and short rationale, plus
   any remaining candidates in a compact runners-up list. If fewer than 3 are genuine fits,
   show only the real ones and say so — do not pad the list to 3 with PASS-grade jobs. Do
@@ -99,6 +105,11 @@ For every candidate, open BOTH posting.pdf AND duty_statement.pdf in
   shift requirement), and final filing date. Work hours live in the posting's "Working
   Conditions" section and/or the duty statement header. Read both. Do not assume standard
   hours just because none are stated.
+- CAPTURE THE SOQ PROMPTS VERBATIM and the SOQ format and burden (required or not, number of
+  prompts, behavioral vs technical, page and font limit). The SOQ prompts decide as much as
+  the duties. A posting can pass on duty percentages but still be a hard no because its lead
+  SOQ prompt demands experience Uriah lacks. This is exactly how JC-521906 failed, where the
+  first prompt asked for asset-tracking experience he does not have.
 
 ## Step 4 — Score fit against Uriah's FULL history
 Do NOT score from the documents alone. Much of his real experience lives in past
@@ -128,6 +139,17 @@ conversations and memory, not in any single file. Pull from all three tiers:
      memory or a document, note it and OFFER to save it to auto-memory so future runs keep
      it. Do not save without his okay.
 
+4. GitHub portfolio (his actual proof of real work):
+   - His repos are public at github.com/umraffer32. Fetch a repo's README by its blob URL
+     (https://github.com/umraffer32/<repo>/blob/main/README.md returns rendered text; the
+     /raw/ URL and the repos-tab page come back empty). Use the cached GitHub portfolio index
+     in MEMORIES first, and only fetch a README when you need the specifics for a given
+     posting. Map each posting's named duties and tools to a real, nameable project (for
+     example control and compliance auditing maps to win11-stigs, vulnerability work to
+     vulnerability-management). Treat ONLY what the repos actually show as real, and respect
+     the standing rule that auto-solved threat hunts are not usable as manual-investigation
+     evidence.
+
 Then judge each posting honestly:
 - Map the duty percentages to what he has actually done (internship, WGU labs, homelab, AWS
   project, Block Advisors, Robert's, plus anything surfaced from memory or past sessions).
@@ -138,6 +160,12 @@ Then judge each posting honestly:
   ServiceNow named in ~65% of duties), that is a PASS, not a stretch — adjacent/lab
   experience and "fast ramp" do not survive an interview built around that tool. An
   incidental tool used at a basic level (e.g. logging tickets in a system) is NOT a blocker.
+- SOQ-PROMPT ANSWERABILITY TEST (run whenever an SOQ is required). For each SOQ prompt, ask
+  whether Uriah can answer it truthfully from real experience in his documents, memory, the
+  GitHub portfolio, or past sessions. If the lead prompt or a heavily weighted prompt demands
+  hands-on experience he does not have, that is a PASS even when the duty percentages look
+  survivable, because the SOQ is the scored gate and he cannot answer it honestly. JC-521906
+  is the canonical case, where the first prompt wanted asset-tracking experience he lacks.
 - "Applying up" (new grad to a role pitched at an experienced candidate) is fine ONLY if
   every claim would be truthful. Flag seniority stretches (leading IT projects, coaching,
   stakeholder facilitation) explicitly.
@@ -168,6 +196,10 @@ between comparable fits (flag anything closing within ~2 days as act-now). Prese
   then its verdict and rationale.
 - Then #2 and #3, each with title, posting URL, verdict, a one- to two-line rationale, and
   the filing deadline.
+- For EVERY pick, state the SOQ burden next to the deadline, namely whether an SOQ is
+  required, how many prompts, and whether they are behavioral or technical. SOQ effort is a
+  real decision factor. Do not undersell a heavy multi-prompt technical SOQ as low-effort
+  just because the resume can be reused from a prior application.
 - List any remaining candidates below in one compact ranked runners-up list.
 - If fewer than 3 postings are genuine fits, present only the real ones and say so plainly
   — never pad the top 3 with PASS-grade jobs just to fill the slots.
