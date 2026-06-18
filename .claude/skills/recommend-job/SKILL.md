@@ -23,7 +23,11 @@ Hunting" repo; the scraper data is in the sibling "../CalCareers Job Scraper".
 
 ## Defaults — run straight through, do not stop to ask
 Use these unless the data is missing or genuinely ambiguous:
-- Lookback: postings published in the last 2 days (relative to today).
+- Scope: EVERY currently-open posting in the reachable classifications that has NOT already
+  been evaluated (submitted, in-progress, or passed). Do NOT gate on how recently a posting
+  was published. The strongest fit is often an older open posting that was never triaged
+  (this is exactly how JC-521438 was nearly missed). Use publish_date only to sort
+  newest-first for presentation, never to exclude an un-evaluated open posting.
 - Classifications: INFORMATION TECHNOLOGY ASSOCIATE and INFORMATION TECHNOLOGY SPECIALIST I
   (Uriah's reachable, list-eligible classes through Dec 2026). Note anything outside these
   but rank it last.
@@ -35,9 +39,11 @@ Use these unless the data is missing or genuinely ambiguous:
   show only the real ones and say so — do not pad the list to 3 with PASS-grade jobs. Do
   not build any deliverables.
 
-Optional override: if the user passes an argument, it sets the lookback window — a bare
-number = days (e.g. "7" = last 7 days), or a date = since that date (e.g. "since
-2026-06-10").
+Optional override: by default there is NO date filter (all open, un-evaluated postings are
+in scope). If the user passes an argument, it NARROWS to a recency window — a bare number =
+days (e.g. "7" = only postings published in the last 7 days), or a date = since that date
+(e.g. "since 2026-06-10"). Use this only when the user explicitly wants a narrow recent
+sweep; otherwise consider all open un-evaluated postings.
 
 ## Step 1 — Check freshness
 Read the generated_at timestamp at the top of ../CalCareers Job Scraper/data/candidates.json.
@@ -60,13 +66,23 @@ candidates.json is already fresh and no refresh is needed.
   job_control_id, classification, working_title, publish_date, filing_deadline (dates are
   YYYY-MM-DD), and posting_url. If it fails to parse, STOP and report it — do not analyze a
   partial file.
-- Keep postings whose publish_date falls in the lookback window.
+- Start from ALL postings in candidates.json (every currently-open posting). Do NOT filter
+  by publish_date unless the user passed an explicit recency override (see Defaults).
 - Keep only the two reachable classifications by default; note anything outside them but
   rank it last.
-- EXCLUDE jobs already handled: read PROGRESS_LOG.md and drop any JC-###### marked
-  SUBMITTED, IN-PROGRESS, or PASSED (match on the 6-digit job_control_id). Also treat any
-  "JC-###### (Title) - SUBMITTED/IN-PROGRESS" folder in this repo as handled. List what you
-  excluded and why, briefly.
+- EXCLUDE jobs already evaluated, using THREE sources together (a JC is excluded if it
+  appears in any of them):
+  1. TRIAGE_LEDGER.md in this repo root — the canonical list of passed JCs (each line: JC
+     number, title, one-line reason). This is the fast, reliable exclusion source.
+  2. PROGRESS_LOG.md — any JC-###### marked SUBMITTED, IN-PROGRESS, or PASSED.
+  3. Folders in this repo — any "JC-###### (Title) - SUBMITTED/IN-PROGRESS" folder.
+  Match on the 6-digit job_control_id. List what you excluded and why, briefly.
+- What remains is the set of OPEN, UN-EVALUATED postings — these are the candidates,
+  regardless of age. If this set is empty, say so plainly (everything open has been handled).
+- LEDGER UPKEEP: when you (or Uriah) decide to PASS on a posting during this run, append it
+  to TRIAGE_LEDGER.md (JC number, title, one-line reason) so it is never re-triaged. If the
+  ledger does not exist yet, create it. Do not add submitted/in-progress jobs to the ledger
+  (those are tracked by folder and PROGRESS_LOG); the ledger is for passes.
 
 ## Step 3 — Read each surviving posting IN FULL
 For every candidate, open BOTH posting.pdf AND duty_statement.pdf in
