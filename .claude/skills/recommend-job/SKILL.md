@@ -78,8 +78,11 @@ For every candidate, open BOTH posting.pdf AND duty_statement.pdf in
   extract as blank. When that happens, rasterize the pages to images and read them visually
   or OCR them — do not skip a duty statement just because text extraction returned nothing.
 - From each duty statement capture: essential-function percentages, named tools and
-  systems, required vs desirable quals, SOQ requirement + prompts, location/telework, and
-  final filing date.
+  systems, required vs desirable quals, SOQ requirement + prompts, location/telework,
+  WORK HOURS / SHIFT / DAYS (and any weekend, holiday, after-hours, on-call, or rotating-
+  shift requirement), and final filing date. Work hours live in the posting's "Working
+  Conditions" section and/or the duty statement header. Read both. Do not assume standard
+  hours just because none are stated.
 
 ## Step 4 — Score fit against Uriah's FULL history
 Do NOT score from the documents alone. Much of his real experience lives in past
@@ -124,6 +127,19 @@ Then judge each posting honestly:
   stakeholder facilitation) explicitly.
 - Never assume he has a tool/skill just because the duty statement names it. When unsure
   whether something is honestly claimable, say so.
+- WORK-HOURS CHECK (always run, always surface the schedule so he is never surprised).
+  Uriah's baseline is a regular weekday daytime schedule, Monday through Friday, and he is
+  flexible around it:
+  - An early start is fine: anything from about 7 a.m. onward (e.g. a 7 a.m. to 4 p.m.
+    schedule is good, he likes the earlier finish).
+  - Weekend, holiday, on-call/standby, and after-hours work are FINE and NOT a concern. He
+    treats these as overtime, which pays well. Note them neutrally or as a plus, not a flag.
+  - Only FLAG as an actual concern a schedule whose BASE hours are non-daytime: a primarily
+    night/evening shift, or a rotating/variable shift where he would not have a stable
+    daytime baseline. That changes his daily life rather than just adding paid extra hours.
+  Always state the schedule plainly (start/end, days, any OT expectation), and ALWAYS in
+  12-hour AM/PM format (Uriah dislikes 24-hour time) - convert any 24-hour times the posting
+  uses (e.g. 0800-1700 becomes 8:00 a.m. to 5:00 p.m.; 1600 becomes 4:00 p.m.).
 
 Give each posting a verdict: STRONG FIT / STRETCH (defensible) / PASS, with one or two lines
 on the duty weighting, the real gaps, the deadline, and the posting URL.
