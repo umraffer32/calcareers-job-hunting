@@ -105,6 +105,18 @@ For every candidate, open BOTH posting.pdf AND duty_statement.pdf in
   shift requirement), and final filing date. Work hours live in the posting's "Working
   Conditions" section and/or the duty statement header. Read both. Do not assume standard
   hours just because none are stated.
+- CAPTURE EMPLOYMENT TYPE: permanent vs limited term, and if limited term, the length (e.g.
+  12-month LT) and whether it can extend or convert to permanent. Surface it in the output
+  (see Step 5) — it is a real decision factor, not a footnote.
+- CAPTURE FILING REQUIREMENTS from the posting's Filing/Application Instructions section (not
+  just the duties): any required RPA number (capture it VERBATIM), required position-number
+  formatting, mandatory supplemental documents (e.g. Criminal Record Supplemental
+  Questionnaire, Form 700 / Conflict of Interest), and any background-investigation or
+  fingerprinting requirement. If the posting names an RPA number, carry it into the
+  recommendation so it lands on the STD 678 Examination/Job Title line — postings routinely
+  warn that applications missing the position number AND RPA number "may not be considered,"
+  so a missed RPA is a screen-out, not a nicety (caught on JC-522094, 2026-06-19). These
+  required forms are also effort/eligibility factors that feed the ranking.
 - CAPTURE THE SOQ PROMPTS VERBATIM and the SOQ format and burden (required or not, number of
   prompts, behavioral vs technical, page and font limit). The SOQ prompts decide as much as
   the duties. A posting can pass on duty percentages but still be a hard no because its lead
@@ -200,6 +212,12 @@ between comparable fits (flag anything closing within ~2 days as act-now). Prese
   required, how many prompts, and whether they are behavioral or technical. SOQ effort is a
   real decision factor. Do not undersell a heavy multi-prompt technical SOQ as low-effort
   just because the resume can be reused from a prior application.
+- For EVERY pick, also state the EMPLOYMENT TYPE (permanent / limited term with length and
+  whether it converts) and any REQUIRED FILING ITEMS (required RPA number, supplemental
+  questionnaires, Form 700, background/fingerprint) on the same line as the deadline and SOQ
+  burden. Example line: "STRONG FIT, deadline 7/2, SOQ required (3 behavioral prompts),
+  12-month LT (convertible), requires RPA E-DTD 25-003 on the 678." These are filing-cost and
+  job-security factors that belong at decision time, not buried in prose.
 - List any remaining candidates below in one compact ranked runners-up list.
 - If fewer than 3 postings are genuine fits, present only the real ones and say so plainly
   — never pad the top 3 with PASS-grade jobs just to fill the slots.

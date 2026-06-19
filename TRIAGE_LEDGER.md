@@ -6,6 +6,8 @@ Submitted and in-progress jobs are NOT listed here — those are tracked by thei
 
 ---
 
+- JC-521378 — Systems Analyst/Release Manager (FTB) — systems/business analyst + release/deployment manager (Software Eng/BTM/IT PM domains), off-lane like the other BA roles (passed 2026-06-19)
+- JC-517766 — Programmer Analyst (EDD) — mainframe COBOL/JCL/DB2/CICS developer + lead/mentor role, hard developer gap plus seniority stretch (passed 2026-06-19)
 - JC-521906 — IT Asset Management Analyst (DTSC) — role core is IT asset inventory/lifecycle + procurement; Uriah has zero real asset-tracking/inventory experience and can't answer the lead SOQ prompt honestly (passed 2026-06-18)
 - JC-521279 — Business Analyst (CA State Lottery) — requirements-gathering + software QA/testing role, not hands-on support (passed 2026-06-18)
 - JC-521827 — IT Business Management Analyst (DSH) — IT intake/governance/procurement/budget BA, advanced-Excel analyst, off-lane (passed 2026-06-18)
