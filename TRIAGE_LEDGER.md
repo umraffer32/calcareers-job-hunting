@@ -6,6 +6,9 @@ Submitted and in-progress jobs are NOT listed here — those are tracked by thei
 
 ---
 
+- JC-522115 — Network Administrator (DSH) — enterprise network admin (firewalls, IP telephony, load balancers, SD-WAN) pitched at experienced candidates; defensible STRETCH on degree + Network+ but the 3-prompt all-technical SOQ gates hard on hands-on enterprise network experience he lacks (prompt 3 load balancers/WAN optimization); Uriah passed (2026-06-22)
+- JC-522257 — IT Project Manager / Business Analyst (HCAI) — 35% project management + 35% business analysis + portfolio planning; pure PM/BA role, desirables want 2+ yrs PM and 2+ yrs BA he lacks; off-lane like all the other BA passes (passed 2026-06-22)
+- JC-522254 — Technology Recovery Coordinator (EDD) — IT disaster-recovery/business-continuity program coordinator (DR plans, BIA, SLAs, NIST-derived recovery plans); off-lane governance/program role and SOQ prompt 2 demands full-lifecycle enterprise IT-recovery program management he can't answer honestly (passed 2026-06-22)
 - JC-522192 — Technical Support Specialist (CDT) — duties are a true service-desk/ops lane, BUT the lead SOQ prompt demands mainframe experience and the role requires "extensive experience with mainframe systems"; Uriah has none, can't answer prompt 1 honestly (passed 2026-06-19)
 - JC-521064 — Level 2 Analyst (FI$Cal) — financial-system functional/business analyst + lead for junior analysts; core is accounting/budgeting SME knowledge, off-lane (passed 2026-06-19)
 - JC-521207 — Informational Technology Specialist I (CalPERS) — ServiceNow functional administrator + developer (~55% ServiceNow) plus 35% project lead, Software Engineering domain; ServiceNow saturation + lead (passed 2026-06-19)

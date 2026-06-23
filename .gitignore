@@ -11,5 +11,9 @@ Thumbs.db
 # Local working files
 .tmp/
 
+# Python bytecode cache (from tools/)
+__pycache__/
+*.pyc
+
 # Old state apps kept locally for reference only (not part of the repo)
 State Job Apps (Just for reference and context)/
