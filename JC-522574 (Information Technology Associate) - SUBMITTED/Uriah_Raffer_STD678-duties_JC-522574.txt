@@ -1,0 +1,6 @@
+- Work in a remote, hands-on cybersecurity internship across Windows and Linux on Microsoft Azure.
+- Monitor endpoint and system security with Microsoft Defender for Endpoint, review alerts for common vulnerabilities and exposures, and trace anomalies to their source before escalating.
+- Conduct authenticated security assessments with Tenable Nessus, rank findings by risk and impact, and drive remediation of insecure settings and outdated software using PowerShell, taking one system from 30 findings to 3 and clearing every critical issue.
+- Apply patches and align configurations with secure baselines such as Defense Information Systems Agency Security Technical Implementation Guides (DISA STIG), then re-scan to confirm each fix held.
+- Respond to a brute-force incident in Microsoft Sentinel by running a Kusto Query Language (KQL) query to surface failed sign-on events and identify the source of the attempts.
+- Document findings and outcomes for technical and non-technical readers.
