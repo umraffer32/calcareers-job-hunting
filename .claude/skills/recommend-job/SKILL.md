@@ -39,7 +39,7 @@ Use these unless the data is missing or genuinely ambiguous:
   security-analyst and systems-administrator roles as defensible STRETCHES (applying up), a
   notch below. When a week is thin, say plainly that there is no clean level-matched fit
   rather than pushing a stretch to fill the list. He is rank 1 on both the ITA and ITS I
-  lists, so reachability is not the constraint, honest duty-fit is.
+  lists, so reachability is not the constraint, honest duty-fit is. Bucket by DUTIES, not classification: an ITA-CLASSIFIED role with server or systems-administration duties (e.g. JC-522483, a CHP server-admin ITA) is a defensible STRETCH on duty domain even though the ITA classification is his level. Classification sets the pay band and reachability; the duties set the lane.
 - Output a ranked top 3 (lead pick first), each with a verdict and short rationale, plus
   any remaining candidates in a compact runners-up list. If fewer than 3 are genuine fits,
   show only the real ones and say so — do not pad the list to 3 with PASS-grade jobs. Do
@@ -128,19 +128,19 @@ Do NOT score from the documents alone. Much of his real experience lives in past
 conversations and memory, not in any single file. Pull from all three tiers:
 
 1. Documents and rules (authoritative for honest-fit and writing rules):
-   - CLAUDE.md (this repo), Uriah_Raffer_IT_Support_Resume.pdf, Employment_History_STD678.md,
-     Transcript_UriahRaffer.pdf, soq-writing-guide.md, CA_State_Hiring_Field_Guide.docx, and
+   - CLAUDE.md (this repo), `Base Resume and Employment History/Uriah_Raffer_IT_Support_Resume.pdf`, `Base Resume and Employment History/Employment_History_STD678.md`,
+     Transcript_UriahRaffer.pdf, `SOQ Research/soq-writing-guide.md`, `Hiring Research/CA_State_Hiring_Field_Guide.docx`, and
      prior tailored apps in the JC-* folders as examples of what he can honestly claim.
 
-2. Auto-memory:
-   - Read the MEMORY.md index and any relevant memory files in this project's memory store
+2. Canonical memory (MEMORIES.md is now the PRIMARY source for fit/tool decisions):
+   - Read `MEMORIES.md` in the repo root FIRST (imported into CLAUDE.md, loads every session, now the rich canonical source for his verified experience, GitHub index, and settled fit/tool/PASS decisions). Also check any relevant memory files in this project's memory store
      and the sibling scraper project's store, plus any memories already surfaced into
      context this session. These hold settled fit/tool decisions and reusable experience
      banks (e.g. WGU lab tickets, the Block Advisors story, prior PASS decisions).
 
-3. Past sessions (critical — this is where most undocumented experience lives):
+3. Past sessions (FALLBACK — only for experience a posting names that MEMORIES.md does not already cover):
    - For each posting's named tools, systems, and key duties, search past session
-     transcripts (the search_session_transcripts tool) for Uriah's own statements of real
+     transcripts (in this Cowork environment use `mcp__session_info__list_sessions` then `mcp__session_info__read_transcript`; there is no search_session_transcripts tool here) for Uriah's own statements of real
      hands-on experience, prior fit/PASS decisions, and tool-gap clarifications. This is how
      you catch experience he described in conversation but never wrote into a document.
    - Credit ONLY experience Uriah himself affirmed as his own real, hands-on work (a user
@@ -156,7 +156,7 @@ conversations and memory, not in any single file. Pull from all three tiers:
      (https://github.com/umraffer32/<repo>/blob/main/README.md returns rendered text; the
      /raw/ URL and the repos-tab page come back empty). Use the cached GitHub portfolio index
      in MEMORIES first, and only fetch a README when you need the specifics for a given
-     posting. Map each posting's named duties and tools to a real, nameable project (for
+     posting. When you DO fetch a repo for specifics, read it IN FULL including its `docs/` subpages (fetch them by their blob URL too), not just the README — the credible numbers live deep (e.g. aws-ha-infra's `docs/resilience-testing.md` held the real failure matrix and recovery times). Map each posting's named duties and tools to a real, nameable project (for
      example control and compliance auditing maps to win11-stigs, vulnerability work to
      vulnerability-management). Treat ONLY what the repos actually show as real, and respect
      the standing rule that auto-solved threat hunts are not usable as manual-investigation
