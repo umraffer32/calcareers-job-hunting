@@ -6,9 +6,78 @@ Canonical, always-loaded memory for this project. CLAUDE.md imports this file (`
 
 ---
 
+## 📁 SOQ reference files live in `SOQ Research/` (not the repo root)
+
+Uriah moved the SOQ reference material into a subfolder named `SOQ Research/` (confirmed 2026-06-24). Two files live there, both required reading before drafting any SOQ:
+- `SOQ Research/soq-writing-guide.md` — the voice, anti-AI checklist, STAR backbone, and writing process.
+- `SOQ Research/soq-header-formatting.md` — the header-format research (title line, then name/JC/position; sourcing).
+
+Read both from `SOQ Research/` at the start of any SOQ work. CLAUDE.md's "Key reference files" list and the SOQ-workflow rule both point here now, so do not burn a cycle hunting for these files at the repo root.
+
+---
+
+## 📌 SOQ drafting — READ THE FULL GitHub PROJECT for specifics, not just the README
+
+When an SOQ answer cites one of Uriah's GitHub projects, read the project IN FULL before drafting, including the `docs/` subpages, not only the top-level README. The credible, defensible specifics that make an answer strong live deep in the repo, and Uriah values them highly. Confirmed by Uriah 2026-06-24 (he flagged this as very important) on the JC-522483 Q2 aws-ha-infra answer, where reading `docs/resilience-testing.md` turned a vague "fifteen failure scenarios" line into the real detail. Four instances (a NAT and a private one per availability zone), every non-empty termination combination (2^4 - 1 = 15 scenarios), three full runs (45 scenarios total), about 2:29 average recovery, the route-healer Lambda firing in 0.4 to 0.7 seconds, and one run logging 92 events with 15 route repairs and zero false positives. Fetch repo files via `github.com/umraffer32/<repo>/blob/main/<path>` (README at `/blob/main/README.md`, then follow into `docs/`). **Also (2026-06-24):** for scripts and code in his projects, write "used" rather than "wrote" unless he confirms he hand-authored it. **How to apply:** for every project referenced in an SOQ, pull the README AND the relevant `docs/` pages first, then draft with the real numbers.
+
+---
+
+## 📌 Iterative drafting — save EVERY revision as a new numbered version (_v2, _v3, ... _v11)
+
+When iterating on an SOQ (or any document) with Uriah, save each revision to a NEW numbered filename in the scratchpad (e.g. `Uriah_Raffer_SOQ_JC-######_v2.docx`, `_v3`, ... `_v11`), never overwriting the prior one. Confirmed by Uriah 2026-06-24 (he loves this and flagged it as super useful). Two payoffs: (1) it sidesteps the sandbox file-lock problem (CLAUDE.md rule 11) entirely, and (2) Uriah wants to run a COMPARISON across every revision afterward, noting what changed and why. **How to apply:** increment the version on every rebuild, keep all versions in the scratchpad for the whole session, and as you go keep a short running note of what changed in each bump and the rationale, so a full revision changelog (version, what changed, why) can be produced on request at the end. Copy ONLY the final approved version into the per-JC folder under the proper `Uriah_Raffer_<Doc>_JC-######` name.
+
+---
+
+## ⛔ STD 678 review — do NOT re-flag the county field or the employment gap
+
+Items Uriah is firm on (settled, confirmed 2026-06-24). Do not raise these again in any 678 review or anywhere else:
+- The **county field** on the 678 mailing address is auto-populated by CalCareers and not under his control. Never flag it as blank, missing, or wrong.
+- The **2020-2022 employment gap** is settled and left unexplained by deliberate choice. Never mention it, suggest explaining it, or note the blank Explanations section. It has been settled multiple times.
+- The **Criminal Record Supplemental Questionnaire** (required on CHP and similar postings) is two simple yes/no questions, and both are **No** for Uriah. He completes it himself each time. Treat it as done. Do not flag it as a to-do, ask about it, or raise it again.
+
+Also settled this session: across resume, SOQ, and 678, all three must read as their own document with NO copy-paste, even though the underlying experience is the same. When the 678 Duties block and the resume bullets converge, reword the 678 block (it has the ~1,000-char field room) to be distinct, rather than stretching the resume (which is kept tight for the 6-second skim).
+
+---
+
+## ⛔ Cross-document paste check is MECHANICAL now — run it, don't claim it
+
+After all three application docs exist (resume, SOQ, and the 678 duties block saved as a .txt), run `tools/check_cross_doc.py resume.docx soq.docx duties678.txt` before calling any of them done. It flags sentence pairs across documents with high word overlap (Jaccard) or a long shared run, so duplicated internship/project descriptions get caught and reworded. **Lesson 2026-06-24 (JC-522483):** I told Uriah the 678 duties were "distinct from the resume" when they were nearly word-for-word the resume bullets, because I asserted it instead of diffing. Verify, do not claim. When a flag is between the 678 and the resume, reword the **678** (it has the ~1,000-char field room) and keep the resume tight for the skim. Tool is validated to catch the real paste and pass the reworked version. (Tune with `--jaccard` / `--ngram` if it is noisy; an unavoidable shared product-name list like the OS list is a benign flag, not a paste.)
+
+---
+
+## ⛔ Multi-prompt SOQ — allocate evidence banks BEFORE drafting
+
+For any SOQ with more than one prompt, FIRST map each prompt to its primary evidence bank (a specific project or experience) so no answer double-spends the same story, then draft. **Lesson 2026-06-24 (JC-522483):** Q1 initially raided Q3 and Q4's best material (the 30->3 vuln story and the STIG hardening) and Uriah caught it; a one-line allocation plan per prompt up front would have avoided the rewrite. The allocation that worked: Q1 = homelab AD build + Linux/Proxmox + internship server setup; Q2 = AWS high-availability route-healer + RDS failover + DHCP failover; Q3 = vuln-management 30->3 + patch management + KQL brute-force; Q4 = STIG hardening + AD administration + AWS SSM/least-privilege. A project may appear in two answers ONLY if the facet differs (Q1 builds AD, Q4 administers it); repeating a number or a named result across answers is a paste.
+
+---
+
+## Resume density target — ~90% page fill, no wall and no gap
+
+A one-page resume should fill roughly 90% of the page. The lead role gets 4-5 tight bullets (1-2 lines each), NOT 6-7 (a wall recruiters skim past) and NOT 3 (a big bottom gap that reads as thin). If trimming opens more than ~20% whitespace, FILL it with real content (restore a relevant real section such as the WGU Hands-On Lab troubleshooting, or add one genuine bullet), never with padding and never by reverting to the wall. **Lesson 2026-06-24 (JC-522483 resume):** went 7 bullets (too dense) -> 4 (too sparse, big gap) -> 5 + restored WGU lab section (right) across three iterations; this target makes it one move. Skimmability and substance both matter; the sweet spot is comfortably full.
+
+---
+
+## Two pre-submit gotchas (learned 2026-06-24)
+
+- **The 678 Duties box clips ~1,000 chars INCLUDING whitespace.** When the duties are formatted as bullets with blank lines between them, those blank lines count toward the ~1,000-char clip. A 988-char block plus blank-line separators lands right at the edge. After entering it, check the rendered field and confirm the LAST line is not cut off; if it is, remove the blank spacer lines (use a single line break between bullets).
+- **PDF reading needs the workspace shell here, not the file reader.** The Read tool's PDF renderer fails in this Cowork environment (pdftoppm missing). Extract uploaded PDFs (the 678, etc.) with `pdftotext` or `pdfplumber` in the workspace bash, and render pages to PNG with `pdftoppm` in bash, then view those PNGs. Do not burn a cycle on the failed Read first.
+
+---
+
+## ⛔ Pre-submit verification = run the TOOLS, not ad-hoc checks (built + validated 2026-06-24)
+
+- Every SOQ/resume build ends with `tools/verify_doc.py` (font, size, pages, margins, dashes, colons, acronym-once), NOT inline grep. I rebuilt those checks by hand all session instead of using the gate that already exists; stop doing that.
+- Before any application is submitted, run the one-command gate: `python3 tools/pre_submit.py "<JC folder>" --soq-pages N`. It chains `verify_doc.py` on the SOQ and resume, `check_678.py` on the duties .txt, and `check_cross_doc.py` across all three, and prints PASS/FAIL per check plus an overall result.
+- Save the finalized 678 duties block into the JC folder as `Uriah_Raffer_STD678-duties_JC-######.txt` so the gate can read it. The chat text becomes the file (Claude writes it); Uriah still just pastes the block into CalCareers. Bonus: the .txt is a clean record of the exact submitted duties wording, which otherwise only survives inside the 678 PDF.
+- The acronym check is ADVISORY (warn-level, never fails). Benign warns seen on JC-522483: "AWS" used inside the project name "High-Availability AWS Infrastructure" before the spell-out later in the same sentence, and "STIG" inside the compound "DISA STIG". Both are correct in context, no fix needed.
+- The gate is MECHANICAL only. Honesty and claim-accuracy stay a human read against this file and `PRE_SUBMIT_CHECKLIST.md`.
+- Tools live in `tools/`: `verify_doc.py` (per-doc format), `check_678.py` (duties .txt char-clip + dashes + colons), `check_cross_doc.py` (cross-document paste), `pre_submit.py` (runs them all). Validated end to end on the JC-522483 SUBMITTED package, which returned OVERALL PASS.
+
+---
+
 ## SOQ header — title first, then name/JC/position; NO phone/email
 
-SOQ header sits at the top of the body in this exact order: line 1 is the title **"Statement of Qualifications"** (centered, bold), line 2 directly below is the lean identification line **"Uriah Raffer | JC-521435 | <Position/Classification>"** (centered). Use the actual JC number and position for the posting. **Do NOT put phone number or email in the SOQ header** (that is resume/cover-letter convention, not CA SOQ), and do not use a running page header for it (Uriah wants both lines in the body, title on top). Confirmed 2026-06-18 (JC-521435). Full rationale and sourcing are in `SOQ Header Formatting/soq-header-formatting.md`.
+SOQ header sits at the top of the body in this exact order: line 1 is the title **"Statement of Qualifications"** (centered, bold), line 2 directly below is the lean identification line **"Uriah Raffer | JC-521435 | <Position/Classification>"** (centered). Use the actual JC number and position for the posting. **Do NOT put phone number or email in the SOQ header** (that is resume/cover-letter convention, not CA SOQ), and do not use a running page header for it (Uriah wants both lines in the body, title on top). Confirmed 2026-06-18 (JC-521435). Full rationale and sourcing are in `SOQ Research/soq-header-formatting.md` (see the reference-files location note above).
 
 ## SOQ strategy — never CLAIM a missing tool, but don't CONFESS gaps either
 
