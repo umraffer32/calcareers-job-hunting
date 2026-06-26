@@ -1,0 +1,6 @@
+- Troubleshoot and resolve technical problems across Windows and Linux during a remote cybersecurity internship, tracing each issue to its underlying cause rather than the surface symptom.
+- Reproduce reported faults, work them through to a verified fix, and re-test to confirm the problem does not come back.
+- Apply software updates and patches and bring system settings in line with secure baselines, then re-scan to confirm each change held.
+- Run authenticated assessments in Tenable Nessus, rank weaknesses by risk, and use PowerShell to correct misconfigured settings and remove end of life software, lowering one host from 30 open findings to 3.
+- Investigate a security incident in Microsoft Sentinel, using Kusto Query Language (KQL) to surface failed sign on attempts and pinpoint the source of a brute force attack.
+- Keep plain, reusable documentation of each problem and its fix so the next person can follow the same steps.
