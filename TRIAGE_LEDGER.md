@@ -6,6 +6,7 @@ Submitted and in-progress jobs are NOT listed here — those are tracked by thei
 
 ---
 
+- JC-522696 — Server Infrastructure Administrator (ITS I, DCA OIS) — ITS I journey-level enterprise Unix/AWS server admin (60% server/storage with SAN/NAS/RAID, server consolidation/virtualization + 10% MSSQL/Oracle DBA); AWS and Linux/BASH are real but the lead SOQ prompt demands a vendor-led implementation "affecting hundreds of users you supported" he can't answer honestly at homelab/internship scale, plus Oracle/MSSQL DBA gap and enterprise SAN storage beyond his scale; level-up + SOQ-answerability kill (passed 2026-06-25)
 - JC-522674 — Senior System Administrator (ITS I, Caltrans) — pitched at a *senior* who *leads one or more teams* in every duty block, and the core virtualization platform is VMware/HPE (Uriah uses Proxmox for Type 1, not VMware ESXi); seniority stretch + tool-core gap + asset-tracking; passed (2026-06-25)
 - JC-520980 — Physical Security Engineer (ITS I, CA Lottery) — core identity is physical-security platforms (Pro-Watch access control, video surveillance, alarm/intercom, badge/biometric/UHF readers) plus statewide hands-on device install/repair; physical-security platform is a real skill-gap core (the canonical pass example), passed (2026-06-25)
 - JC-521322 — Procurement Analyst (ITA, CDT) — ITA in name only; 100% IT/non-IT procurement and contract management (bid evaluation, contract tracking, DGS/SCM/SAM procurement rules), no hands-on tech; off-lane like the other procurement passes, passed (2026-06-25)
