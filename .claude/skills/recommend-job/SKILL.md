@@ -83,6 +83,13 @@ candidates.json is already fresh and no refresh is needed.
   2. PROGRESS_LOG.md — any JC-###### marked SUBMITTED, IN-PROGRESS, or PASSED.
   3. Folders in this repo — any "JC-###### (Title) - SUBMITTED/IN-PROGRESS" folder.
   Match on the 6-digit job_control_id. List what you excluded and why, briefly.
+- DATA-INTEGRITY GUARD (run before finalizing exclusions): a JC must NEVER appear in BOTH a
+  `- SUBMITTED`/`- IN-PROGRESS` folder AND the TRIAGE_LEDGER. Compute that intersection. If any
+  JC is in both, the folder is authoritative — the job was actually submitted, and the ledger
+  line is a wrong pass written by an earlier run that failed to exclude it. Exclude the JC as
+  submitted (not as a pass), and SURFACE it to Uriah so the bad ledger line can be deleted (the
+  ledger is passes only). This caught JC-521544 and JC-521522 on the 6/26 run — both submitted
+  but logged as passes.
 - What remains is the set of OPEN, UN-EVALUATED postings — these are the candidates,
   regardless of age. If this set is empty, say so plainly (everything open has been handled).
 - LEDGER UPKEEP: when you (or Uriah) decide to PASS on a posting during this run, append it
