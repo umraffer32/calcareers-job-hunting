@@ -113,16 +113,31 @@ Each iteration N:
 2. **Mechanical pass:** `python3 tools/soq_gate.py <vN.docx> --spec <JC folder>/soq_spec.json`
    and `python3 tools/verify_doc.py <vN.docx> --type soq --font <F> --size <S> --max-pages <P>`.
    Render the PDF fresh, page-count THAT file, rasterize page 1 and actually look at it.
-3. **Adversarial rubric pass:** score the draft against the desirable quals and duty
-   keywords as a skeptical rater would (coverage report is data, not a quota); check
-   thesis/proof alignment per paragraph (every claim shown, not asserted); check
-   headroom (page limit reasonably used, ~90%+, no padding).
-4. **Honesty/claims pass:** trace EVERY claim to MEMORIES / Employment_History_STD678 /
-   project docs / Uriah's own words. Hunt fabrications the blocklist does not know yet:
-   tool names, stretched verbs (wrote vs used), duties implied but not done, numbers not
-   on the verified list. Uncertain claims go on the QUESTIONS list, not in the doc.
-5. Fix everything found, log each catch (iteration, what, why) in the findings
-   changelog, rebuild as vN+1.
+3. **Fresh-eyes review — one subagent per iteration (settled 2026-07-03):** run the
+   adversarial rubric pass AND the honesty/claims pass as a SINGLE fresh-context
+   reviewer subagent (Agent tool) that never saw the drafting. The point is
+   independence: the drafting context makes its own errors look right, and a cold
+   reader sees the page the way a screener does. Give the reviewer ONLY:
+   - the vN draft (docx path or extracted text), the posting and duty statement
+     paths, and `soq_spec.json`;
+   - instructions to read `MEMORIES.md`,
+     `Base Resume and Employment History/Employment_History_STD678.md`,
+     `SOQ Research/soq-writing-guide.md`, and `tools/soq_rules.json` before judging;
+   - any facts Uriah verified IN THIS SESSION that are not yet in MEMORIES, passed
+     explicitly (the subagent cannot see the conversation).
+   Its brief: (a) score the draft against the desirable quals and duty keywords as a
+   skeptical rater (coverage is data, not a quota); check thesis/proof alignment per
+   paragraph (every claim shown, not asserted) and headroom use (~90%+ of the page
+   limit, no padding); (b) trace EVERY claim to a source and hunt fabrications the
+   blocklist does not know yet — tool names, stretched verbs (wrote vs used), duties
+   implied but not done, numbers not on the verified list. It returns a FINDINGS LIST
+   ONLY (location, issue, why, severity) — it never rewrites the draft. Uncertain
+   claims go on the QUESTIONS list for Uriah, never into the doc. If no subagent
+   capability exists in the session, run both passes in-session and note that
+   fallback in the changelog.
+4. Fix everything found in the MAIN session — the fixer needs the full drafting and
+   allocation context; a separate editor agent is handoff loss for no gain. Log each
+   catch (iteration, what, why) in the findings changelog, rebuild as vN+1.
 
 Exit when a full iteration finds nothing new, or after 3 iterations. If a genuinely new
 verified fact or a new banned-claim pattern surfaced, update `tools/soq_rules.json` (and
