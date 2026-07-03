@@ -1,0 +1,40 @@
+{
+  "_readme": [
+    "Per-JC SOQ spec, extracted TO THE LETTER from this posting's Written Response /",
+    "SOQ instructions (see SOQ_GATE_PLAN.md). tools/soq_gate.py reads prompts,",
+    "numbered_headings, advisories, keywords; tools/pre_submit.py reads page_limit,",
+    "font, size_pt, margins_in for verify_doc. Write one of these per application",
+    "BEFORE drafting (soq-builder skill, Step 2), then diff advisories vs the prior",
+    "posting's spec and surface anything new."
+  ],
+  "_source": "posting.pdf (JC-523478, DMV), extracted 2026-07-03; example spec built from the SUBMITTED package",
+
+  "jc": "523478",
+  "title": "Information Technology Associate",
+  "department": "Department of Motor Vehicles",
+
+  "prompts": [
+    "Describe your experience in troubleshooting IT issues.",
+    "What, in your opinion, makes a good IT technician?"
+  ],
+  "numbered_headings": true,
+
+  "page_limit": 2,
+  "font": "Arial",
+  "size_pt": 12,
+  "size_is_minimum": true,
+  "margins_in": 1.0,
+
+  "advisories": {
+    "left_align": true,
+    "simple_formatting": true,
+    "flatten_pdf": true
+  },
+
+  "keywords": [
+    "troubleshooting", "help desk", "diagnostic tools", "end user",
+    "customer", "communicat", "prioritiz", "team", "learn", "multitask"
+  ],
+
+  "filing_notes": "Resume required and must be included. Written response submitted as a separate document, no more than 2 pages, no less than Arial 12-point, 1-inch margins ('no less than' = size_is_minimum). No RPA number named in the Filing Instructions."
+}

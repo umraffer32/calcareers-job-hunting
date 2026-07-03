@@ -1,0 +1,6 @@
+- Support and maintain IT systems in a remote cybersecurity internship, working across Windows 10/11, Windows Server, and Linux platforms in a simulated enterprise environment.
+- Resolve software and configuration issues to minimize disruption, reproducing each fault, isolating its cause, and confirming the repair holds before closing it out.
+- Participate in patching activity by updating end of life software and correcting weak configuration settings, using Tenable Nessus scans to identify issues and PowerShell to apply repeatable fixes.
+- Audit systems against DISA STIG secure-configuration baselines and remediate failing controls, bringing 10 noncompliant Windows 11 settings into compliance to uphold security and stability.
+- Eliminated password-based sign-on exposure on an internet-facing host by switching SSH to key-only authentication.
+- Maintain documentation of symptoms, causes, and fixes so others can troubleshoot efficiently.
