@@ -4,9 +4,14 @@ pre_submit.py - one-command mechanical pre-submit gate for a CalCareers applicat
 
 Over a JC application folder it runs, finding files by the Uriah_Raffer_* convention:
   - verify_doc.py   on the SOQ docx    (Arial 12 by default; --soq-pages required)
+  - soq_gate.py     on the SOQ docx    (content gate: banned claims, number drift,
+                    confessions, prompt headings, advisories - see SOQ_GATE_PLAN.md)
   - verify_doc.py   on the resume docx (Calibri; 1 page)
   - check_678.py    on the 678 duties .txt (<=1000 chars, no dashes, no mid-sentence colons)
   - check_cross_doc.py across SOQ + resume + 678 duties (no copy-paste between them)
+
+If the folder holds a soq_spec.json (written per-posting from its SOQ instructions),
+the SOQ font/size/pages/margins come from it automatically; CLI flags still override.
 
 Prints a PASS/FAIL per check and an overall result. Exit 1 if any hard check fails.
 This mechanizes the deterministic pre-submit items only; the honesty/claims read
@@ -19,7 +24,7 @@ Usage:
 Save the finalized 678 duties block into the folder as a .txt first
 (e.g. Uriah_Raffer_STD678-duties_JC-######.txt) so the gate can read it.
 """
-import sys, os, glob, argparse, subprocess
+import sys, os, glob, json, argparse, subprocess
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -41,9 +46,9 @@ def find(folder, *patterns):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("folder")
-    ap.add_argument("--soq-pages", type=int, required=True)
-    ap.add_argument("--soq-font", default="Arial")
-    ap.add_argument("--soq-size", type=int, default=12)
+    ap.add_argument("--soq-pages", type=int, help="SOQ page limit (or page_limit in soq_spec.json)")
+    ap.add_argument("--soq-font", help="SOQ font (or font in soq_spec.json; default Arial)")
+    ap.add_argument("--soq-size", type=int, help="SOQ point size (or size_pt in soq_spec.json; default 12)")
     ap.add_argument("--resume-font", default="Calibri")
     ap.add_argument("--duties-max-chars", type=int, default=1000)
     a = ap.parse_args()
@@ -52,11 +57,34 @@ def main():
     resume = find(a.folder, "Uriah_Raffer_Resume_*.docx")
     duties = find(a.folder, "*[Dd]uties*.txt", "*STD678*.txt")
 
+    # Per-JC spec: the posting's SOQ format, extracted once (see SOQ_GATE_PLAN.md).
+    # CLI flags override it; without either, the old defaults/requirements apply.
+    spec_path = find(a.folder, "soq_spec.json")
+    spec = {}
+    if spec_path:
+        try:
+            with open(spec_path, encoding="utf-8") as fh:
+                spec = json.load(fh)
+        except Exception as e:
+            spec = {}
+            print(f"WARNING: soq_spec.json unreadable ({e}); falling back to CLI flags")
+    soq_pages = a.soq_pages if a.soq_pages is not None else spec.get("page_limit")
+    soq_font = a.soq_font or spec.get("font") or "Arial"
+    soq_size = a.soq_size if a.soq_size is not None else (spec.get("size_pt") or 12)
+    if soq_pages is None:
+        ap.error("--soq-pages is required (or provide page_limit in the folder's soq_spec.json)")
+
     results = []
     if soq:
-        results.append(("SOQ format", *run("verify_doc.py",
-            [soq, "--type", "soq", "--font", a.soq_font, "--size", str(a.soq_size),
-             "--max-pages", str(a.soq_pages)])))
+        vargs = [soq, "--type", "soq", "--font", soq_font, "--size", str(soq_size),
+                 "--max-pages", str(soq_pages)]
+        if spec.get("margins_in") is not None:
+            vargs += ["--margins", str(spec["margins_in"])]
+        results.append(("SOQ format", *run("verify_doc.py", vargs)))
+        gargs = [soq]
+        if spec_path:
+            gargs += ["--spec", spec_path]
+        results.append(("SOQ gate", *run("soq_gate.py", gargs)))
     else:
         results.append(("SOQ format", 1, "SOQ docx not found"))
 
