@@ -19,13 +19,13 @@ Run this as ONE structured pass **before the first full review** of any SOQ, res
 
 ## 3. Anti-AI / voice / format
 - [ ] No em dashes anywhere.
-- [ ] No mid-sentence colons (colon only introduces a real list).
-- [ ] Acronyms spelled out exactly **ONCE per document** (first use only), then bare — including across separate SOQ answers. SOQ + 678 only; resume is exempt for common IT acronyms.
+- [ ] No mid-sentence colons (colon only introduces a real list); the SOQ allows ZERO colons of any kind (numeric times/ratios excepted).
+- [ ] Acronyms spelled out exactly **ONCE per document** (first use only), then bare — including across separate SOQ answers. SOQ + 678 only; the resume uses bare acronyms and spells out NOTHING ("IT" is never spelled out anywhere).
 - [ ] Contractions used; no buzzwords (leverage, robust, seamless, passionate); no throat-clearing openers or empty conclusions.
 
 ## 4. Spec compliance (check the posting every time)
 - [ ] SOQ: page limit, font, font size, margins, alignment exactly as the posting states; verify the built PDF's page count and that every character is the required size/font.
-- [ ] Resume: Calibri house style, one page (see CLAUDE.md rule 13).
+- [ ] Resume: Calibri house style, one page (see MEMORIES.md's "Resume house style, structure, and clone sources" block).
 - [ ] Redundancy pass: resume = terse keyword version, SOQ = narrative; no two docs read like a paste; vary anecdotes.
 - [ ] Cross-document consistency: dates, titles, degree, certs, and claims match across resume, SOQ, and 678.
 
