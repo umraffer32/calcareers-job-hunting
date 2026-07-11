@@ -362,6 +362,13 @@ def check_style_tics(paras, full_text, rules):
         if len(hits) > limit:
             findings.append(f'{len(hits)} "X, not Y" contrast constructions (warn above {limit}): '
                             + "; ".join(f'"{h}"' for h in hits[:3]))
+    tpat = style.get("serial_triad_pattern")
+    if tpat:
+        hits = [snippet(full_text, m.start()) for m in re.finditer(tpat, full_text)]
+        limit = style.get("serial_triad_warn_above", 4)
+        if len(hits) > limit:
+            findings.append(f'{len(hits)} "X, Y, and Z" serial-triad constructions (warn above {limit}): '
+                            + "; ".join(f'"{h}"' for h in hits[:3]))
     maxw = style.get("triad_max_words", 7)
     need = style.get("triad_run", 3)
     for p in paras:

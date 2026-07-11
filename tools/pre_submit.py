@@ -7,8 +7,15 @@ Over a JC application folder it runs, finding files by the Uriah_Raffer_* conven
   - soq_gate.py     on the SOQ docx    (content gate: banned claims, number drift,
                     confessions, prompt headings, advisories - see SOQ_GATE_PLAN.md)
   - verify_doc.py   on the resume docx (Calibri; 1 page)
-  - check_678.py    on the 678 duties .txt (<=1000 chars, no dashes, no mid-sentence colons)
-  - check_cross_doc.py across SOQ + resume + 678 duties (no copy-paste between them)
+  - check_678.py    on EVERY 678 duties .txt in the folder (<=1000 chars incl
+                    whitespace, no dashes, no mid-sentence colons)
+  - check_cross_doc.py across SOQ + resume + all 678 duties (no copy-paste)
+  - check_678_pdf.py on the CalCareers-GENERATED form PDF when present
+                    (required RPA/position/JC identifiers, cert-date sanity,
+                    duties fidelity + clip detection) - saved as
+                    Uriah_Raffer_STD678_JC-######.pdf in the folder
+  - check_keywords.py coverage matrix across SOQ/resume/678 (INFO only)
+  - spell_check.py  advisory spelling pass with tools/spell_allow.txt
 
 If the folder holds a soq_spec.json (written per-posting from its SOQ instructions),
 the SOQ font/size/pages/margins come from it automatically; CLI flags still override.
@@ -55,7 +62,9 @@ def main():
 
     soq = find(a.folder, "Uriah_Raffer_SOQ_*.docx")
     resume = find(a.folder, "Uriah_Raffer_Resume_*.docx")
-    duties = find(a.folder, "*[Dd]uties*.txt", "*STD678*.txt")
+    duties_all = sorted(glob.glob(os.path.join(a.folder, "*[Dd]uties*.txt"))) or \
+                 sorted(glob.glob(os.path.join(a.folder, "*STD678*.txt")))
+    duties_all = [f for f in duties_all if f.lower().endswith(".txt")]
 
     # Per-JC spec: the posting's SOQ format, extracted once (see SOQ_GATE_PLAN.md).
     # CLI flags override it; without either, the old defaults/requirements apply.
@@ -94,16 +103,33 @@ def main():
     else:
         results.append(("Resume format", 1, "resume docx not found"))
 
-    if duties:
-        results.append(("678 duties", *run("check_678.py",
-            [duties, "--max-chars", str(a.duties_max_chars)])))
+    if duties_all:
+        for d in duties_all:
+            results.append((f"678 duties ({os.path.basename(d)})", *run("check_678.py",
+                [d, "--max-chars", str(a.duties_max_chars)])))
     else:
         results.append(("678 duties", 1,
             "678 duties .txt not found (save the pasted block as a .txt in the folder)"))
 
-    files = [f for f in (resume, soq, duties) if f]
+    files = [f for f in [resume, soq] if f] + duties_all
     if len(files) >= 2:
         results.append(("Cross-doc paste", *run("check_cross_doc.py", files)))
+
+    # generated-678 audit (only once the CalCareers PDF has been saved into the folder)
+    form = find(a.folder, "Uriah_Raffer_STD678_JC-*.pdf")
+    if form:
+        results.append(("678 PDF audit", *run("check_678_pdf.py",
+            [form, "--folder", a.folder])))
+    else:
+        results.append(("678 PDF audit", 0,
+            "SKIPPED - no Uriah_Raffer_STD678_JC-*.pdf in folder yet; save the "
+            "CalCareers-generated form and re-run before submitting"))
+
+    # informational passes (never fail the gate)
+    results.append(("Keyword coverage (INFO)", 0, run("check_keywords.py", [a.folder])[1]))
+    spell_files = [f for f in [soq, resume] if f] + duties_all
+    if spell_files:
+        results.append(("Spelling (ADVISORY)", 0, run("spell_check.py", spell_files)[1]))
 
     print("=" * 64)
     hard_fail = 0
