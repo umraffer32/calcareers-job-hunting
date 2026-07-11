@@ -45,7 +45,7 @@ Removed from the application: Options Trading (self-employed) and the online bus
 
 Paste into the Explanations section if you choose to address the 2020 to 2022 gap. Optional, but recommended.
 
-> During the COVID-19 period from 2020 to 2022, I was engaged in self-directed personal options trading. I returned to traditional employment in late 2022 and began my B.S. in Network Engineering and Security in 2023.
+> During the COVID-19 period from 2020 to 2022, I was engaged in self-directed personal options trading. I returned to traditional employment in late 2022 and began coursework toward my B.S. in Network Engineering and Security in 2023.
 
 ### Note to self (interview prep, not for the form)
 
