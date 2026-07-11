@@ -17,3 +17,6 @@ __pycache__/
 
 # Old state apps kept locally for reference only (not part of the repo)
 State Job Apps (Just for reference and context)/
+
+# Reddit research corpus (synced copy; canonical source lives in ../reddit-research)
+Hiring Research/Reddit Corpus/
