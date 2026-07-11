@@ -139,11 +139,15 @@ conversations and memory, not in any single file. Pull from all three tiers:
      Transcript_UriahRaffer.pdf, `SOQ Research/soq-writing-guide.md`, `Hiring Research/CA_State_Hiring_Field_Guide.docx`, and
      prior tailored apps in the JC-* folders as examples of what he can honestly claim.
 
-2. Canonical memory (MEMORIES.md is now the PRIMARY source for fit/tool decisions):
-   - Read `MEMORIES.md` in the repo root FIRST (imported into CLAUDE.md, loads every session, now the rich canonical source for his verified experience, GitHub index, and settled fit/tool/PASS decisions). Also check any relevant memory files in this project's memory store
-     and the sibling scraper project's store, plus any memories already surfaced into
-     context this session. These hold settled fit/tool decisions and reusable experience
-     banks (e.g. WGU lab tickets, the Block Advisors story, prior PASS decisions).
+2. Canonical memory (MEMORIES.md is the PRIMARY source for fit/tool decisions):
+   - Read `MEMORIES.md` in the repo root FIRST (imported into CLAUDE.md, loads every
+     session). The CORE is sufficient for triage: the honest-fit gap list, the
+     verified-experience summary, the GitHub portfolio index, the triage strategy, and
+     schedule preferences all live there. Do NOT open `Evidence Bank/` files during
+     triage unless a posting names something the core summary is genuinely ambiguous
+     on — the bank holds drafting-depth narratives, not fit decisions. Also check any
+     relevant memory files in this project's memory store and the sibling scraper
+     project's store, plus any memories already surfaced into context this session.
 
 3. Past sessions (FALLBACK — only for experience a posting names that MEMORIES.md does not already cover):
    - For each posting's named tools, systems, and key duties, search past session

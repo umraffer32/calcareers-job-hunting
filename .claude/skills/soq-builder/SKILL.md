@@ -48,7 +48,9 @@ of perjury.
 
 ## Step 0 — Required reading (all of it, before anything)
 
-1. `MEMORIES.md` (canonical memory: verified experience, settled decisions, gaps).
+1. `MEMORIES.md` (the always-loaded core: rules, settled decisions, gaps, and the
+   Evidence Bank index). Full story narratives live in `Evidence Bank/` — read the
+   specific bank files the allocation plan names (Step 3), not the whole folder.
 2. `SOQ Research/soq-writing-guide.md` and `SOQ Research/soq-header-formatting.md`.
 3. The posting and the duty statement IN FULL (see Step 1 for where they come from).
 4. `PRE_SUBMIT_CHECKLIST.md`.
@@ -78,10 +80,16 @@ Read the posting's SOQ / Written Response / Filing instructions TO THE LETTER an
   than"; still BUILD at exactly the stated size), `margins_in`, `spacing` if specified.
 - `advisories`: `left_align`, `simple_formatting` (no justified text / text boxes /
   custom bullets / tables), `flatten_pdf` — set only what the posting actually says.
-- `keywords`: the desirable-qualification and duty-statement terms, verbatim. These feed
-  the gate's INFORMATIONAL coverage report only — never a target to maximize.
-- Optional `filing_notes`: required RPA number (verbatim), position number, supplemental
-  forms — anything the Filing Instructions demand on the 678.
+- `keywords`: the desirable-qualification and duty-statement terms. Write verb keywords
+  as STEMS ("communicat", "collaborat") so `check_keywords.py` matches all inflections
+  instead of reporting false misses. These feed the gate's INFORMATIONAL coverage report
+  only — never a target to maximize.
+- `app_line_tokens`: REQUIRED whenever the posting's filing instructions name identifiers
+  for the application (position number, RPA, JC) — each required string verbatim (e.g.
+  "815-626-1401-012", "RPA:0961", "JC-523777"). `check_678_pdf.py` verifies them against
+  the generated form.
+- Optional `filing_notes`: anything else the Filing Instructions demand on the 678
+  (supplemental forms, transcript copies).
 
 Then DIFF this spec's format + advisories block against the most recent SUBMITTED
 folder's `soq_spec.json` and tell Uriah what is NEW or CHANGED for this posting (this is
@@ -90,13 +98,18 @@ prior spec exists, say so and move on.
 
 ## Step 3 — Evidence-allocation plan -> STOP (sign-off 1 of 4)
 
-- One line per prompt: the primary evidence bank (project/story) that answers it, plus
-  any secondary. NO double-spend — a project may appear in two answers ONLY if the facet
-  differs; a number or named result may appear exactly once in the whole SOQ.
+- One line per prompt: the primary evidence (project/story) that answers it, plus any
+  secondary, **naming the backing `Evidence Bank/<slug>.md` file for each**. NO
+  double-spend — a project may appear in two answers ONLY if the facet differs; a number
+  or named result may appear exactly once in the whole SOQ.
+- **READ every named bank file before drafting** — the pointer's ⚠ constraint is the
+  claim ceiling, the file is the source (numbers, scope, forbidden framings). This is
+  checked at this STOP: the plan is not presentable until the named files are read.
 - Answerability check: if a heavily weighted prompt demands experience Uriah does not
   have, say so plainly — that can still be a late PASS decision, his call.
-- Grep the SUBMITTED SOQs for each chosen story's prior use and note what must be
-  reworded (the no-paste rule applies across applications too).
+- Check each named bank file's USED-IN line for the story's prior use and note what must
+  be reworded (the no-paste rule applies across applications too); spot-grep the
+  SUBMITTED SOQs only when USED-IN looks stale or ambiguous.
 - Present the plan and WAIT for approval. Do not draft anything before it.
 
 ## Step 4 — SOQ internal loop (cap: 3 iterations; no user review inside the loop)
@@ -191,8 +204,15 @@ structure per application.
   Exam/Job Title line must carry it VERBATIM, labeled "RPA <number>", plus the position
   number. Cert slots hold three — pick the three most relevant (A+/Net+/Sec+ for
   support; swap Cloud+ in for cloud/security-heavy roles).
+- Duties block format (zero tolerance): plain sentences one per line, NO bullet
+  characters, exactly ONE blank line between items — `check_678.py` enforces it.
 - Present for sign-off. Do not re-raise settled 678 items (county field, 2020-2022 gap,
   Criminal Record Supplemental, driver-license fields, Robert's reason-for-leaving).
+- **After the duties sign-off:** Uriah fills the CalCareers template; save the GENERATED
+  form into the JC folder as `Uriah_Raffer_STD678_JC-######.pdf`, run
+  `python3 tools/check_678_pdf.py` on it (pre_submit also runs it automatically when the
+  PDF is present), and fix anything it flags ONCE, BEFORE submission — this is what
+  catches a missing RPA or a clipped duties tail while it is still fixable.
 
 ## Step 8 — Full mechanical gate
 

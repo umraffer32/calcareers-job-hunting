@@ -1,0 +1,9 @@
+# In-vehicle electronics install (personal aftermarket head unit)
+DATE: 2026-06-17 | CONFIRMED-BY: Uriah
+PROVES: Genuine hands-on in-vehicle electronics: removed the factory head unit, disconnected the OEM CD changer, wired in an aftermarket Bluetooth unit integrated with steering-wheel controls.
+CONSTRAINTS: Personal DIY, small scope, and he RETURNED the unit. Never inflate to professional or fleet experience. The only vehicle-electronics item in his history.
+USED-IN: JC-521438 SOQ (CHP Fleet ITA). [Signature-term search 2026-07-11.]
+SOURCE: moved verbatim from MEMORIES.md (split 2026-07-11)
+---
+
+Uriah has one genuine piece of automotive-electronics install experience. In his own car he removed the factory radio/head unit, disconnected the OEM multi-CD changer, and wired in a dedicated aftermarket Bluetooth unit (about $400) that let him control music from the steering-wheel buttons. He returned the unit afterward because it did not improve sound quality as expected and the steering-wheel control was not worth the cost. It is a personal DIY project, not professional work, and small in scope. BUT it is legitimately hands-on in-vehicle electronics removal, wiring, and aftermarket-module integration with existing vehicle controls, which is exactly the competency family that vehicle-technology installer roles want (e.g. JC-521438, CHP Fleet Operations ITA: installing mobile data computers, modems, antennas in patrol vehicles). It is currently the ONLY item in his history that demonstrates physically working inside a vehicle's electronics. Honest framing: a personal aftermarket install showing comfort pulling a head unit, handling the wiring harness, and integrating a module with steering-wheel controls. Do NOT inflate it into professional or fleet experience. He initially doubted it was relevant.

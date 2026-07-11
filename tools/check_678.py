@@ -10,6 +10,9 @@ block into a .txt, then check it. Verifies:
     Telling those apart mechanically is unreliable, so this flags EVERY non-numeric
     colon (times/ratios like 7:00 or 3:1 are exempt) for a human to confirm it is a
     list colon and not a mid-sentence one.
+  - block format (zero tolerance, 2026-07-11): plain sentences one per line, NO
+    bullet characters ("- ", "*", or a bullet dot), and exactly ONE blank line
+    between items - never a flowed paragraph, never doubled blank lines.
 
 Exit 1 if any check FAILs, else 0.
 
@@ -40,6 +43,18 @@ def main():
                    and text[m.start() - 1].isdigit() and text[m.start() + 1].isdigit())]
     if bad:
         fails.append(f"{len(bad)} non-numeric colon(s) to review (the 678 allows a colon only to introduce a list, never mid-sentence)")
+
+    # Block format (zero tolerance, 2026-07-11): plain lines, one blank line apart.
+    lines = text.strip("\n").split("\n")
+    bullets = [i + 1 for i, l in enumerate(lines) if re.match(r"\s*(-\s|\*\s|•|·)", l)]
+    if bullets:
+        fails.append(f"bullet character at line(s) {bullets} (678 duties are plain sentences, no '- ' or bullet dots)")
+    adjacent = [i + 1 for i in range(len(lines) - 1) if lines[i].strip() and lines[i + 1].strip()]
+    if adjacent:
+        fails.append(f"consecutive non-blank lines at line(s) {adjacent} (exactly ONE blank line between items)")
+    doubled = [i + 1 for i in range(len(lines) - 1) if not lines[i].strip() and not lines[i + 1].strip()]
+    if doubled:
+        fails.append(f"doubled blank line(s) at line(s) {doubled} (exactly ONE blank line between items; blanks count toward the clip)")
 
     print(f"678 duties: {n} chars (limit {a.max_chars})")
     if fails:

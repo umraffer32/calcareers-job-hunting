@@ -1,3 +1,11 @@
+# CalCareers Job Search Scraper — resume/SOQ project brief
+DATE: 2026-06-22 | CONFIRMED-BY: Uriah
+PROVES: Ready-to-use bullet variants, verified facts, and talking points for the scraper project (Python, requests, BeautifulSoup, headless Chromium; reverse-engineered ASP.NET WebForms API). Genuinely his to claim as software engineering — the design decisions are his.
+CONSTRAINTS: Honest verbs only: built, reverse-engineered, automated, engineered, hardened. Follow the used-not-wrote rule for code authorship framing. Repo docs/ pages are the interview prep.
+USED-IN: JC-523947 resume (Projects bullet). No SUBMITTED SOQ/678 usage found. [Signature-term search 2026-07-11.]
+SOURCE: moved verbatim from MEMORIES.md (split 2026-07-11)
+---
+
 # CalCareers Job-Search Automation — Resume Project Brief
 
 **Purpose:** Source material for adding the "CalCareers scraper" project to Uriah's resume.

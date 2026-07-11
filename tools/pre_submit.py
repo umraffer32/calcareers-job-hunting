@@ -126,6 +126,7 @@ def main():
             "CalCareers-generated form and re-run before submitting"))
 
     # informational passes (never fail the gate)
+    results.append(("Memory pointers (INFO)", 0, run("check_memory_pointers.py", [])[1]))
     results.append(("Keyword coverage (INFO)", 0, run("check_keywords.py", [a.folder])[1]))
     spell_files = [f for f in [soq, resume] if f] + duties_all
     if spell_files:

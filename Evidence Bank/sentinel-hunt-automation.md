@@ -1,3 +1,11 @@
+# Sentinel-hunter automation toolkit — resume/SOQ project brief
+DATE: 2026-06-22 | CONFIRMED-BY: Uriah
+PROVES: Ready-to-use bullet variants and verified facts for the threat-hunt AUTOMATION toolkit (Python, Model Context Protocol, Microsoft Sentinel/KQL).
+CONSTRAINTS: ENGINEERING/AUTOMATION framing ONLY: he built the harness, an AI agent investigates inside it. Never claim he "performed threat hunts" or is a "threat hunter"; lead the project name with "Automation". Does not conflict with the one real internship KQL brute-force claim — keep both, let neither inflate the other.
+USED-IN: No SUBMITTED SOQ/678 usage found. [Signature-term search 2026-07-11.]
+SOURCE: moved verbatim from MEMORIES.md (split 2026-07-11)
+---
+
 # Sentinel Threat-Hunt Automation — Resume Project Brief
 
 **Purpose:** Source material for adding the "threat-hunt automation" project to Uriah's

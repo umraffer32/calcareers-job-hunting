@@ -1,0 +1,9 @@
+# Wi-Fi troubleshooting story: condo dead-zone fix (router placement, band, channel)
+DATE: 2026-07-10 | CONFIRMED-BY: Uriah
+PROVES: RF root-cause story: obstructed router placement found and fixed, 5 GHz dropped to 2.4 GHz reasoned against the 50 Mbps plan (fix suited to the actual constraint), moved to a non-overlapping channel.
+CONSTRAINTS: Personal, not professional. Distinct from the Eero story (this is the RF/signal-optimization angle, that one is cabling/architecture).
+USED-IN: Not yet used in any SUBMITTED SOQ or 678 (JC-523947 resume bullet only). [Signature-term search 2026-07-11.]
+SOURCE: moved verbatim from MEMORIES.md (split 2026-07-11)
+---
+
+Confirmed by Uriah 2026-07-10, surfaced while tailoring the JC-523947 (SCIF Network Infrastructure Services) resume after a fable review flagged zero Wi-Fi/wireless content despite the posting's core being Wi-Fi and IoT device support. Real personal networking work, not a lab. In a small condo, Wi-Fi signal dropped out completely in the kitchen and bathroom despite being not that far from the router. Root cause was physical placement: the router was underneath the bed, obstructed by the bed itself plus multiple walls. Two real fixes: (1) relocated the router to a central location in the space; (2) switched the band from 5 GHz back to 2.4 GHz for better range and wall penetration, reasoning that the connection's speed plan was only rated for 50 Mbps down so there was no bandwidth need for 5 GHz's higher throughput, and moved the network off its prior channel (8 or 9, which overlaps neighboring channels) onto a non-overlapping 2.4 GHz channel (1, 6, or 11). Good root-cause-plus-tradeoff story, matches the "fix suited to the actual constraint" judgment pattern he's shown elsewhere (the EXOS routing ticket, [[wgu-troubleshooting-tickets]]). Reusable for any Wi-Fi/wireless-flavored resume bullet or SOQ prompt going forward.
