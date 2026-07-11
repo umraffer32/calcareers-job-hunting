@@ -13,7 +13,7 @@ Removed from the application: Options Trading (self-employed) and the online bus
 - Scripted repeatable remediations in PowerShell to cut manual effort and human error, re-scanning after each change to confirm the issue was resolved and did not recur.
 - Hardened Windows and Linux configurations by applying DISA STIG baselines to improve alignment with secure-configuration standards.
 - Monitored endpoint and system health with Microsoft Defender for Endpoint, reviewing alerts for indicators such as brute-force attempts, unusual logons, ransomware behavior, and data exfiltration.
-- Built Microsoft Sentinel dashboards and wrote KQL queries against SIEM and EDR logs to surface logon failures and malicious traffic, then traced alerts to root cause before escalating.
+- Built Microsoft Sentinel dashboards and wrote KQL queries against SIEM and EDR logs to surface logon failures and malicious traffic, then traced alerts to root cause.
 - Eliminated password-based brute-force exposure on a public-facing host by reconfiguring SSH for key-only authentication and disabling password login.
 - Documented findings, remediation steps, and outcomes, and summarized results clearly for technical and non-technical readers.
 
