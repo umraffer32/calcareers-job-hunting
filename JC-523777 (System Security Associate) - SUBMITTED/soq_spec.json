@@ -1,0 +1,47 @@
+{
+  "_source": "posting.pdf (JC-523777, CalSTRS), extracted 2026-07-11 from the Special Requirements SOQ section and Additional Application Instructions",
+  "jc": "523777",
+  "title": "System Security Associate (Information Technology Associate)",
+  "department": "State Teachers' Retirement System (CalSTRS)",
+  "prompts": [
+    "Describe how you would work with a customer with limited technical experience who needs assistance with technology you support.",
+    "Describe your experience with account provisioning and system access administration."
+  ],
+  "numbered_headings": true,
+  "page_limit": 2,
+  "font": "Arial",
+  "size_pt": 12,
+  "size_is_minimum": false,
+  "margins_in": 1.0,
+  "spacing": "single",
+  "advisories": {},
+  "keywords": [
+    "account provisioning",
+    "system access",
+    "access administration",
+    "users and groups",
+    "provisioning of access, rights, and privileges",
+    "account cleanup",
+    "authorized personnel",
+    "PowerShell",
+    "scripting",
+    "command line",
+    "Active Directory",
+    "ITSM",
+    "ITIL",
+    "incident",
+    "troubleshoot",
+    "documentation",
+    "customer",
+    "communication",
+    "collaborate",
+    "audit",
+    "security"
+  ],
+  "filing_notes": "SOQ 'will be considered the first interview.' Not exceed 2 pages, single-spaced, 12-point font; font FAMILY not specified (Arial chosen as the safe default), margins not specified (1.0 in default), no alignment/formatting advisories stated. Required docs: STD 678 + resume + SOQ. 678 must carry, verbatim from Additional Application Instructions: '815-626-1401-012, RPA:0961, JC-523777'. Education used for MQs, so submit transcript/degree copy. Background investigation (Personal History Statement + DOJ fingerprinting); possible Form 700. Deadline 7/16/2026.",
+  "app_line_tokens": [
+    "815-626-1401-012",
+    "RPA:0961",
+    "JC-523777"
+  ]
+}

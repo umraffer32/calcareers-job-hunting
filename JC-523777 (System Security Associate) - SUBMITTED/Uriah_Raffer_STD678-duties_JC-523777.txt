@@ -1,0 +1,13 @@
+Work under supervision in a remote cybersecurity internship in simulated enterprise environments running Windows 10/11, Windows Server, and Linux.
+
+Troubleshoot system and configuration incidents to resolution.
+
+Audit system configurations against Security Technical Implementation Guide (STIG) baselines and correct noncompliant settings, including account and password controls, at the command line with PowerShell.
+
+Closed a brute-force exposure on a public-facing host by requiring key-only Secure Shell (SSH) authentication and disabling password login.
+
+Run credentialed Tenable vulnerability scans, prioritize findings by severity, remediate outdated software and misconfigurations, and verify each fix by re-scanning.
+
+Monitor security alerts in Microsoft Sentinel and Microsoft Defender for Endpoint, investigating suspicious sign-on activity to its source.
+
+Create and maintain technical documentation of findings, fixes, and procedures for technical staff and management.
