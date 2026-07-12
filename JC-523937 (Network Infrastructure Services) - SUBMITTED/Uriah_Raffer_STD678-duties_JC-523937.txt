@@ -1,0 +1,13 @@
+Perform supervised hands-on security work in lab and simulated enterprise environments that span Windows 10/11, Windows Server, and Linux.
+
+Review endpoint and system alerts in Microsoft Sentinel and Microsoft Defender for Endpoint, performing initial triage and taking corrective action within established guidelines.
+
+Trace faults in systems, networks, and configurations to their root cause on endpoints and servers alike.
+
+Scan for vulnerabilities with Tenable, prioritize findings by severity, and remediate misconfigurations and outdated software with PowerShell, verifying each fix with a follow-up scan.
+
+Harden Windows and Linux configurations against Security Technical Implementation Guide (STIG) baselines.
+
+Eliminated brute-force exposure on a public-facing host by requiring key-only Secure Shell (SSH) authentication.
+
+Document each change, remediation, and configuration accurately, with results summarized for technical and non-technical readers.

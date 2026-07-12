@@ -154,9 +154,10 @@
    "value": "6",
    "context": [
     "scan",
-    "scans"
+    "scans",
+    "Cat"
    ],
-   "note": "vuln-mgmt: across 6 scans"
+   "note": "vuln-mgmt: across 6 scans; also Cat 6 cabling (eero-wired-backhaul)"
   },
   {
    "value": "100",
@@ -253,9 +254,10 @@
     "apps",
     "applications",
     "item",
-    "items"
+    "items",
+    "GHz"
    ],
-   "note": "4-5 life insurance apps/week at Robert's"
+   "note": "4-5 life insurance apps/week at Robert's; also 5 GHz band (condo-wifi-deadzone)"
   },
   {
    "value": "16",
@@ -362,6 +364,32 @@
     "years"
    ],
    "note": "~2.5 years of homelab work (defensible)"
+  },
+  {
+   "value": "150",
+   "context": [
+    "foot",
+    "ft",
+    "feet",
+    "Cat"
+   ],
+   "note": "eero-wired-backhaul: 150-foot Cat 6 run (Evidence Bank, confirmed 2026-07-10)"
+  },
+  {
+   "value": "50",
+   "context": [
+    "Mbps",
+    "plan"
+   ],
+   "note": "condo-wifi-deadzone: 50 Mbps down plan (Evidence Bank, confirmed 2026-07-10)"
+  },
+  {
+   "value": "2.4",
+   "context": [
+    "GHz",
+    "band"
+   ],
+   "note": "condo-wifi-deadzone: 2.4 GHz band call (Evidence Bank, confirmed 2026-07-10)"
   }
  ],
  "number_exempt": [

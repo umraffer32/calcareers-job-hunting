@@ -2,7 +2,7 @@
 DATE: 2026-07-10 | CONFIRMED-BY: Uriah
 PROVES: Real structured-cabling work (150 ft Cat 6 through the wall) plus a correct architecture call (wired beats wireless backhaul for a mesh). Strong for "installing, configuring, and maintaining network hardware" duty language.
 CONSTRAINTS: Personal home project, not professional work. Distinct from the condo story (that one is the RF/signal-optimization angle).
-USED-IN: Not yet used in any SUBMITTED SOQ or 678 (merged into a JC-523947 resume bullet only). [Signature-term search 2026-07-11.]
+USED-IN: JC-523947 resume bullet (merged); JC-523937 SOQ Q1 (signed off 2026-07-11 — wired-backhaul adaptation beat, 150 ft Cat 6 number spent there).
 SOURCE: moved verbatim from MEMORIES.md (split 2026-07-11)
 ---
 

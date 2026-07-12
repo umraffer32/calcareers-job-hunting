@@ -2,7 +2,7 @@
 DATE: 2026-06-19 | CONFIRMED-BY: Uriah
 PROVES: Difficult-customer story: legal duty to act on a disclosed fact, calm persistence through personal hostility, graceful hand-off, correct outcome (the next preparer required the same thing). Verified volume numbers: ~70 returns/season, ~$24,000.
 CONSTRAINTS: The "hate in my heart" line stays OUT of all written docs (interview-only, Uriah's call). Default: leave a client's personal insult out of difficult-customer SOQ answers and let the hand-off carry the professionalism. Preserve the honest loose end (never learned why she wouldn't produce the 1098).
-USED-IN: JC-521631 SOQ; JC-522094 SOQ (Q1); JC-522622 SOQ. [Signature-term search 2026-07-11.]
+USED-IN: JC-521631 SOQ; JC-522094 SOQ (Q1); JC-522622 SOQ; JC-523937 SOQ Q2 (in-person modality beat only, plain-terms framing, no volume numbers). [Signature-term search 2026-07-11.]
 SOURCE: moved verbatim from MEMORIES.md (split 2026-07-11)
 ---
 

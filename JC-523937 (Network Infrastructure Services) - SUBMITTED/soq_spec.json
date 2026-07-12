@@ -1,0 +1,54 @@
+{
+  "_source": "posting.pdf (JC-523937, State Compensation Insurance Fund), extracted 2026-07-11 from Required Application Package Documents (SOQ section) and Application Instructions",
+  "jc": "523937",
+  "title": "Network Infrastructure Services (Information Technology Associate)",
+  "department": "State Compensation Insurance Fund",
+  "prompts": [
+    "Describe your experience with adapting to new technology.",
+    "Describe your experience delivering through various modalities."
+  ],
+  "numbered_headings": true,
+  "page_limit": 1,
+  "font": "Arial",
+  "size_pt": 12,
+  "size_is_minimum": false,
+  "margins_in": 1.0,
+  "spacing": "single",
+  "advisories": {
+    "header_upper_right": true
+  },
+  "keywords": [
+    "Wi-Fi",
+    "IoT",
+    "network",
+    "router",
+    "switch",
+    "wireless",
+    "connectivity",
+    "configur",
+    "troubleshoot",
+    "escalat",
+    "monitor",
+    "alert",
+    "triage",
+    "install",
+    "document",
+    "customer service",
+    "communicat",
+    "collaborat",
+    "adapt",
+    "flexib",
+    "independen",
+    "keep current",
+    "changing technologies",
+    "Tier 2",
+    "SLA",
+    "hardware",
+    "equipment"
+  ],
+  "filing_notes": "SOQ verbatim instruction reads 'In no more than one pages, please include your name and Job Control (JC) number in the upper-right hand corner of the page and list the following SOQ prompts in your response'. So the header is name + JC in the UPPER-RIGHT corner, NOT the house centered title block. No font/size/margins/spacing specified anywhere in the posting (Arial 12, 1.0 in margins, single-spaced chosen as safe defaults). Prompt 2 is 'delivering through various modalities' with NO word 'service' in it, confirmed against raw pdftotext. Required docs are STD 678 + resume (required, must be included) + SOQ. No RPA named. Position number on posting is 402-417-1401-XXX (XXX placeholder, multiple positions). Posting carries the AI-acknowledgment clause (SOQ must be the applicant's own work). Final filing 7/19/2026. Mailing Attn line is 'JC-523937 TS'.",
+  "app_line_tokens": [
+    "402-417-1401",
+    "JC-523937"
+  ]
+}
