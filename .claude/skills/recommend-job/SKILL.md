@@ -83,7 +83,10 @@ candidates.json is already fresh and no refresh is needed.
      exclusion source, and the tags double as pass-precedent patterns for scoring new
      postings. Full verbatim reasoning lives in TRIAGE_LEDGER_DETAIL.md — open it ONLY
      when a borderline call needs the full precedent, never for routine exclusion.
-  2. PROGRESS_LOG.md — any JC-###### marked SUBMITTED, IN-PROGRESS, or PASSED.
+  2. PROGRESS_LOG.md — any JC-###### marked SUBMITTED, IN-PROGRESS, or PASSED. Note it
+     holds the CURRENT MONTH only (older months are archived); that is fine, because
+     folders and the ledger are the canonical sources for older decisions — do NOT open
+     PROGRESS_LOG_ARCHIVE.md for exclusions.
   3. Folders in this repo — any "JC-###### (Title) - SUBMITTED/IN-PROGRESS" folder.
   Match on the 6-digit job_control_id. List what you excluded and why, briefly.
 - DATA-INTEGRITY GUARD (run before finalizing exclusions): a JC must NEVER appear in BOTH a

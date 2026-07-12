@@ -4,7 +4,7 @@ Canonical list of CalCareers postings evaluated and **passed**. The `recommend-j
 
 `JC-###### — Title (classification, dept) — [category-tag] one-line reason (passed YYYY-MM-DD)`
 
-Tags: `[developer]` `[ba-qa]` `[pm]` `[procurement]` `[tool-saturation]` `[domain-gap]` `[seniority]` `[soq-answerability]` `[stretch-declined]` `[off-lane]`. Full verbatim reasoning for every entry lives in `TRIAGE_LEDGER_DETAIL.md` — open it only when a borderline call needs the precedent. **Append both on every pass:** the compact line here (newest first), the full reasoning there.
+Tags: `[developer]` `[ba-qa]` `[pm]` `[procurement]` `[tool-saturation]` `[domain-gap]` `[seniority]` `[soq-answerability]` `[stretch-declined]` `[schedule]` `[off-lane]`. Full verbatim reasoning for every entry lives in `TRIAGE_LEDGER_DETAIL.md` — open it only when a borderline call needs the precedent. **Append both on every pass:** the compact line here (newest first), the full reasoning there.
 
 Submitted and in-progress jobs are NOT listed here — those are tracked by their `JC-###### (Title) - SUBMITTED/IN-PROGRESS` folders and in `PROGRESS_LOG.md`.
 
@@ -100,3 +100,8 @@ Submitted and in-progress jobs are NOT listed here — those are tracked by thei
 - JC-509020 — Web Analyst — [developer] web development (passed 2026-06-15)
 - JC-520066 — Information Technology Associate (Cal OES) — [off-lane] admin/fleet-coordinator role despite the ITA title (passed 2026-06-15)
 - JC-520495 — Information Technology Specialist I — [developer] webmaster role (passed 2026-06-14)
+- JC-520685 — IT Specialist I, CALPADS (ITS I, CDE) — [ba-qa] [domain-gap] data/business analyst SME on a large education data system (SQL, SAS, requirements gathering) (passed 2026-06-12)
+- JC-520645 — IT Systems Administrator I (ITS I, CalPERS) — [seniority] [tool-saturation] senior systems engineer despite the ITS I label (advanced VMware vSphere, RHEL, SAN/NAS, leads projects, mentors juniors) (passed 2026-06-12)
+- JC-520326 — Cybersecurity Policy and Standards Specialist (ITS I, CDT) — [domain-gap] GRC/policy flavor (NIST/SAM/SIMM frameworks, policy writing, executive briefings), not hands-on security ops (passed 2026-06-12)
+- JC-520014 — Information Technology Associate (ITA, CHP) — [tool-saturation] almost entirely ServiceNow, his confirmed gap; deadline was the next day (passed 2026-06-11)
+- JC-520577 — IT Technician (DOJ) — [schedule] night-shift Thursday-Monday base schedule, not wanted; also not on the ITT list (passed 2026-06-11)
