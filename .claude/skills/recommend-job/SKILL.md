@@ -144,7 +144,7 @@ conversations and memory, not in any single file. Pull from all three tiers:
 
 1. Documents and rules (authoritative for honest-fit and writing rules):
    - CLAUDE.md (this repo), `Base Resume and Employment History/Uriah_Raffer_IT_Support_Resume.pdf`, `Base Resume and Employment History/Employment_History_STD678.md`,
-     Transcript_UriahRaffer.pdf, `SOQ Research/soq-writing-guide.md`, `Hiring Research/CA_State_Hiring_Field_Guide.docx`, and
+     `Base Resume and Employment History/Transcript_UriahRaffer.pdf`, `SOQ Research/soq-writing-guide.md`, `Hiring Research/CA_State_Hiring_Field_Guide.docx`, and
      prior tailored apps in the JC-* folders as examples of what he can honestly claim.
 
 2. Canonical memory (MEMORIES.md is the PRIMARY source for fit/tool decisions):
