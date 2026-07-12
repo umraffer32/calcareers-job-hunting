@@ -8,6 +8,12 @@ _Current month only. Prior months live verbatim in `PROGRESS_LOG_ARCHIVE.md` (ro
 
 ## July 11, 2026
 
+### Repo reorganization (approved plan, all six phases) — fewer always-loaded tokens, on-demand retrieval
+- Executed the reorganization plan in a Claude Code session, one commit per phase. MEMORIES.md split into a lean core (100.9KB -> ~54.9KB) plus `Evidence Bank/` (19 story files with PROVES/CONSTRAINTS/USED-IN headers, bodies moved verbatim; USED-IN populated by searching all 24 SUBMITTED SOQs + 678 duties files). CLAUDE.md deduplicated (~16.5KB; Memory section rewritten with the routing test and the mechanize-corrections clause). TRIAGE_LEDGER compacted to tagged one-liners (31.8KB -> ~14.1KB per triage run) with full reasoning in TRIAGE_LEDGER_DETAIL.md. June log archived to PROGRESS_LOG_ARCHIVE.md. RESEARCH_INDEX.md created; root decluttered (transcript, resume report, old apps moved).
+- Two real finds along the way: five June passes (JC-520014/520326/520577/520645/520685) had never been backfilled into the ledger — fixed, with JC-519900 deliberately left out (shortlisted 6/15, never decided); and the new 678 duties-format check correctly fails pre-07-11 packages on their historical .txt files (expected — submitted records are never rewritten; JC-523777 is the known-good gate package, OVERALL PASS end to end).
+- New tooling: `tools/check_memory_pointers.py` (bank pointers verified both directions, wired into pre_submit), `check_678.py` duties-format enforcement (bullets/blank-line rules now mechanical), soq-builder + recommend-job SKILL.md updates (allocation must name and read bank files; triage runs on the core only).
+
+
 ### Job triage run (recommend-job) — scrape generated_at 7/11 17:11 UTC (42 open postings)
 
 - Ran the scraper fresh (2 new, 1 closed since the 7/9 run), then ran recommend-job. After excluding 39 TRIAGE_LEDGER passes and 2 SUBMITTED/IN-PROGRESS folders (523478, 523947 — no data-integrity conflicts between folders and ledger), 9 postings were un-evaluated: the 2 brand-new postings from today's scrape (523814, 524404), plus 7 previously-unseen-but-un-triaged postings still open from earlier scrapes (523777, 523937, 523141, 524323, 524252, 518577, 524311). Note JC-523777 and JC-523937 were already fully analyzed in the 7/10 run as STRONG FIT recommendations but neither had a folder started yet, so both were re-surfaced rather than silently dropped.
