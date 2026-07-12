@@ -116,6 +116,16 @@
    "id": "simulated-internship",
    "pattern": "\\bsimulat\\w+\\b[^.!?]{0,60}(internship|Cyber Range)|(internship|Cyber Range)[^.!?]{0,60}\\bsimulat\\w+\\b",
    "why": "The Cyber Range is built on ACTUAL enterprise infrastructure (Azure, Tenable) - do not describe the internship as simulated or downplay it (MEMORIES 2026-06-18)."
+  },
+  {
+   "id": "no-organized-training",
+   "pattern": "no (organized|formal) training|no training program|without (coordinated or )?organized training",
+   "why": "FALSE for the internship: Log(N) Pacific's Cyber Range HAS an organized self-paced training program (per-discipline classrooms + hands-on labs; Uriah confirmed with screenshot 2026-07-11). Never claim untrained/self-taught ramp on internship platforms; honest framing is self-paced classroom tracks and hands-on labs worked through remotely."
+  },
+  {
+   "id": "self-taught-internship-toolset",
+   "pattern": "taught myself|self-taught",
+   "why": "Internship toolset (Sentinel/Defender/Tenable/Azure/KQL) was learned via the Cyber Range's structured self-paced classrooms (2026-07-11), so 'taught myself' is false in internship context. Only genuinely instructor-less personal-project learning (homelab, GLPI, scraper) could justify it; if flagged there, reword ('learned', 'picked up', 'stood up myself') or justify explicitly."
   }
  ],
  "verified_numbers": [
