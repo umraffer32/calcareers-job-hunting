@@ -22,16 +22,40 @@ Usage:
 import sys, re, argparse
 
 
+def fit_report(text, n, limit):
+    """--fit helper: total chars, delta to the limit, and each content line's
+    length longest-first, so trimming to the ~1,000-char clip is one pass.
+    Blank lines and whitespace count toward the total, same as the clip."""
+    delta = n - limit
+    status = f"OVER by {delta}" if delta > 0 else f"{-delta} to spare"
+    print(f"678 fit: {n}/{limit} chars ({status}) - blank lines and whitespace count")
+    lines = text.strip("\n").split("\n")
+    content = sorted(((i + 1, len(l), l.strip()) for i, l in enumerate(lines) if l.strip()),
+                     key=lambda t: -t[1])
+    print("per-line lengths (longest first):")
+    for lineno, length, snip in content:
+        print(f"  {length:>4}  line {lineno}: {snip[:55] + ('...' if len(snip) > 55 else '')}")
+    print(f"RESULT: INFO | {n}/{limit} chars ({status})")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("file")
     ap.add_argument("--max-chars", type=int, default=1000)
+    ap.add_argument("--fit", action="store_true",
+                    help="character-fit helper: total chars, delta to the limit, "
+                         "and per-line lengths longest-first (informational, no pass/fail)")
     a = ap.parse_args()
 
     # Normalize CRLF so a Windows-saved file's \r bytes don't inflate the count
     # vs. the text CalCareers actually counts when pasted.
     text = open(a.file, encoding="utf-8", errors="ignore").read().replace("\r\n", "\n")
     n = len(text)
+
+    if a.fit:
+        return fit_report(text, n, a.max_chars)
+
     fails = []
 
     if n > a.max_chars:
@@ -57,13 +81,15 @@ def main():
         fails.append(f"doubled blank line(s) at line(s) {doubled} (exactly ONE blank line between items; blanks count toward the clip)")
 
     print(f"678 duties: {n} chars (limit {a.max_chars})")
+    verdict = "FAIL" if fails else "PASS"
     if fails:
         print("FAIL:")
         for f in fails:
             print("  - " + f)
-        return 1
-    print("OK - 678 duties block passes")
-    return 0
+    else:
+        print("OK - 678 duties block passes")
+    print(f"RESULT: {verdict} | {n}/{a.max_chars} chars")
+    return 1 if fails else 0
 
 
 if __name__ == "__main__":

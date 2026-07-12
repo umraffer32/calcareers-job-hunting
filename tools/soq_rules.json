@@ -3,6 +3,7 @@
     "soq_rules.json - persistent rules data for tools/soq_gate.py, curated from MEMORIES.md.",
     "Update this file whenever MEMORIES gains a new banned claim or a newly verified quantifiable.",
     "banned_claims: hard FAIL. 'allow_near' is a regex; a hit is excused only if it falls inside an allow_near match.",
+    "scope_watchlist: WARN-level radar (asset/inventory/forensic + banned tool names as a safety net). check_claims.py runs banned_claims + scope_watchlist across the SOQ, resume, and every 678 duties .txt; a term already hard-failing as a banned claim is not also WARNed (suppress-duplicates).",
     "verified_numbers: a digit number in the SOQ must appear in the same sentence as one of its context terms.",
     "  Known value + wrong context = FAIL (the '70 clients' drift class). Unknown number = WARN.",
     "number_exempt: regex spans whose digits are never treated as quantifiables (JC numbers, versions, years).",
@@ -55,8 +56,8 @@
     {
       "id": "asset-tracking",
       "pattern": "asset[- ](track\\w+|management|inventory)",
-      "allow_near": "GLPI[^.!?]{0,80}asset|asset[^.!?]{0,80}GLPI",
-      "why": "No professional asset-tracking/inventory experience (JC-521906 pass). The GLPI lab's small inventory may be described only as lab work, explicitly framed as such."
+      "allow_near": "GLPI[^.!?]{0,120}asset|asset[^.!?]{0,120}GLPI",
+      "why": "No professional asset-tracking/inventory experience (JC-521906 pass). The GLPI lab's small inventory may be described only as lab work, explicitly framed as such. allow_near widened to 120 chars 2026-07-12 so the standard resume GLPI-lab bullet (GLPI named at the sentence head, asset inventory listed as a feature) is not a false positive; GLPI is his only legitimate asset-inventory context."
     },
     {
       "id": "sql",
@@ -115,7 +116,7 @@
     {
       "id": "simulated-internship",
       "pattern": "\\bsimulat\\w+\\b[^.!?]{0,60}(internship|Cyber Range)|(internship|Cyber Range)[^.!?]{0,60}\\bsimulat\\w+\\b",
-      "why": "The Cyber Range is built on ACTUAL enterprise infrastructure (Azure, Tenable) - do not describe the internship as simulated or downplay it (MEMORIES 2026-06-18)."
+      "why": "The Cyber Range is NOT simulated - it is real enterprise tooling (Azure, Tenable) in a hands-on LEARNING/training environment built for interns, not a production job (Uriah 2026-07-12). 'Simulated' is factually wrong, not just downplaying. Honest framing: real enterprise tools in a training environment. The JC-523777/523947 678 blocks used 'simulated enterprise environments' before this was pinned - already submitted, caught going forward (MEMORIES 2026-06-18, refined 2026-07-12)."
     },
     {
       "id": "no-organized-training",
@@ -136,6 +137,63 @@
       "id": "stig-scan-surfaced-only-10",
       "pattern": "(surfaced|found|returned|identified|flagged) (only )?10 (failing )?(controls|audits|findings)",
       "why": "Uriah 2026-07-12: the STIG scan returned hundreds of findings; he SELECTED 10 controls to remediate. Say chose/selected 10, never that the scan surfaced only 10 (Evidence Bank/win11-stigs-details.md)."
+    },
+    {
+      "id": "runbook",
+      "pattern": "\\brunbooks?\\b",
+      "why": "Uriah has never created or maintained a runbook (MEMORIES 2026-07-12). Honest adjacent: 'security documentation' / 'repeatable procedures'. Same class as the Wireshark/imaging/VMware pulls - do not reach for a duty-statement keyword he has not actually done."
+    }
+  ],
+  "scope_watchlist": [
+    {
+      "id": "asset",
+      "pattern": "\\bassets?\\b",
+      "why": "No professional asset-tracking/inventory experience. Legit only as explicitly-framed GLPI lab work; confirm each mention (the 'asset-tracking' banned claim covers the management/inventory phrasings)."
+    },
+    {
+      "id": "inventory",
+      "pattern": "\\binventor(y|ies)\\b",
+      "why": "Same as asset: no professional inventory experience; legit only as GLPI lab work. Confirm each mention."
+    },
+    {
+      "id": "forensic",
+      "pattern": "\\bforensics?\\b",
+      "why": "Zero forensics experience. Legit ONLY inside a restated posting prompt (e.g. 'basic forensic data collection under supervision'), never as a claim. Confirm context, do not confess."
+    },
+    {
+      "id": "servicenow-watch",
+      "pattern": "\\bServiceNow\\b",
+      "why": "Also a banned claim; the watchlist is the safety net if a ban is ever excused by allow_near. Zero hands-on."
+    },
+    {
+      "id": "endpoint-mgmt-watch",
+      "pattern": "\\bIntune\\b|\\bSCCM\\b|Configuration Manager|\\bMDM\\b|Endpoint Manager",
+      "why": "Microsoft endpoint-management suite: zero hands-on. Safety net for the endpoint banned claims."
+    },
+    {
+      "id": "wireshark-watch",
+      "pattern": "\\bWireshark\\b",
+      "why": "Never operated as a tool; the only legit mention is a removed/remediated finding. The banned claim excuses that context - confirm any hit here is exactly that."
+    },
+    {
+      "id": "imaging-watch",
+      "pattern": "\\bimaging\\b|\\bre-?imag\\w+\\b|\\b(system|OS|golden) images?\\b",
+      "why": "Never captured or deployed a system image (installs from ISOs). Docker/container images are fine. Confirm."
+    },
+    {
+      "id": "vmware-esxi-watch",
+      "pattern": "\\bVMware\\b|\\bESXi\\b|\\bvSphere\\b|\\bvCenter\\b",
+      "why": "Type 1 hypervisor is Proxmox, not ESXi. VMware Workstation (Type 2) is the only legit VMware. Confirm any hit is Workstation."
+    },
+    {
+      "id": "m365-watch",
+      "pattern": "Microsoft 365|\\bM365\\b|Office 365",
+      "why": "No Microsoft 365 support experience; he avoids M365 tools. Safety net for the m365 banned claim."
+    },
+    {
+      "id": "sql-watch",
+      "pattern": "\\bSQL\\b",
+      "why": "No SQL or database administration; KQL is not SQL. Safety net for the sql banned claim (word-boundary deliberately misses SQLite/MySQL)."
     }
   ],
   "verified_numbers": [

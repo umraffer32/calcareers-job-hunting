@@ -280,7 +280,11 @@ def main():
     fails = sum(1 for l, _ in results if l == "FAIL")
     warns = sum(1 for l, _ in results if l == "WARN")
     verdict = "PASS" if fails == 0 else "FAIL"
-    print(f" RESULT: {verdict}  ({fails} failed, {warns} warning(s))")
+    pages_measure = next((f"{m.group(1)}/{m.group(2)} pages"
+                          for _l, msg in results
+                          if (m := re.match(r"Pages: (\d+) of (\d+)", msg))), None)
+    measure = ", ".join(x for x in [pages_measure, font + (f" {size}pt" if size else "")] if x)
+    print(f" RESULT: {verdict} | {measure}  ({fails} failed, {warns} warning(s))")
     print(bar)
     sys.exit(0 if fails == 0 else 1)
 

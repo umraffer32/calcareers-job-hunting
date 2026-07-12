@@ -83,7 +83,9 @@ Read the posting's SOQ / Written Response / Filing instructions TO THE LETTER an
 - `keywords`: the desirable-qualification and duty-statement terms. Write verb keywords
   as STEMS ("communicat", "collaborat") so `check_keywords.py` matches all inflections
   instead of reporting false misses. These feed the gate's INFORMATIONAL coverage report
-  only — never a target to maximize.
+  only — never a target to maximize. NEVER list a banned claim (`tools/soq_rules.json`
+  `banned_claims`) as a keyword, or the package chases a word the gate hard-fails
+  ("runbook" was a keyword on JC-524404).
 - `app_line_tokens`: REQUIRED whenever the posting's filing instructions name identifiers
   for the application (position number, RPA, JC) — each required string verbatim (e.g.
   "815-626-1401-012", "RPA:0961", "JC-523777"). `check_678_pdf.py` verifies them against
@@ -206,6 +208,15 @@ structure per application.
   support; swap Cloud+ in for cloud/security-heavy roles).
 - Duties block format (zero tolerance): plain sentences one per line, NO bullet
   characters, exactly ONE blank line between items — `check_678.py` enforces it.
+- **Scrutiny before sign-off (adds the SOQ loop's rigor to the 678):** run
+  `python3 tools/check_678_scrutiny.py <duties.txt> --spec <JC folder>/soq_spec.json`
+  on EACH block and present its report with the block — the measured char count and
+  format, the banned-claims + scope-watchlist honesty scan (same matcher as the
+  pre_submit claims scan), keyword coverage vs the duty statement, and a
+  quantification WARN on the primary block. Act on it before presenting, so the block
+  arrives already-audited (the JC-524404 blocks were signed off then reworked:
+  reordered competency-first, de-duped, metrics added, a runbook pulled). This is a
+  report, not a new loop — the four sign-offs are unchanged.
 - Present for sign-off. Do not re-raise settled 678 items (county field, 2020-2022 gap,
   Criminal Record Supplemental, driver-license fields, Robert's reason-for-leaving).
 - **After the duties sign-off:** Uriah fills the CalCareers template; save the GENERATED

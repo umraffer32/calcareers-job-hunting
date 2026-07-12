@@ -44,6 +44,7 @@ def main():
     except ImportError:
         print("spell_check: pyspellchecker not installed; skipped "
               "(pip install pyspellchecker)")
+        print("RESULT: ADVISORY | skipped (pyspellchecker not installed)")
         return 0
 
     allow = set()
@@ -82,8 +83,8 @@ def main():
         else:
             print(f" [PASS] {name}: no unknown words")
     print("-" * 64)
-    print(f" RESULT: ADVISORY  ({total_unknown} unknown word(s) across "
-          f"{len(a.files)} file(s) - human judges; allowlist false positives)")
+    print(f" RESULT: ADVISORY | {total_unknown} unknown across {len(a.files)} file(s) "
+          f"(human judges; allowlist false positives)")
     print(bar)
     return 0
 

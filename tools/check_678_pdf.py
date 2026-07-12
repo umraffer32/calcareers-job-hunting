@@ -148,7 +148,8 @@ def main():
             fails += 1
         print(f" [{lvl}] {msg}")
     print("-" * 64)
-    print(f" RESULT: {'PASS' if fails == 0 else 'FAIL'}  ({fails} failed)")
+    print(f" RESULT: {'PASS' if fails == 0 else 'FAIL'} | {fails} fail, "
+          f"{len(duties_files)} duties block(s)")
     print(bar)
     return 1 if fails else 0
 

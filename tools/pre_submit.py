@@ -31,15 +31,29 @@ Usage:
 Save the finalized 678 duties block into the folder as a .txt first
 (e.g. Uriah_Raffer_STD678-duties_JC-######.txt) so the gate can read it.
 """
-import sys, os, glob, json, argparse, subprocess
+import sys, os, re, glob, json, argparse, subprocess
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+RESULT_RE = re.compile(r"^\s*RESULT:\s*(\w+)\s*\|\s*(.*)$", re.M)
 
 
 def run(script, args):
     p = subprocess.run([sys.executable, os.path.join(HERE, script)] + args,
                        capture_output=True, text=True)
     return p.returncode, (p.stdout + p.stderr).strip()
+
+
+def result_line(out):
+    """(verdict, measure) from a checker's final 'RESULT: <verdict> | <measure>'
+    line, or None if it emitted no such line. A hard check that exits 0 with no
+    RESULT line is truncated or crashed - pre_submit treats that None as a failure
+    so a silent no-op can never read as a PASS again."""
+    hits = RESULT_RE.findall(out)
+    if not hits:
+        return None
+    v, m = hits[-1]
+    return v.strip().upper(), m.strip()
 
 
 def find(folder, *patterns):
@@ -59,6 +73,22 @@ def main():
     ap.add_argument("--resume-font", default="Calibri")
     ap.add_argument("--duties-max-chars", type=int, default=1000)
     a = ap.parse_args()
+
+    # Tools integrity FIRST. A truncated or altered checker (the Cowork-mount class
+    # of failure that made check_678 exit 0 printing nothing) makes every downstream
+    # verdict untrustworthy, so any mismatch short-circuits the whole gate.
+    irc, iout = run("check_integrity.py", [])
+    irl = result_line(iout)
+    if irc != 0 or irl is None:
+        print("=" * 64)
+        print("[FAIL] Tools integrity - " +
+              (irl[1] if irl else "no RESULT line (check_integrity truncated/crashed?)"))
+        for line in iout.splitlines():
+            print("    " + line)
+        print("=" * 64)
+        print("OVERALL: FAIL - tools integrity mismatch; restore tools/ from git "
+              "(or run check_integrity.py --regen if the change was intentional) and re-run")
+        return 1
 
     soq = find(a.folder, "Uriah_Raffer_SOQ_*.docx")
     resume = find(a.folder, "Uriah_Raffer_Resume_*.docx")
@@ -83,7 +113,7 @@ def main():
     if soq_pages is None:
         ap.error("--soq-pages is required (or provide page_limit in the folder's soq_spec.json)")
 
-    results = []
+    results = [("Tools integrity", irc, iout)]
     if soq:
         vargs = [soq, "--type", "soq", "--font", soq_font, "--size", str(soq_size),
                  "--max-pages", str(soq_pages)]
@@ -115,6 +145,13 @@ def main():
     if len(files) >= 2:
         results.append(("Cross-doc paste", *run("check_cross_doc.py", files)))
 
+    # honesty scan: banned claims (hard FAIL) + scope watchlist (WARN) across the
+    # SOQ, resume, and every 678 duties .txt. Was SOQ-only via soq_gate until
+    # 2026-07-12 (the "runbooks" claim reached the 678 and the signed-off SOQ).
+    claim_files = [f for f in [soq, resume] if f] + duties_all
+    if claim_files:
+        results.append(("Claims scan", *run("check_claims.py", claim_files)))
+
     # generated-678 audit (only once the CalCareers PDF has been saved into the folder)
     form = find(a.folder, "Uriah_Raffer_STD678_JC-*.pdf")
     if form:
@@ -123,7 +160,8 @@ def main():
     else:
         results.append(("678 PDF audit", 0,
             "SKIPPED - no Uriah_Raffer_STD678_JC-*.pdf in folder yet; save the "
-            "CalCareers-generated form and re-run before submitting"))
+            "CalCareers-generated form and re-run before submitting\n"
+            "RESULT: SKIP | not generated yet"))
 
     # informational passes (never fail the gate)
     results.append(("Memory pointers (INFO)", 0, run("check_memory_pointers.py", [])[1]))
@@ -135,9 +173,28 @@ def main():
     print("=" * 64)
     hard_fail = 0
     for name, rc, out in results:
-        if rc != 0:
+        is_info = "(INFO)" in name or "(ADVISORY)" in name
+        rl = result_line(out)
+        # a hard check that exits 0 but prints no RESULT line is truncated/crashed
+        missing = rl is None and rc == 0 and not is_info
+        failed = (rc != 0 or missing) and not is_info
+        if failed:
             hard_fail += 1
-        print(f"[{'PASS' if rc == 0 else 'FAIL'}] {name}")
+        if is_info:
+            verdict = rl[0] if rl else "INFO"
+        elif failed:
+            verdict = "FAIL"
+        elif rl and rl[0] == "SKIP":
+            verdict = "SKIP"
+        else:
+            verdict = "PASS"
+        if rl:
+            tail = f" - {rl[1]}"
+        elif missing:
+            tail = " - no RESULT line (tool truncated/crashed?)"
+        else:
+            tail = ""
+        print(f"[{verdict}] {name}{tail}")
         for line in out.splitlines():
             print("    " + line)
     print("=" * 64)

@@ -35,13 +35,15 @@ def main():
         fails.append(f"pointers with NO bank file: {', '.join(missing_files)}")
     if orphan_files:
         fails.append(f"bank files with NO pointer in MEMORIES.md: {', '.join(orphan_files)}")
+    verdict = "FAIL" if fails else "PASS"
     if fails:
         print("FAIL:")
         for f in fails:
             print("  - " + f)
-        return 1
-    print("OK - all pointers resolve both ways")
-    return 0
+    else:
+        print("OK - all pointers resolve both ways")
+    print(f"RESULT: {verdict} | {len(slugs)} refs, {len(bank)} files")
+    return 1 if fails else 0
 
 
 if __name__ == "__main__":

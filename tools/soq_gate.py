@@ -53,6 +53,8 @@ import zipfile
 import argparse
 import subprocess
 
+from claims_lib import banned_hits
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 XML_ENTITIES = {"&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&apos;": "'"}
@@ -127,22 +129,13 @@ def find_heading_indexes(paras, spec):
 # ---------------- checks: each returns (level, message) ----------------
 
 def check_banned_claims(full_text, rules):
-    hits = []
-    for entry in rules.get("banned_claims", []):
-        pat = re.compile(entry["pattern"], re.I)
-        allow_spans = []
-        if entry.get("allow_near"):
-            allow_spans = [m.span() for m in
-                           re.finditer(entry["allow_near"], full_text, re.I)]
-        for m in pat.finditer(full_text):
-            excused = any(not (m.end() <= a or m.start() >= b)
-                          for a, b in allow_spans)
-            if not excused:
-                hits.append((entry["id"], snippet(full_text, m.start()), entry["why"]))
+    # Matching lives in claims_lib so the SOQ, resume, and 678 share one source
+    # of truth (check_claims.py runs the same banned_hits on the other docs).
+    hits = banned_hits(full_text, rules)
     if not hits:
         return ("PASS", "Banned claims: none")
     lines = [f"Banned claims: {len(hits)} hit(s)"]
-    for hid, sn, why in hits[:8]:
+    for hid, sn, why, _span in hits[:8]:
         lines.append(f'  [{hid}] "{sn}"')
         lines.append(f"      why: {why}")
     return ("FAIL", "\n".join(lines))
@@ -486,7 +479,8 @@ def main():
     print("-" * 64)
     fails = sum(1 for l, _ in results if l == "FAIL")
     warns = sum(1 for l, _ in results if l == "WARN")
-    print(f" RESULT: {'PASS' if fails == 0 else 'FAIL'}  ({fails} failed, {warns} warning(s))")
+    verdict = "PASS" if fails == 0 else "FAIL"
+    print(f" RESULT: {verdict} | {fails} fail, {warns} warn")
     print(bar)
     sys.exit(0 if fails == 0 else 1)
 

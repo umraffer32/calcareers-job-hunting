@@ -81,12 +81,14 @@ def main():
 
     if not flags:
         print("OK - no cross-document near-duplicates found")
+        print("RESULT: PASS | 0 collisions")
         return 0
     print(f"FOUND {len(flags)} near-duplicate sentence pair(s):\n")
     for j, g, f1, x, f2, y in sorted(flags, key=lambda t: -max(t[0], t[1] / 10.0)):
         print(f"[jaccard={j:.2f} shared_run={g} words]")
         print(f"  {f1}:\n    {x}")
         print(f"  {f2}:\n    {y}\n")
+    print(f"RESULT: FAIL | {len(flags)} collision(s)")
     return 1
 
 

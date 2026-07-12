@@ -76,6 +76,7 @@ def main():
     if misses:
         print(" nowhere in the package: " + ", ".join(misses))
         print(" (leave uncovered unless honestly claimable via MEMORIES)")
+    print(f" RESULT: INFO | {len(kws) - len(misses)}/{len(kws)} covered")
     print("=" * 64)
     return 0
 

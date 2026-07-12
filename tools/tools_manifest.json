@@ -1,0 +1,62 @@
+{
+  "_readme": "sha256 + line count of every gate tool, line-ending-normalized. check_integrity.py validates this FIRST in pre_submit. Regenerate with check_integrity.py --regen after any tool/soq_rules.json edit and commit it in the same change.",
+  "generated_from": "working-tree",
+  "files": {
+    "check_678.py": {
+      "sha256": "1f5f7ebba1de107de3d4a6c13b4f8d445113345c1c54c18ab17f49ff7bc6939b",
+      "lines": 96
+    },
+    "check_678_pdf.py": {
+      "sha256": "4dfdcc70da8f02ae9283264316d4b788d6af5fb0a2d6087e998c9e608052f46f",
+      "lines": 158
+    },
+    "check_678_scrutiny.py": {
+      "sha256": "2c3a570be7f910bd44a5bae0c1f697de201d61419eddd79bc624a1a4718c4b68",
+      "lines": 125
+    },
+    "check_claims.py": {
+      "sha256": "4a51d9da9a49e8ade3058e3d95ca2d7c4399bbddba09bf2d2a4154f40dcd916d",
+      "lines": 90
+    },
+    "check_cross_doc.py": {
+      "sha256": "f9fc04a876ca8ba98ac583287d147cfb6a9afd6a3bedad462e849ce6eb847aea",
+      "lines": 96
+    },
+    "check_integrity.py": {
+      "sha256": "56793bfc03b0b004e25219e4c4b394a129c3e54503b375c91f8ce0ae92aaa825",
+      "lines": 131
+    },
+    "check_keywords.py": {
+      "sha256": "a4504b667852cd3b3677cc8f76b0be0ab67f1d2ed5fe0038a9409f6d10727422",
+      "lines": 85
+    },
+    "check_memory_pointers.py": {
+      "sha256": "a708f9d0d0c813b28f1fe4fec75d0fdbbd93c8c12fa186739b9cc09a3c9b669e",
+      "lines": 50
+    },
+    "claims_lib.py": {
+      "sha256": "1c6ed42fcf1ca7fd7f45a9d3a45aea5da1cf196ecbf90090393c4b278c4c8efe",
+      "lines": 79
+    },
+    "pre_submit.py": {
+      "sha256": "efd393749bdf4ffb85c3bda81061a9b25022acec33f98292029ff1f1b661092e",
+      "lines": 207
+    },
+    "soq_gate.py": {
+      "sha256": "fd74e2aa1724c481406eea58b9ca5d6862f3893264369afba719a0f58d415997",
+      "lines": 489
+    },
+    "spell_check.py": {
+      "sha256": "1fba3fddc3b462de0884848d46893b7c09104788cf2c59ba5912bc6a4f0e78f4",
+      "lines": 93
+    },
+    "verify_doc.py": {
+      "sha256": "e48cf333f52d974e60c0ffe4a2d726d3f6659ebd692e132d6d5202eb2c36b9df",
+      "lines": 293
+    },
+    "soq_rules.json": {
+      "sha256": "5ab15b6c1aac0c253d33e6203f8ec9721c6171cd77e909e5877be5276b1f4eb3",
+      "lines": 669
+    }
+  }
+}
