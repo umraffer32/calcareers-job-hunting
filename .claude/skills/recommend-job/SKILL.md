@@ -79,7 +79,10 @@ candidates.json is already fresh and no refresh is needed.
 - EXCLUDE jobs already evaluated, using THREE sources together (a JC is excluded if it
   appears in any of them):
   1. TRIAGE_LEDGER.md in this repo root — the canonical list of passed JCs (each line: JC
-     number, title, one-line reason). This is the fast, reliable exclusion source.
+     number, title, [category-tag] one-line reason, pass date). This is the fast, reliable
+     exclusion source, and the tags double as pass-precedent patterns for scoring new
+     postings. Full verbatim reasoning lives in TRIAGE_LEDGER_DETAIL.md — open it ONLY
+     when a borderline call needs the full precedent, never for routine exclusion.
   2. PROGRESS_LOG.md — any JC-###### marked SUBMITTED, IN-PROGRESS, or PASSED.
   3. Folders in this repo — any "JC-###### (Title) - SUBMITTED/IN-PROGRESS" folder.
   Match on the 6-digit job_control_id. List what you excluded and why, briefly.
@@ -92,10 +95,12 @@ candidates.json is already fresh and no refresh is needed.
   but logged as passes.
 - What remains is the set of OPEN, UN-EVALUATED postings — these are the candidates,
   regardless of age. If this set is empty, say so plainly (everything open has been handled).
-- LEDGER UPKEEP: when you (or Uriah) decide to PASS on a posting during this run, append it
-  to TRIAGE_LEDGER.md (JC number, title, one-line reason) so it is never re-triaged. If the
-  ledger does not exist yet, create it. Do not add submitted/in-progress jobs to the ledger
-  (those are tracked by folder and PROGRESS_LOG); the ledger is for passes.
+- LEDGER UPKEEP: when you (or Uriah) decide to PASS on a posting during this run, append
+  BOTH records so it is never re-triaged: the compact line to TRIAGE_LEDGER.md (JC number,
+  title, [category-tag] one-line reason, pass date — tag vocabulary in the ledger header)
+  AND the full reasoning to TRIAGE_LEDGER_DETAIL.md, newest first in each. Do not add
+  submitted/in-progress jobs to the ledger (those are tracked by folder and PROGRESS_LOG);
+  the ledger is for passes.
 
 ## Step 3 — Read each surviving posting IN FULL
 For every candidate, open BOTH posting.pdf AND duty_statement.pdf in
