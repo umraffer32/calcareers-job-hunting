@@ -170,6 +170,16 @@ One file per narrative experience in `Evidence Bank/` (slug = filename, `[[slug]
 
 Dated rules and settled decisions that must stay always-loaded. Full narratives live in `Evidence Bank/` (index above).
 
+### 2026-07-12 — Verified LOGN Pacific employer block for the 678 (HR email from Miho Aikawa)
+HR (Miho Aikawa, hr@lognpacific.com) confirmed the internship's employer details in writing on 2026-07-12. Use this block on every future 678 internship entry instead of re-deriving from old submissions.
+- Company/Agency name is "LOGN Pacific LLC" — the legal name per HR. Earlier submissions used "Log(N) Pacific"; the LLC form is the upgrade going forward, not an inconsistency.
+- Address is 6817 208th St SW, Unit 5761, Lynnwood, WA 98046. Keep the verification note appended in the Address field, e.g. "6817 208th St SW, Unit 5761, Lynnwood, WA 98046 - (Verify via hr@lognpacific.com)" — the JC-523478 convention, now with the real address instead of "Remote".
+- Supervisor phone (425) 319-0021 is explicitly approved by HR for listing ("You're welcome to list our phone number for verification purposes").
+- Supervisor is Josh Madakor. His title is Owner, CISSP #394737 — the 678 doesn't ask for supervisor title, so nothing goes on the form, but "the company owner verifies directly" is honest interview color if the internship's legitimacy is probed.
+- HR handles all verification requests via email; if a hiring manager calls, they'll do their best to assist. So the phone is safe to list and the Address email note just routes verifiers to the fastest path.
+- Job Title stays clean ("Cybersecurity Analyst Intern") — verification info never goes in the Job Title field.
+- **Total Time Worked is 0/5 as of 2026-07-12** (started 02/22/2026; Uriah's call — "pretty much five months"). Bump this as months accrue; never copy the value off an old submitted form (JC-523478 shipped with 0/4, correct for its date).
+
 ### 2026-07-11 — The internship HAS an organized training program (Cyber Range classrooms) — never claim untrained/self-taught ramp
 Confirmed by Uriah with a screenshot while building JC-523937. Log(N) Pacific's Cyber Range onboards through structured, SELF-PACED "classrooms," one per security discipline (General Cybersecurity Theory; Defense and Incident Response with hands-on SIEM/EDR training in Sentinel; Vulnerability Management with hands-on Tenable VM labs; community Threat Hunts; an internship/job-hunt track). So the claims "no organized training program," "no formal training," or "taught myself" the internship toolset are FALSE and nearly shipped on the JC-523937 SOQ (caught by the fresh-eyes reviewer, corrected by Uriah). Honest framing: he ramped through self-paced classroom tracks and hands-on labs, remotely, one discipline at a time, and applied each tool as he learned it. "Self-directed" stays fair for how he WORKS (remote, no one standing over him, no formal escalation chain) but not as a no-training claim. VERIFIED same session: the KQL brute-force investigation DID happen within his first few weeks — the timing qualifier is claimable. Gate: banned-claim patterns "no-organized-training" and "self-taught-internship-toolset" added to tools/soq_rules.json this session.
 
