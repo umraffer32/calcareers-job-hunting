@@ -1,0 +1,11 @@
+Work under supervision in a remote cybersecurity internship, supporting security operations on Azure infrastructure across Windows 10/11, Server, and Linux.
+
+Monitor and operate security tools, including Microsoft Defender for Endpoint, and analyze Sentinel logs for suspicious activity.
+
+Performed initial triage of a low-complexity security incident, using a Kusto Query Language (KQL) query to confirm a brute-force pattern in roughly 100 failed sign-on events and identify the source.
+
+Support routine vulnerability scanning and remediation tracking with credentialed Tenable scans, prioritizing by risk and re-scanning to verify each fix, cutting one host from 30 findings to 3.
+
+Help maintain secure system configurations and access controls by auditing against Security Technical Implementation Guide (STIG) baselines for compliance and correcting controls with PowerShell, including account and password settings.
+
+Create and maintain security documentation and repeatable procedures.

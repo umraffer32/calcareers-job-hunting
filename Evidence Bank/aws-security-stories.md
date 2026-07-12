@@ -2,7 +2,7 @@
 DATE: 2026-06-20 | CONFIRMED-BY: Uriah
 PROVES: Two defensible security-hardening leads (standing SSH replaced with SSM Session Manager; Terraform automation moved off the broad admin identity onto a scoped role via SSO temporary credentials) plus a cold-explainable IMDSv2/SSRF story. Citable supporting details: RDS encrypted at rest, zero-inbound private SG, Ansible Vault, ec2:ReplaceRoute-scoped Lambda IAM.
 CONSTRAINTS: Frame as "scoped the automation" — the daily IAM user still has AdministratorAccess. Personal lab, not production. Environments DECOMMISSIONED (2026-07-11), past tense only. IMDSv2: confirm he is comfortable on the day before featuring it.
-USED-IN: Broad-term hits (SSM/SSO/least-privilege wording): JC-520338, JC-520934, JC-520957, JC-521438, JC-521522, JC-521525, JC-521544, JC-522094, JC-522217, JC-522278, JC-522483, JC-523777 SOQs; JC-522574 + JC-522622 678 duties. Spot-read before assuming the full story was used in any one of them. [Signature-term search 2026-07-11.]
+USED-IN: Broad-term hits (SSM/SSO/least-privilege wording): JC-520338, JC-520934, JC-520957, JC-521438, JC-521522, JC-521525, JC-521544, JC-522094, JC-522217, JC-522278, JC-522483, JC-523777, JC-524404 SOQs; JC-522574 + JC-522622 678 duties. Spot-read before assuming the full story was used in any one of them. [Signature-term search 2026-07-11.]
 SOURCE: moved verbatim from MEMORIES.md (split 2026-07-11)
 ---
 

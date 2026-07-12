@@ -1,8 +1,8 @@
 # Sentinel-hunter automation toolkit — resume/SOQ project brief
 DATE: 2026-06-22 | CONFIRMED-BY: Uriah
 PROVES: Ready-to-use bullet variants and verified facts for the threat-hunt AUTOMATION toolkit (Python, Model Context Protocol, Microsoft Sentinel/KQL).
-CONSTRAINTS: ENGINEERING/AUTOMATION framing ONLY: he built the harness, an AI agent investigates inside it. Never claim he "performed threat hunts" or is a "threat hunter"; lead the project name with "Automation". Does not conflict with the one real internship KQL brute-force claim — keep both, let neither inflate the other.
-USED-IN: No SUBMITTED SOQ/678 usage found. [Signature-term search 2026-07-11.]
+CONSTRAINTS: ENGINEERING/AUTOMATION framing ONLY: he built the harness, an AI agent investigates inside it. Never claim he "performed threat hunts" or is a "threat hunter"; lead the project name with "Automation". Does not conflict with the one real internship KQL brute-force claim — keep both, let neither inflate the other. ALSO (Uriah correction 2026-07-12, JC-524404): the framework was designed to COMPLETE threat hunts, NOT to improve security. Never frame it as "improving a security process" or as process-improvement evidence on any document; frame it as tooling built to complete threat-hunt workflows.
+USED-IN: JC-524404 SOQ (first use, 2026-07-12: 'I also build my own tooling' paragraph, 10 hunts/348 questions, LLM-agent framing stated outright).
 SOURCE: moved verbatim from MEMORIES.md (split 2026-07-11)
 ---
 
@@ -54,8 +54,8 @@ agent does the reasoning *inside the harness he built*. Therefore:
 
 - **Stack:** Python, Model Context Protocol (MCP), Microsoft Sentinel / Azure Log Analytics,
   the hunt-platform REST API, Git/GitHub, PowerShell.
-- **Scale:** built and hardened across **8 multi-stage hunts (~290 questions total)**. One
-  representative hunt had **38 graded objectives across 3 stages**.
+- **Scale (updated 2026-07-12, counted from Sentinel_MCP hunt_solver_state.json files):** built and hardened across **10 multi-stage hunts (348 graded questions total)**. One
+  representative hunt had **38 graded objectives across 3 stages**. (Was 8 hunts/~290 questions as of 2026-06-22.) Counting notes (Uriah 2026-07-12): "Signals Before the Noise" and "Signals Before the Noise v2" are two DISTINCT hunts, not a rerun. "Virtual Machine Compromise" is a pre-platform hunt from the old Google Sheets era, not yet run through the framework, so it is correctly EXCLUDED from the validated count until he takes the hunter through it.
 - **Reliability features (concrete, all his design):** guardrailed submission, state sync
   against the live platform, a self-improving lessons corpus.
 
@@ -130,3 +130,9 @@ Mirror the target posting's language:
 > Note on direction: Uriah's center of gravity is vulnerability management and compliance plus
 > security automation — not hands-on investigation. Frame this project as evidence of the
 > build-the-tooling instinct that fits VM/GRC automation, not as analyst/hunter experience.
+
+
+---
+
+## Roadmap (Uriah, 2026-07-12) — PLANNED, NOT BUILT, ZERO written claims until built
+The hunts are the data-training phase. Once the framework has been taken through all the platform's hunts (incl. the Google Sheets-era ones like Virtual Machine Compromise), he plans to branch it into two systems, (1) a TUTOR MODE that teaches a student, and (2) a LIVE AGENT MODE that monitors incidents and alerts, enriched by the accumulated postmortem/lessons corpus, to better spot break-ins and malicious activity. Usage rule: INTERVIEW material only ("where is this project going?" answers) — never on an SOQ/resume/678 as existing capability. The built, claimable part remains the postmortem lessons corpus itself.

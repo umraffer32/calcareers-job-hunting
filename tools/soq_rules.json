@@ -1,537 +1,611 @@
 {
- "_readme": [
-  "soq_rules.json - persistent rules data for tools/soq_gate.py, curated from MEMORIES.md.",
-  "Update this file whenever MEMORIES gains a new banned claim or a newly verified quantifiable.",
-  "banned_claims: hard FAIL. 'allow_near' is a regex; a hit is excused only if it falls inside an allow_near match.",
-  "verified_numbers: a digit number in the SOQ must appear in the same sentence as one of its context terms.",
-  "  Known value + wrong context = FAIL (the '70 clients' drift class). Unknown number = WARN.",
-  "number_exempt: regex spans whose digits are never treated as quantifiables (JC numbers, versions, years).",
-  "confession_patterns / buzzwords / style: WARN-level. story_anchors feed the cross-answer double-spend check.",
-  "All patterns are Python re, matched case-insensitively unless noted."
- ],
- "banned_claims": [
-  {
-   "id": "servicenow",
-   "pattern": "\\bServiceNow\\b",
-   "why": "ZERO hands-on. PDI waitlisted and never provisioned; the servicenow-itsm repo is PARKED. Never claim on any doc (MEMORIES: ServiceNow gap)."
-  },
-  {
-   "id": "intune",
-   "pattern": "\\bIntune\\b",
-   "why": "Microsoft endpoint MANAGEMENT tools = zero hands-on (MEMORIES 2026-06-18). Intune lab is planned, NOT done. Unlock only when Uriah confirms the lab is finished."
-  },
-  {
-   "id": "sccm-configmgr",
-   "pattern": "\\bSCCM\\b|Configuration Manager",
-   "why": "Zero hands-on with SCCM/Configuration Manager (MEMORIES 2026-06-18 endpoint-management gap)."
-  },
-  {
-   "id": "mdm",
-   "pattern": "\\bMDM\\b|mobile device management",
-   "why": "Zero hands-on with any MDM/device-management platform (MEMORIES 2026-06-18)."
-  },
-  {
-   "id": "endpoint-manager",
-   "pattern": "Endpoint Manager",
-   "why": "Zero hands-on. Defender for Endpoint (EDR) is real and fine; 'Endpoint Manager' is the management suite he has never used (MEMORIES 2026-06-18)."
-  },
-  {
-   "id": "m365",
-   "pattern": "Microsoft 365|\\bM365\\b|Office 365",
-   "why": "NO Microsoft 365 support experience; he actively avoids M365 tools (MEMORIES 2026-06-20). Never list M365 support."
-  },
-  {
-   "id": "wireshark",
-   "pattern": "\\bWireshark\\b",
-   "allow_near": "(remov\\w+|outdated|uninstall\\w*|remediat\\w+|finding)[^.!?]{0,60}Wireshark|Wireshark[^.!?]{0,60}(remov\\w+|outdated|uninstall\\w*|remediat\\w+|finding|install)",
-   "why": "Never operated Wireshark as a tool. In vuln-mgmt it was a REMEDIATED FINDING (outdated install he removed) - that mention is the only legitimate one (MEMORIES 2026-06-25)."
-  },
-  {
-   "id": "imaging",
-   "pattern": "\\bimaging\\b|\\bre-?imag\\w+\\b|\\b(system|OS|operating.system|golden) images?\\b|\\bdeploy\\w*[^.!?]{0,20}\\bimages?\\b",
-   "allow_near": "(Docker|container|glpi)[^.!?]{0,40}images?|images?[^.!?]{0,40}(Docker|container)",
-   "why": "He installs from downloaded ISOs; has NEVER created/captured/deployed a system image (MEMORIES 2026-06-19). Docker/container image references are fine."
-  },
-  {
-   "id": "asset-tracking",
-   "pattern": "asset[- ](track\\w+|management|inventory)",
-   "allow_near": "GLPI[^.!?]{0,80}asset|asset[^.!?]{0,80}GLPI",
-   "why": "No professional asset-tracking/inventory experience (JC-521906 pass). The GLPI lab's small inventory may be described only as lab work, explicitly framed as such."
-  },
-  {
-   "id": "sql",
-   "pattern": "\\bSQL\\b",
-   "why": "No SQL, no database administration. KQL is not SQL (MEMORIES 2026-06-18). Word-boundary pattern deliberately misses SQLite/MySQL."
-  },
-  {
-   "id": "cherwell",
-   "pattern": "\\bCherwell\\b",
-   "allow_near": "(category as|similar to|comparable to|like)\\s+Cherwell",
-   "why": "Never used Cherwell. A comparison mention ('same category as Cherwell') is legitimate - JC-522616 does this (MEMORIES 2026-07-02)."
-  },
-  {
-   "id": "code-authorship",
-   "pattern": "\\b(wrote|writing|coded|developed|authored|hand-authored|programmed)\\b[^.!?]{0,45}\\b(scripts?|code|Lambda|quer(y|ies)|programs?)\\b",
-   "why": "AI generated the code; say USED / ran / built and tested / configured, never wrote/coded/developed (MEMORIES 2026-06-20). Reserve 'wrote' for prose."
-  },
-  {
-   "id": "itil-prose",
-   "pattern": "\\bITIL\\b",
-   "allow_near": "ITIL\\s?4\\b|ITIL[^.!?]{0,30}(certif\\w+|Foundation)|(certif\\w+|Foundation)[^.!?]{0,30}ITIL|ITIL categor\\w+",
-   "why": "ITIL stays in certification LISTS only; he cannot speak to it under probing (CLAUDE.md rule 7). 'ITIL categories' as the GLPI feature name is fine."
-  },
-  {
-   "id": "gpo-depth",
-   "pattern": "\\bGPOs?\\b|Group Policy",
-   "allow_near": "(expand\\w+|learn\\w+|grow\\w+)[^.!?]{0,40}(Group Policy|GPOs?)",
-   "why": "GPO is a known weak area - no depth claims. Only the 'expanding into Group Policy' framing is sanctioned (MEMORIES 2026-06-18)."
-  },
-  {
-   "id": "vmware-esxi",
-   "pattern": "\\bVMware\\b(?!\\s+Workstation)|\\bESXi\\b|\\bvSphere\\b|\\bvCenter\\b",
-   "why": "Type 1 hypervisor is Proxmox, NOT ESXi (JC-521522 lesson). VMware Workstation (Type 2) is the only VMware he uses - the pattern permits exactly that phrase."
-  },
-  {
-   "id": "internship-hardware",
-   "pattern": "(internship|Log ?\\(?N\\)? ?Pacific|Cyber Range)[^.!?]{0,80}\\bhardware\\b|\\bhardware\\b[^.!?]{0,80}(internship|Log ?\\(?N\\)? ?Pacific|Cyber Range)",
-   "why": "The internship is FULLY REMOTE - no hardware support happened there (MEMORIES 2026-06-20). Real hardware hands-on is homelab only; keep the two apart in the same sentence."
-  },
-  {
-   "id": "training-delivery",
-   "pattern": "\\btraining sessions?\\b|\\b(delivered|conducted|led|facilitated)\\b[^.!?]{0,30}\\btraining\\b",
-   "why": "No delivered-training experience (plan seed list). Receiving training is not the issue; claiming he ran it is."
-  },
-  {
-   "id": "threat-hunter",
-   "pattern": "\\bthreat hunter\\b|\\b(performed|conducted|led|ran|executed)\\b[^.!?]{0,30}\\bthreat hunt",
-   "why": "sentinel-hunter is ENGINEERING only - the AI agent investigates inside it. Never claim he performed threat hunts or is a threat hunter (project brief rule). The one real KQL brute-force investigation is worded as a query he ran, not a hunt."
-  },
-  {
-   "id": "cisco-gear",
-   "pattern": "\\bCisco\\b",
-   "allow_near": "Packet Tracer",
-   "why": "No physical Cisco enterprise gear - the old JC-501379 claim was dishonest, never reuse it. His Cisco exposure is Packet Tracer only (MEMORIES 2026-06-22)."
-  },
-  {
-   "id": "simulated-internship",
-   "pattern": "\\bsimulat\\w+\\b[^.!?]{0,60}(internship|Cyber Range)|(internship|Cyber Range)[^.!?]{0,60}\\bsimulat\\w+\\b",
-   "why": "The Cyber Range is built on ACTUAL enterprise infrastructure (Azure, Tenable) - do not describe the internship as simulated or downplay it (MEMORIES 2026-06-18)."
-  },
-  {
-   "id": "no-organized-training",
-   "pattern": "no (organized|formal) training|no training program|without (coordinated or )?organized training",
-   "why": "FALSE for the internship: Log(N) Pacific's Cyber Range HAS an organized self-paced training program (per-discipline classrooms + hands-on labs; Uriah confirmed with screenshot 2026-07-11). Never claim untrained/self-taught ramp on internship platforms; honest framing is self-paced classroom tracks and hands-on labs worked through remotely."
-  },
-  {
-   "id": "self-taught-internship-toolset",
-   "pattern": "taught myself|self-taught",
-   "why": "Internship toolset (Sentinel/Defender/Tenable/Azure/KQL) was learned via the Cyber Range's structured self-paced classrooms (2026-07-11), so 'taught myself' is false in internship context. Only genuinely instructor-less personal-project learning (homelab, GLPI, scraper) could justify it; if flagged there, reword ('learned', 'picked up', 'stood up myself') or justify explicitly."
-  }
- ],
- "verified_numbers": [
-  {
-   "value": "30",
-   "context": [
-    "finding",
-    "findings",
-    "scan",
-    "scans"
-   ],
-   "note": "vuln-mgmt: ~30 findings at first scan"
-  },
-  {
-   "value": "3",
-   "context": [
-    "finding",
-    "findings",
-    "scan",
-    "scans",
-    "annuity"
-   ],
-   "note": "vuln-mgmt: down to 3; also 3-4 annuity apps/day (Karen coverage week)"
-  },
-  {
-   "value": "90",
-   "context": [
-    "%",
-    "percent",
-    "reduction",
-    "finding"
-   ],
-   "note": "vuln-mgmt: ~90% reduction"
-  },
-  {
-   "value": "6",
-   "context": [
-    "scan",
-    "scans",
-    "Cat"
-   ],
-   "note": "vuln-mgmt: across 6 scans; also Cat 6 cabling (eero-wired-backhaul)"
-  },
-  {
-   "value": "100",
-   "context": [
-    "failed",
-    "sign-on",
-    "sign on",
-    "login",
-    "logins",
-    "attempt",
-    "attempts"
-   ],
-   "note": "KQL brute-force: ~100 failed sign-on attempts"
-  },
-  {
-   "value": "70",
-   "context": [
-    "return",
-    "returns"
-   ],
-   "note": "Block Advisors: ~70 RETURNS a season - never 'clients' (the JC-523478 drift). Context = the counted noun only; scenery words like season would let the drift through."
-  },
-  {
-   "value": "24000",
-   "context": [
-    "$",
-    "generat",
-    "return",
-    "returns"
-   ],
-   "note": "Block Advisors: ~$24,000 generated in a season"
-  },
-  {
-   "value": "10",
-   "context": [
-    "STIG",
-    "control",
-    "controls",
-    "failing"
-   ],
-   "note": "win11-stigs: 10 failing DISA STIG controls remediated"
-  },
-  {
-   "value": "2",
-   "context": [
-    "minute",
-    "minutes",
-    "day",
-    "days",
-    "hour",
-    "hours",
-    "domain controller",
-    "domain controllers",
-    "controllers",
-    "computer",
-    "computers",
-    "monitor",
-    "monitors",
-    "week",
-    "weeks",
-    "failover",
-    "page",
-    "pages",
-    "incident",
-    "incidents",
-    "service request",
-    "requests"
-   ],
-   "note": "~2 min failover; 2-day GLPI resolve target; 2 DCs; GLPI 2 computers/2 monitors/2 incidents/2 requests"
-  },
-  {
-   "value": "4",
-   "context": [
-    "hour",
-    "hours",
-    "CompTIA",
-    "certification",
-    "certifications",
-    "cert",
-    "certs",
-    "categor",
-    "apps",
-    "applications",
-    "ticket",
-    "tickets",
-    "account",
-    "accounts"
-   ],
-   "note": "4-hour GLPI response target; 4 CompTIA certs; 4 ITIL categories; 4-5 life apps/week; 4 default GLPI accounts rotated"
-  },
-  {
-   "value": "5",
-   "context": [
-    "apps",
-    "applications",
-    "item",
-    "items",
-    "GHz"
-   ],
-   "note": "4-5 life insurance apps/week at Robert's; also 5 GHz band (condo-wifi-deadzone)"
-  },
-  {
-   "value": "16",
-   "context": [
-    "character",
-    "characters",
-    "char",
-    "password"
-   ],
-   "note": "homelab AD: 16-char minimum password policy"
-  },
-  {
-   "value": "14",
-   "context": [
-    "character",
-    "characters",
-    "char",
-    "password",
-    "ICMP"
-   ],
-   "note": "STIG WN11-AC-000035: 14-char minimum; also ICMP 13->14"
-  },
-  {
-   "value": "13",
-   "context": [
-    "ICMP"
-   ],
-   "note": "vuln-mgmt: ICMP timestamp 13->14 remediation"
-  },
-  {
-   "value": "15",
-   "context": [
-    "scenario",
-    "scenarios",
-    "failure",
-    "combination",
-    "combinations",
-    "route",
-    "repair",
-    "repairs"
-   ],
-   "note": "aws-ha-infra: 15 failure scenarios / 15 route repairs per run"
-  },
-  {
-   "value": "45",
-   "context": [
-    "scenario",
-    "scenarios",
-    "run",
-    "runs",
-    "total"
-   ],
-   "note": "aws-ha-infra: 45 scenarios across three full runs"
-  },
-  {
-   "value": "92",
-   "context": [
-    "event",
-    "events",
-    "CloudTrail"
-   ],
-   "note": "aws-ha-infra: one run logged 92 CloudTrail events"
-  },
-  {
-   "value": "0.4",
-   "context": [
-    "second",
-    "seconds",
-    "Lambda"
-   ],
-   "note": "aws-ha-infra: route-healer fires in 0.4-0.7 s"
-  },
-  {
-   "value": "0.7",
-   "context": [
-    "second",
-    "seconds",
-    "Lambda"
-   ],
-   "note": "aws-ha-infra: route-healer fires in 0.4-0.7 s"
-  },
-  {
-   "value": "1098",
-   "context": [
-    "mortgage",
-    "statement",
-    "form",
-    "interest"
-   ],
-   "note": "Block Advisors story: Form 1098 mortgage interest statement"
-  },
-  {
-   "value": "60",
-   "context": [
-    "posting",
-    "postings"
-   ],
-   "note": "CalCareers scraper: 60+ postings collected"
-  },
-  {
-   "value": "2.5",
-   "context": [
-    "year",
-    "years"
-   ],
-   "note": "~2.5 years of homelab work (defensible)"
-  },
-  {
-   "value": "150",
-   "context": [
-    "foot",
-    "ft",
-    "feet",
-    "Cat"
-   ],
-   "note": "eero-wired-backhaul: 150-foot Cat 6 run (Evidence Bank, confirmed 2026-07-10)"
-  },
-  {
-   "value": "50",
-   "context": [
-    "Mbps",
-    "plan"
-   ],
-   "note": "condo-wifi-deadzone: 50 Mbps down plan (Evidence Bank, confirmed 2026-07-10)"
-  },
-  {
-   "value": "2.4",
-   "context": [
-    "GHz",
-    "band"
-   ],
-   "note": "condo-wifi-deadzone: 2.4 GHz band call (Evidence Bank, confirmed 2026-07-10)"
-  }
- ],
- "number_exempt": [
-  "JC[- ]?\\d{6}",
-  "\\b(19|20)\\d{2}\\b",
-  "\\bWin(dows)?( ?Server)? ?\\d{1,2}(/\\d{1,2})?\\b",
-  "\\d+\\.\\d+\\.\\d+",
-  "\\b\\d{1,2}:\\d{1,2}\\b",
-  "(?m)^\\d{1,2}[.)]\\s",
-  "\\b24/7\\b",
-  "\\bv\\d+r\\d+\\b",
-  "\\bSTD ?678\\b",
-  "\\b802\\.\\d+\\w*\\b",
-  "\\bWN\\d{2}-[A-Z]{2}-\\d{6}\\b",
-  "\\bIMDSv\\d\\b",
-  "\\bIPv[46]\\b",
-  "\\bRFC ?\\d+\\b",
-  "\\b\\d{3}-\\d{3}-\\d{4}(-\\d{3})?\\b"
- ],
- "confession_patterns": [
-  {
-   "pattern": "\\bI haven'?t\\b",
-   "label": "gap narration (I haven't ...)"
-  },
-  {
-   "pattern": "\\bI have not (used|done|worked|had)\\b",
-   "label": "gap narration (I have not used/done ...)"
-  },
-  {
-   "pattern": "\\bno (real |hands-on |professional |direct )?experience\\b",
-   "label": "explicit no-experience confession"
-  },
-  {
-   "pattern": "\\brather than time on a\\b",
-   "label": "the JC-523478 gap-confession phrase class"
-  },
-  {
-   "pattern": "\\bnot a real\\b",
-   "label": "self-diminishing framing"
-  },
-  {
-   "pattern": "\\bI'?m still (weak|learning)\\b",
-   "label": "weakness confession"
-  },
-  {
-   "pattern": "\\bstill learning\\b",
-   "label": "weakness confession"
-  },
-  {
-   "pattern": "\\byet to\\b",
-   "label": "gap narration (yet to ...)"
-  },
-  {
-   "pattern": "\\bI lack\\b|\\bmy lack of\\b",
-   "label": "explicit lack statement"
-  },
-  {
-   "pattern": "\\bnever (used|worked|done|had)\\b",
-   "label": "gap narration (never used ...)"
-  }
- ],
- "buzzwords": [
-  "leverage",
-  "leveraged",
-  "leverages",
-  "leveraging",
-  "utilize",
-  "utilized",
-  "utilizes",
-  "utilizing",
-  "utilization",
-  "robust",
-  "seamless",
-  "seamlessly",
-  "passionate",
-  "passionately",
-  "dynamic",
-  "spearhead",
-  "spearheaded",
-  "proven track record",
-  "synergy",
-  "synergies",
-  "cutting-edge",
-  "state-of-the-art",
-  "genuinely",
-  "best-in-class",
-  "world-class"
- ],
- "buzzword_allow": [
-  "Dynamic Host Configuration"
- ],
- "style": {
-  "_TODO": "Thresholds set from the three real SUBMITTED packages only (523478, 522616, 522622). Tune on future real data, never speculatively.",
-  "contrast_pattern": ",\\s+not\\s+[a-z]",
-  "contrast_warn_above": 2,
-  "triad_max_words": 7,
-  "triad_run": 3,
-  "opener_patterns": [
-   "^I am writing to",
-   "^Thank you for (the opportunity|considering)",
-   "^I am (excited|thrilled|honored)",
-   "^I would welcome the opportunity",
-   "^It is with great"
+  "_readme": [
+    "soq_rules.json - persistent rules data for tools/soq_gate.py, curated from MEMORIES.md.",
+    "Update this file whenever MEMORIES gains a new banned claim or a newly verified quantifiable.",
+    "banned_claims: hard FAIL. 'allow_near' is a regex; a hit is excused only if it falls inside an allow_near match.",
+    "verified_numbers: a digit number in the SOQ must appear in the same sentence as one of its context terms.",
+    "  Known value + wrong context = FAIL (the '70 clients' drift class). Unknown number = WARN.",
+    "number_exempt: regex spans whose digits are never treated as quantifiables (JC numbers, versions, years).",
+    "confession_patterns / buzzwords / style: WARN-level. story_anchors feed the cross-answer double-spend check.",
+    "All patterns are Python re, matched case-insensitively unless noted."
   ],
-  "serial_triad_pattern": ",\\s+[a-zA-Z][^,.;:]{0,45},\\s+and\\s+[a-z]",
-  "serial_triad_warn_above": 4,
-  "_serial_triad_note": "Added 2026-07-11 (JC-523777, Uriah's catch): 'X, Y, and Z' serial-list triads are an AI tell when dense. Calibrated on real packages: 522616=2, 522622=2, clean 523777 v6=3, flagged 523777 v5=9, 523478=10. Duty-statement mirrors and factual lists count toward the total; human judges the hits."
- },
- "story_anchors": [
-  "Block Advisors",
-  "Robert's Retirement",
-  "Athene",
-  "Securian",
-  "GLPI",
-  "Nessus",
-  "Tenable",
-  "Sentinel",
-  "STIG",
-  "brute-force",
-  "brute force",
-  "DHCP failover",
-  "DHCP scope",
-  "rogue forward lookup",
-  "SQLite",
-  "route-healer",
-  "Terraform",
-  "Ansible",
-  "Packet Tracer",
-  "1098",
-  "Jason",
-  "Session Manager",
-  "IMDSv2",
-  "pfSense"
- ]
+  "banned_claims": [
+    {
+      "id": "servicenow",
+      "pattern": "\\bServiceNow\\b",
+      "why": "ZERO hands-on. PDI waitlisted and never provisioned; the servicenow-itsm repo is PARKED. Never claim on any doc (MEMORIES: ServiceNow gap)."
+    },
+    {
+      "id": "intune",
+      "pattern": "\\bIntune\\b",
+      "why": "Microsoft endpoint MANAGEMENT tools = zero hands-on (MEMORIES 2026-06-18). Intune lab is planned, NOT done. Unlock only when Uriah confirms the lab is finished."
+    },
+    {
+      "id": "sccm-configmgr",
+      "pattern": "\\bSCCM\\b|Configuration Manager",
+      "why": "Zero hands-on with SCCM/Configuration Manager (MEMORIES 2026-06-18 endpoint-management gap)."
+    },
+    {
+      "id": "mdm",
+      "pattern": "\\bMDM\\b|mobile device management",
+      "why": "Zero hands-on with any MDM/device-management platform (MEMORIES 2026-06-18)."
+    },
+    {
+      "id": "endpoint-manager",
+      "pattern": "Endpoint Manager",
+      "why": "Zero hands-on. Defender for Endpoint (EDR) is real and fine; 'Endpoint Manager' is the management suite he has never used (MEMORIES 2026-06-18)."
+    },
+    {
+      "id": "m365",
+      "pattern": "Microsoft 365|\\bM365\\b|Office 365",
+      "why": "NO Microsoft 365 support experience; he actively avoids M365 tools (MEMORIES 2026-06-20). Never list M365 support."
+    },
+    {
+      "id": "wireshark",
+      "pattern": "\\bWireshark\\b",
+      "allow_near": "(remov\\w+|outdated|uninstall\\w*|remediat\\w+|finding)[^.!?]{0,60}Wireshark|Wireshark[^.!?]{0,60}(remov\\w+|outdated|uninstall\\w*|remediat\\w+|finding|install)",
+      "why": "Never operated Wireshark as a tool. In vuln-mgmt it was a REMEDIATED FINDING (outdated install he removed) - that mention is the only legitimate one (MEMORIES 2026-06-25)."
+    },
+    {
+      "id": "imaging",
+      "pattern": "\\bimaging\\b|\\bre-?imag\\w+\\b|\\b(system|OS|operating.system|golden) images?\\b|\\bdeploy\\w*[^.!?]{0,20}\\bimages?\\b",
+      "allow_near": "(Docker|container|glpi)[^.!?]{0,40}images?|images?[^.!?]{0,40}(Docker|container)",
+      "why": "He installs from downloaded ISOs; has NEVER created/captured/deployed a system image (MEMORIES 2026-06-19). Docker/container image references are fine."
+    },
+    {
+      "id": "asset-tracking",
+      "pattern": "asset[- ](track\\w+|management|inventory)",
+      "allow_near": "GLPI[^.!?]{0,80}asset|asset[^.!?]{0,80}GLPI",
+      "why": "No professional asset-tracking/inventory experience (JC-521906 pass). The GLPI lab's small inventory may be described only as lab work, explicitly framed as such."
+    },
+    {
+      "id": "sql",
+      "pattern": "\\bSQL\\b",
+      "why": "No SQL, no database administration. KQL is not SQL (MEMORIES 2026-06-18). Word-boundary pattern deliberately misses SQLite/MySQL."
+    },
+    {
+      "id": "cherwell",
+      "pattern": "\\bCherwell\\b",
+      "allow_near": "(category as|similar to|comparable to|like)\\s+Cherwell",
+      "why": "Never used Cherwell. A comparison mention ('same category as Cherwell') is legitimate - JC-522616 does this (MEMORIES 2026-07-02)."
+    },
+    {
+      "id": "code-authorship",
+      "pattern": "\\b(wrote|writing|coded|developed|authored|hand-authored|programmed)\\b[^.!?]{0,45}\\b(scripts?|code|Lambda|quer(y|ies)|programs?)\\b",
+      "why": "AI generated the code; say USED / ran / built and tested / configured, never wrote/coded/developed (MEMORIES 2026-06-20). Reserve 'wrote' for prose."
+    },
+    {
+      "id": "itil-prose",
+      "pattern": "\\bITIL\\b",
+      "allow_near": "ITIL\\s?4\\b|ITIL[^.!?]{0,30}(certif\\w+|Foundation)|(certif\\w+|Foundation)[^.!?]{0,30}ITIL|ITIL categor\\w+",
+      "why": "ITIL stays in certification LISTS only; he cannot speak to it under probing (CLAUDE.md rule 7). 'ITIL categories' as the GLPI feature name is fine."
+    },
+    {
+      "id": "gpo-depth",
+      "pattern": "\\bGPOs?\\b|Group Policy",
+      "allow_near": "(expand\\w+|learn\\w+|grow\\w+)[^.!?]{0,40}(Group Policy|GPOs?)",
+      "why": "GPO is a known weak area - no depth claims. Only the 'expanding into Group Policy' framing is sanctioned (MEMORIES 2026-06-18)."
+    },
+    {
+      "id": "vmware-esxi",
+      "pattern": "\\bVMware\\b(?!\\s+Workstation)|\\bESXi\\b|\\bvSphere\\b|\\bvCenter\\b",
+      "why": "Type 1 hypervisor is Proxmox, NOT ESXi (JC-521522 lesson). VMware Workstation (Type 2) is the only VMware he uses - the pattern permits exactly that phrase."
+    },
+    {
+      "id": "internship-hardware",
+      "pattern": "(internship|Log ?\\(?N\\)? ?Pacific|Cyber Range)[^.!?]{0,80}\\bhardware\\b|\\bhardware\\b[^.!?]{0,80}(internship|Log ?\\(?N\\)? ?Pacific|Cyber Range)",
+      "why": "The internship is FULLY REMOTE - no hardware support happened there (MEMORIES 2026-06-20). Real hardware hands-on is homelab only; keep the two apart in the same sentence."
+    },
+    {
+      "id": "training-delivery",
+      "pattern": "\\btraining sessions?\\b|\\b(delivered|conducted|led|facilitated)\\b[^.!?]{0,30}\\btraining\\b",
+      "why": "No delivered-training experience (plan seed list). Receiving training is not the issue; claiming he ran it is."
+    },
+    {
+      "id": "threat-hunter",
+      "pattern": "\\bthreat hunter\\b|\\b(performed|conducted|led|ran|executed)\\b[^.!?]{0,30}\\bthreat hunt",
+      "why": "sentinel-hunter is ENGINEERING only - the AI agent investigates inside it. Never claim he performed threat hunts or is a threat hunter (project brief rule). The one real KQL brute-force investigation is worded as a query he ran, not a hunt."
+    },
+    {
+      "id": "cisco-gear",
+      "pattern": "\\bCisco\\b",
+      "allow_near": "Packet Tracer",
+      "why": "No physical Cisco enterprise gear - the old JC-501379 claim was dishonest, never reuse it. His Cisco exposure is Packet Tracer only (MEMORIES 2026-06-22)."
+    },
+    {
+      "id": "simulated-internship",
+      "pattern": "\\bsimulat\\w+\\b[^.!?]{0,60}(internship|Cyber Range)|(internship|Cyber Range)[^.!?]{0,60}\\bsimulat\\w+\\b",
+      "why": "The Cyber Range is built on ACTUAL enterprise infrastructure (Azure, Tenable) - do not describe the internship as simulated or downplay it (MEMORIES 2026-06-18)."
+    },
+    {
+      "id": "no-organized-training",
+      "pattern": "no (organized|formal) training|no training program|without (coordinated or )?organized training",
+      "why": "FALSE for the internship: Log(N) Pacific's Cyber Range HAS an organized self-paced training program (per-discipline classrooms + hands-on labs; Uriah confirmed with screenshot 2026-07-11). Never claim untrained/self-taught ramp on internship platforms; honest framing is self-paced classroom tracks and hands-on labs worked through remotely."
+    },
+    {
+      "id": "self-taught-internship-toolset",
+      "pattern": "taught myself|self-taught",
+      "why": "Internship toolset (Sentinel/Defender/Tenable/Azure/KQL) was learned via the Cyber Range's structured self-paced classrooms (2026-07-11), so 'taught myself' is false in internship context. Only genuinely instructor-less personal-project learning (homelab, GLPI, scraper) could justify it; if flagged there, reword ('learned', 'picked up', 'stood up myself') or justify explicitly."
+    },
+    {
+      "id": "hunt-framework-as-process-improvement",
+      "pattern": "(framework|toolkit|harness)[^.]{0,120}improv\\w+[^.]{0,40}security process|improv\\w+[^.]{0,40}security process[^.]{0,120}(framework|toolkit|harness)",
+      "why": "Uriah 2026-07-12: the sentinel-hunter framework completes threat hunts; it does NOT improve security processes. Frame as tooling that completes threat-hunt workflows (Evidence Bank/sentinel-hunt-automation.md)."
+    },
+    {
+      "id": "stig-scan-surfaced-only-10",
+      "pattern": "(surfaced|found|returned|identified|flagged) (only )?10 (failing )?(controls|audits|findings)",
+      "why": "Uriah 2026-07-12: the STIG scan returned hundreds of findings; he SELECTED 10 controls to remediate. Say chose/selected 10, never that the scan surfaced only 10 (Evidence Bank/win11-stigs-details.md)."
+    }
+  ],
+  "verified_numbers": [
+    {
+      "value": "30",
+      "context": [
+        "finding",
+        "findings",
+        "scan",
+        "scans"
+      ],
+      "note": "vuln-mgmt: ~30 findings at first scan"
+    },
+    {
+      "value": "3",
+      "context": [
+        "finding",
+        "findings",
+        "scan",
+        "scans",
+        "annuity"
+      ],
+      "note": "vuln-mgmt: down to 3; also 3-4 annuity apps/day (Karen coverage week)"
+    },
+    {
+      "value": "90",
+      "context": [
+        "%",
+        "percent",
+        "reduction",
+        "finding"
+      ],
+      "note": "vuln-mgmt: ~90% reduction"
+    },
+    {
+      "value": "6",
+      "context": [
+        "scan",
+        "scans",
+        "Cat"
+      ],
+      "note": "vuln-mgmt: across 6 scans; also Cat 6 cabling (eero-wired-backhaul)"
+    },
+    {
+      "value": "100",
+      "context": [
+        "failed",
+        "sign-on",
+        "sign on",
+        "login",
+        "logins",
+        "attempt",
+        "attempts"
+      ],
+      "note": "KQL brute-force: ~100 failed sign-on attempts"
+    },
+    {
+      "value": "70",
+      "context": [
+        "return",
+        "returns"
+      ],
+      "note": "Block Advisors: ~70 RETURNS a season - never 'clients' (the JC-523478 drift). Context = the counted noun only; scenery words like season would let the drift through."
+    },
+    {
+      "value": "24000",
+      "context": [
+        "$",
+        "generat",
+        "return",
+        "returns"
+      ],
+      "note": "Block Advisors: ~$24,000 generated in a season"
+    },
+    {
+      "value": "10",
+      "context": [
+        "STIG",
+        "control",
+        "controls",
+        "failing",
+        "hunt",
+        "hunts",
+        "multi-stage"
+      ],
+      "note": "win11-stigs: 10 failing DISA STIG controls remediated; ALSO sentinel-hunt-automation: 10 multi-stage hunts as of 2026-07-12 (counted from Sentinel_MCP hunt_solver_state.json files)"
+    },
+    {
+      "value": "2",
+      "context": [
+        "minute",
+        "minutes",
+        "day",
+        "days",
+        "hour",
+        "hours",
+        "domain controller",
+        "domain controllers",
+        "controllers",
+        "computer",
+        "computers",
+        "monitor",
+        "monitors",
+        "week",
+        "weeks",
+        "failover",
+        "page",
+        "pages",
+        "incident",
+        "incidents",
+        "service request",
+        "requests"
+      ],
+      "note": "~2 min failover; 2-day GLPI resolve target; 2 DCs; GLPI 2 computers/2 monitors/2 incidents/2 requests"
+    },
+    {
+      "value": "4",
+      "context": [
+        "hour",
+        "hours",
+        "CompTIA",
+        "certification",
+        "certifications",
+        "cert",
+        "certs",
+        "categor",
+        "apps",
+        "applications",
+        "ticket",
+        "tickets",
+        "account",
+        "accounts"
+      ],
+      "note": "4-hour GLPI response target; 4 CompTIA certs; 4 ITIL categories; 4-5 life apps/week; 4 default GLPI accounts rotated"
+    },
+    {
+      "value": "5",
+      "context": [
+        "apps",
+        "applications",
+        "item",
+        "items",
+        "GHz"
+      ],
+      "note": "4-5 life insurance apps/week at Robert's; also 5 GHz band (condo-wifi-deadzone)"
+    },
+    {
+      "value": "16",
+      "context": [
+        "character",
+        "characters",
+        "char",
+        "password"
+      ],
+      "note": "homelab AD: 16-char minimum password policy"
+    },
+    {
+      "value": "14",
+      "context": [
+        "character",
+        "characters",
+        "char",
+        "password",
+        "ICMP"
+      ],
+      "note": "STIG WN11-AC-000035: 14-char minimum; also ICMP 13->14"
+    },
+    {
+      "value": "13",
+      "context": [
+        "ICMP"
+      ],
+      "note": "vuln-mgmt: ICMP timestamp 13->14 remediation"
+    },
+    {
+      "value": "15",
+      "context": [
+        "scenario",
+        "scenarios",
+        "failure",
+        "combination",
+        "combinations",
+        "route",
+        "repair",
+        "repairs"
+      ],
+      "note": "aws-ha-infra: 15 failure scenarios / 15 route repairs per run"
+    },
+    {
+      "value": "45",
+      "context": [
+        "scenario",
+        "scenarios",
+        "run",
+        "runs",
+        "total"
+      ],
+      "note": "aws-ha-infra: 45 scenarios across three full runs"
+    },
+    {
+      "value": "92",
+      "context": [
+        "event",
+        "events",
+        "CloudTrail"
+      ],
+      "note": "aws-ha-infra: one run logged 92 CloudTrail events"
+    },
+    {
+      "value": "0.4",
+      "context": [
+        "second",
+        "seconds",
+        "Lambda"
+      ],
+      "note": "aws-ha-infra: route-healer fires in 0.4-0.7 s"
+    },
+    {
+      "value": "0.7",
+      "context": [
+        "second",
+        "seconds",
+        "Lambda"
+      ],
+      "note": "aws-ha-infra: route-healer fires in 0.4-0.7 s"
+    },
+    {
+      "value": "1098",
+      "context": [
+        "mortgage",
+        "statement",
+        "form",
+        "interest"
+      ],
+      "note": "Block Advisors story: Form 1098 mortgage interest statement"
+    },
+    {
+      "value": "60",
+      "context": [
+        "posting",
+        "postings"
+      ],
+      "note": "CalCareers scraper: 60+ postings collected"
+    },
+    {
+      "value": "2.5",
+      "context": [
+        "year",
+        "years"
+      ],
+      "note": "~2.5 years of homelab work (defensible)"
+    },
+    {
+      "value": "150",
+      "context": [
+        "foot",
+        "ft",
+        "feet",
+        "Cat"
+      ],
+      "note": "eero-wired-backhaul: 150-foot Cat 6 run (Evidence Bank, confirmed 2026-07-10)"
+    },
+    {
+      "value": "50",
+      "context": [
+        "Mbps",
+        "plan"
+      ],
+      "note": "condo-wifi-deadzone: 50 Mbps down plan (Evidence Bank, confirmed 2026-07-10)"
+    },
+    {
+      "value": "2.4",
+      "context": [
+        "GHz",
+        "band"
+      ],
+      "note": "condo-wifi-deadzone: 2.4 GHz band call (Evidence Bank, confirmed 2026-07-10)"
+    },
+    {
+      "value": "8",
+      "context": [
+        "hunt",
+        "hunts",
+        "multi-stage"
+      ],
+      "note": "sentinel-hunt-automation: validated across 8 multi-stage hunts (Evidence Bank/sentinel-hunt-automation.md, added 2026-07-12 JC-524404) [SUPERSEDED 2026-07-12: now 10 hunts / 348 questions]"
+    },
+    {
+      "value": "290",
+      "context": [
+        "question",
+        "questions",
+        "graded"
+      ],
+      "note": "sentinel-hunt-automation: ~290 questions total / 290+ graded questions (Evidence Bank/sentinel-hunt-automation.md, added 2026-07-12 JC-524404) [SUPERSEDED 2026-07-12: now 10 hunts / 348 questions]"
+    },
+    {
+      "value": "263",
+      "context": [
+        "control",
+        "controls",
+        "check",
+        "checks"
+      ],
+      "note": "win11-stigs: official Tenable scan report (2026-04-23, uploaded by Uriah 2026-07-12): 263 STIG checks total"
+    },
+    {
+      "value": "142",
+      "context": [
+        "failing",
+        "failed",
+        "flagged",
+        "control",
+        "controls",
+        "remediat",
+        "failure",
+        "failures"
+      ],
+      "note": "win11-stigs: official Tenable scan report: 142 of 263 checks FAILED; he selected 10 to remediate"
+    },
+    {
+      "value": "121",
+      "context": [
+        "passed",
+        "passing"
+      ],
+      "note": "win11-stigs: official Tenable scan report: 121 of 263 passed on initial scan"
+    },
+    {
+      "value": "348",
+      "context": [
+        "question",
+        "questions",
+        "graded",
+        "hunt",
+        "hunts"
+      ],
+      "note": "sentinel-hunt-automation: 348 graded questions across 10 hunts, counted 2026-07-12 from Sentinel_MCP hunt_solver_state.json files (45+41+39+19+38+30+30+38+30+38)"
+    }
+  ],
+  "number_exempt": [
+    "JC[- ]?\\d{6}",
+    "\\b(19|20)\\d{2}\\b",
+    "\\bWin(dows)?( ?Server)? ?\\d{1,2}(/\\d{1,2})?\\b",
+    "\\d+\\.\\d+\\.\\d+",
+    "\\b\\d{1,2}:\\d{1,2}\\b",
+    "(?m)^\\d{1,2}[.)]\\s",
+    "\\b24/7\\b",
+    "\\bv\\d+r\\d+\\b",
+    "\\bSTD ?678\\b",
+    "\\b802\\.\\d+\\w*\\b",
+    "\\bWN\\d{2}-[A-Z]{2}-\\d{6}\\b",
+    "\\bIMDSv\\d\\b",
+    "\\bIPv[46]\\b",
+    "\\bRFC ?\\d+\\b",
+    "\\b\\d{3}-\\d{3}-\\d{4}(-\\d{3})?\\b"
+  ],
+  "confession_patterns": [
+    {
+      "pattern": "\\bI haven'?t\\b",
+      "label": "gap narration (I haven't ...)"
+    },
+    {
+      "pattern": "\\bI have not (used|done|worked|had)\\b",
+      "label": "gap narration (I have not used/done ...)"
+    },
+    {
+      "pattern": "\\bno (real |hands-on |professional |direct )?experience\\b",
+      "label": "explicit no-experience confession"
+    },
+    {
+      "pattern": "\\brather than time on a\\b",
+      "label": "the JC-523478 gap-confession phrase class"
+    },
+    {
+      "pattern": "\\bnot a real\\b",
+      "label": "self-diminishing framing"
+    },
+    {
+      "pattern": "\\bI'?m still (weak|learning)\\b",
+      "label": "weakness confession"
+    },
+    {
+      "pattern": "\\bstill learning\\b",
+      "label": "weakness confession"
+    },
+    {
+      "pattern": "\\byet to\\b",
+      "label": "gap narration (yet to ...)"
+    },
+    {
+      "pattern": "\\bI lack\\b|\\bmy lack of\\b",
+      "label": "explicit lack statement"
+    },
+    {
+      "pattern": "\\bnever (used|worked|done|had)\\b",
+      "label": "gap narration (never used ...)"
+    }
+  ],
+  "buzzwords": [
+    "leverage",
+    "leveraged",
+    "leverages",
+    "leveraging",
+    "utilize",
+    "utilized",
+    "utilizes",
+    "utilizing",
+    "utilization",
+    "robust",
+    "seamless",
+    "seamlessly",
+    "passionate",
+    "passionately",
+    "dynamic",
+    "spearhead",
+    "spearheaded",
+    "proven track record",
+    "synergy",
+    "synergies",
+    "cutting-edge",
+    "state-of-the-art",
+    "genuinely",
+    "best-in-class",
+    "world-class"
+  ],
+  "buzzword_allow": [
+    "Dynamic Host Configuration"
+  ],
+  "style": {
+    "_TODO": "Thresholds set from the three real SUBMITTED packages only (523478, 522616, 522622). Tune on future real data, never speculatively.",
+    "contrast_pattern": ",\\s+not\\s+[a-z]",
+    "contrast_warn_above": 2,
+    "triad_max_words": 7,
+    "triad_run": 3,
+    "opener_patterns": [
+      "^I am writing to",
+      "^Thank you for (the opportunity|considering)",
+      "^I am (excited|thrilled|honored)",
+      "^I would welcome the opportunity",
+      "^It is with great"
+    ],
+    "serial_triad_pattern": ",\\s+[a-zA-Z][^,.;:]{0,45},\\s+and\\s+[a-z]",
+    "serial_triad_warn_above": 4,
+    "_serial_triad_note": "Added 2026-07-11 (JC-523777, Uriah's catch): 'X, Y, and Z' serial-list triads are an AI tell when dense. Calibrated on real packages: 522616=2, 522622=2, clean 523777 v6=3, flagged 523777 v5=9, 523478=10. Duty-statement mirrors and factual lists count toward the total; human judges the hits."
+  },
+  "story_anchors": [
+    "Block Advisors",
+    "Robert's Retirement",
+    "Athene",
+    "Securian",
+    "GLPI",
+    "Nessus",
+    "Tenable",
+    "Sentinel",
+    "STIG",
+    "brute-force",
+    "brute force",
+    "DHCP failover",
+    "DHCP scope",
+    "rogue forward lookup",
+    "SQLite",
+    "route-healer",
+    "Terraform",
+    "Ansible",
+    "Packet Tracer",
+    "1098",
+    "Jason",
+    "Session Manager",
+    "IMDSv2",
+    "pfSense"
+  ]
 }

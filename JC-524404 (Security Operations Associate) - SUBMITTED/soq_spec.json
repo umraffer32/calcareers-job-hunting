@@ -1,0 +1,48 @@
+{
+  "_source": "posting.pdf (JC-524404, DDS), extracted 2026-07-12 from the Special Requirements SOQ section and Application Instructions",
+  "jc": "524404",
+  "title": "Security Operations Associate (Information Technology Associate)",
+  "department": "Department of Developmental Services (DDS)",
+  "prompts": [
+    "Describe your experience supporting Security Operations activities, including monitoring security tools, analyzing alerts or logs, performing initial triage of security incidents, and assisting with basic forensic data collection under supervision. Include specific tools or methods you used, your role in incident handling, and how your work contributed to improving security processes."
+  ],
+  "numbered_headings": false,
+  "page_limit": 2,
+  "font": "Arial",
+  "size_pt": 12,
+  "size_is_minimum": false,
+  "margins_in": 1.0,
+  "spacing": "single",
+  "advisories": {},
+  "keywords": [
+    "monitor",
+    "triag",
+    "alert",
+    "log",
+    "incident",
+    "vulnerabilit",
+    "remediat",
+    "scan",
+    "configur",
+    "access control",
+    "document",
+    "asset",
+    "inventor",
+    "forensic",
+    "risk",
+    "complianc",
+    "Sentinel",
+    "Defender",
+    "Tenable",
+    "KQL",
+    "PowerShell",
+    "AWS",
+    "coordinat",
+    "communicat",
+    "improv"
+  ],
+  "app_line_tokens": [
+    "JC-524404"
+  ],
+  "filing_notes": "SOQ required, ONE prompt, max 2 pages, 12-point Arial explicitly stated, single spaced, one-inch margins explicitly stated. Applicants who fail to answer the question or submit an SOQ may not be considered. Posting includes an AI-tools acknowledgment (SOQ must be own work). Required docs: STD 678 + resume (explicitly required) + SOQ. NO RPA named anywhere in the posting; position number shown only as 472-508-1401-XXX (placeholder, cannot go on the 678 verbatim) so the Exam/Job Title line carries JC-524404 + position title only. MQ documentation: list eligibility via online exam, so WGU transcript MUST be attached (also triggers Range C placement, $5,930/mo min, per CalHR ARC 483). Permanent full-time, hybrid, Sacramento (1215 O St). 24/7 on-call and weekend support as required (OT, fine). Deadline 8/9/2026."
+}
