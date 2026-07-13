@@ -1,10 +1,18 @@
 # CalCareers Job Hunt — Progress Log
 
-_Last updated: July 12, 2026_
+_Last updated: July 13, 2026_
 
 _Newest day first._
 
 _Current month only. Prior months live verbatim in `PROGRESS_LOG_ARCHIVE.md` (rolled at the start of each month per CLAUDE.md rule 9)._
+
+## July 13, 2026
+
+### Job triage run (recommend-job) — scrape generated_at 7/13, 41 open postings, zero new/closed since 7/12
+
+- Ran the scraper fresh (no new or closed postings). Ran recommend-job. After excluding 31 TRIAGE_LEDGER passes and 7 SUBMITTED folders, the same 3 postings from the 7/11 runners-up list were still un-evaluated: JC-524323 (Service Desk Technician, ITS I, Dept. of Conservation), JC-524311 (Product Support Assistant, ITA, DMV Enterprise Modernization Project), JC-523814 (IT Associate, ITA, SWRCB Help Desk). No data-integrity conflicts between folders and the ledger.
+- Re-read all three postings + duty statements in full to confirm nothing had changed since 7/11. Uriah asked for a deeper read on JC-524311 specifically. Full duty-statement breakdown surfaced two gaps not previously in the honest-fit gaps list: no professional Agile/Scrum sprint-cycle experience (35% Project Support and Coordination duty block leans on it, no tool gap but a real lived-experience gap) and no business-process-improvement story validated by an external audience (the written-response Q2 prompt — his candidate stories, GLPI lab and the WGU lease-time fix, are solo/self-authored with nobody to have "received" the change). Both added to MEMORIES.md's honest-fit gaps section. Also surfaced: roughly half of JC-524311's duties (Project Support + Communication/Documentation) assume a team-embedded sprint/meeting/reporting rhythm he's never lived, which downgraded the posting from the 7/11 read's implicit STRONG FIT framing to a genuine STRETCH, closer in strength to JC-524323 than first ranked.
+- **All 3 PASSED, added to TRIAGE_LEDGER.md** (Uriah's call, after the deeper JC-524311 read): JC-524311 (stretch on Agile/sprint rhythm + weak Q2 answerability, plus 12-month LT with no guaranteed conversion), JC-524323 (closest duty-lane match of the three, but declined the ITS I classification stretch), JC-523814 (tool-saturation wall inside the core support block — M365/Azure/MECM/Intune/Group Policy/Exchange/AD admin/ServiceNow, confirming the 7/11 downgrade). Zero postings remain un-evaluated as of this run.
 
 ## July 12, 2026
 

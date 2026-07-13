@@ -10,6 +10,9 @@ Submitted and in-progress jobs are NOT listed here — those are tracked by thei
 
 ---
 
+- JC-524311 — Product Support Assistant (ITA, DMV Enterprise Modernization Project) — [stretch-declined] [soq-answerability] real ITA-level fit on the customer/support and technical-support blocks, but ~50% of duties (Agile sprint coordination + management-facing meetings/reporting) rest on team rhythm he's never lived; written-response Q2 has no clean "well received by others" process-improvement story; 12-month LT with no guaranteed conversion (passed 2026-07-13)
+- JC-524323 — Service Desk Technician (ITS I, Dept. of Conservation) — [stretch-declined] closest duty-lane match of the three (Windows desktop/peripheral install-config-troubleshoot, asset receiving/surplus, Service Desk dispatch) but a classification stretch (ITS I); declined (passed 2026-07-13)
+- JC-523814 — Information Technology Associate (ITA, SWRCB Help Desk & Client Services) — [tool-saturation] M365, Azure Cloud admin, Microsoft Endpoint Configuration Manager, Intune, Group Policy, Exchange admin, Active Directory admin, and ServiceNow (incl. asset management) all named desirables and confirmed gaps sitting inside the 55% core support block; 25% printer-fleet administration; no SOQ but requires a cover letter, in-office 4 days/week (passed 2026-07-13)
 - JC-524252 — Media Specialist (ITA, CDCR) — [domain-gap] broadcast/AV + TriCaster saturation, zero adjacent experience; 5-prompt SQ unanswerable (passed 2026-07-11)
 - JC-518577 — Contract Manager Associate (ITA, CDPH) — [procurement] contract-management core; SOQ lead prompt unanswerable (passed 2026-07-11)
 - JC-523141 — Data Governance Analyst (ITA, FTB) — [ba-qa] [domain-gap] data-engineer/QA saturated in SQL/DB2; zero SQL (passed 2026-07-11)
