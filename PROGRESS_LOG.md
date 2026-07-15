@@ -1,10 +1,22 @@
 # CalCareers Job Hunt — Progress Log
 
-_Last updated: July 13, 2026_
+_Last updated: July 15, 2026_
 
 _Newest day first._
 
 _Current month only. Prior months live verbatim in `PROGRESS_LOG_ARCHIVE.md` (rolled at the start of each month per CLAUDE.md rule 9)._
+
+## July 15, 2026
+
+### Job triage run (recommend-job) — scrape generated_at 7/15, 43 open postings, 8 new / 2 closed since 7/13
+
+- Ran the scraper fresh (8 new, 2 closed since the 7/13 run — 43 open positions tracked). All 8 new postings were un-evaluated (none in the TRIAGE_LEDGER or any SUBMITTED/IN-PROGRESS folder; no data-integrity conflicts).
+- **JC-524716 (Desktop Support Analyst, ITA, CalPERS Enterprise Desktop Support Section) = the only genuine fit.** True ITA-level desktop-support lane: 45% complex desktop technical work (plan/build/support PC hardware/software, incident resolution incl. service outages/data restoration/PC repairs, some LAN admin) + 30% PC/LAN standards and asset documentation + 15% technical documentation/budget-request support + 5%/5% cross-training and other. No named tool gaps in the desirable qualifications (just detail-oriented/communicator/collaborative — no ServiceNow, M365, Intune, or any other confirmed-gap platform named anywhere). **No SOQ required** — 678 only, resume optional, the lightest filing burden of the batch. Real flag: the posting states the position **begins work at 5:00 AM**, notably earlier than Uriah's stated comfort baseline (~7 a.m. onward); surfaced to him rather than silently noted. Permanent full-time, hybrid (2 remote/3+ onsite), Sacramento, Live Scan required, deadline 7/24/2026.
+- **7 clean passes, added to TRIAGE_LEDGER.md and TRIAGE_LEDGER_DETAIL.md:** JC-524774 (Web and Database Developer, ITA, POST — 95% .NET/SQL Server/Crystal Reports development, zero experience, 3-prompt all-technical SOQ names every gap tool), JC-524798 (IT Procurement and Contracts Associate, ITA, DCA/CSLB — 95% pure IT contracts/procurement), JC-524385 (Technical Analyst, ITA, CCHCS — IT budget/BCP analyst, SOQ gates directly on Budget Change Proposal experience), JC-524686 (Application Programmer Analyst, ITA, DMV — 75% coding/SDLC, desirables want C#/Python/SQL/Git he lacks), JC-514314 (Project Manager, ITS I, CDPH — full PM lifecycle + mentors staff, 3-prompt SOQ unanswerable), JC-524828 (Professional Services Analyst, ITS I, FTB — 50% Agile/Scrum delivery + Scrum Master services + 25% teaches a training academy, zero Agile/Scrum experience, supplemental prompt asks directly for a Scrum Master project story), JC-524912 (Enterprise Resource Planning Developer, ITS I, CalPERS — 100% Oracle PeopleSoft FSCM development, zero experience, SOQ gates on ERP experience).
+- Per the skill's fewer-than-3 rule, presented only the one real fit rather than padding the top 3 with PASS-grade jobs.
+
+### JC-520957 (Server Operations Specialist, ITS I, Unemployment Insurance Appeals Board) — interview scheduled
+- Albert Hernandez (the hiring unit contact named on the posting) called to schedule an interview. Submitted 6/10/2026; this is one of the pre-JC-521435 backlog apps with no prep doc yet, so built one now per the just-in-time policy. Wrote `Interview_Prep_JC-520957.md` into the SUBMITTED folder: top probes are lack of paid production server-administration tenure, no enterprise backup/recovery tooling, and homelab-scale (not enterprise) hardware/lifecycle experience; strongest talking points are the aws-ha-infra failover numbers, the vulnerability-management 30-to-3 remediation cycle, and the win11-stigs DISA compliance work plus homelab patch discipline.
 
 ## July 13, 2026
 
