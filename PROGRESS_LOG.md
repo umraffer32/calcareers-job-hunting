@@ -17,6 +17,7 @@ _Current month only. Prior months live verbatim in `PROGRESS_LOG_ARCHIVE.md` (ro
 
 ### JC-520957 (Server Operations Specialist, ITS I, Unemployment Insurance Appeals Board) — interview scheduled
 - Albert Hernandez (the hiring unit contact named on the posting) called to schedule an interview. Submitted 6/10/2026; this is one of the pre-JC-521435 backlog apps with no prep doc yet, so built one now per the just-in-time policy. Wrote `Interview_Prep_JC-520957.md` into the SUBMITTED folder: top probes are lack of paid production server-administration tenure, no enterprise backup/recovery tooling, and homelab-scale (not enterprise) hardware/lifecycle experience; strongest talking points are the aws-ha-infra failover numbers, the vulnerability-management 30-to-3 remediation cycle, and the win11-stigs DISA compliance work plus homelab patch discipline.
+- **Interview confirmed for Thursday, July 23, 2026 at 2:00 p.m.** Well clear of the Sep 23 - Oct 29 Philippines trip window.
 
 ## July 13, 2026
 
