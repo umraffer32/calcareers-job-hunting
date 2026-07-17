@@ -1,6 +1,8 @@
 # Potential Interview Questions and Potential Answers — JC-520957, Server Operations Specialist (CUIAB)
 
-Interview: Thursday, July 23, 2026, 2:00 p.m. Format confirmed by Uriah 2026-07-16: panel of 15-20 candidates, all asked the same fixed set of 6-7 questions, no individualized follow-ups. This list holds 16 candidate questions, drawn from the duty statement, the submitted SOQ, and general panel-behavior research, so nothing asked on the day is a surprise even though only a subset of these actually gets used. Deliberately not narrowed down to a guessed 6-7, per Uriah's call (narrowing risks being unprepared for the one question that got cut).
+Interview: Thursday, July 23, 2026, 2:00 p.m. Format confirmed by Uriah 2026-07-16: panel of 15-20 candidates, all asked the same fixed set of 6-7 questions, no individualized follow-ups, each scored against a key-points checklist. This list holds 16 candidate questions, drawn from the duty statement, the submitted SOQ, and general panel-behavior research, so nothing asked on the day is a surprise even though only a subset of these actually gets used.
+
+**Rehearsal priority, set 2026-07-17 with six days left:** given the time remaining, narrowed from spreading evenly across all 16 to a core 9 to actually rehearse out loud, in order of certainty: Q13 and Q14 (the two SOQ prompts, near-certain to be re-asked live), Q3 through Q8 (one question per duty-statement essential-function block actually covered, about 80% of the role's duty weight), and Q1 and Q2 held in reserve as the near-universal opener-or-closer pairing (Cali State Job Coach Kent's research, corroborated independently in the Reddit corpus). Q9 through Q12 and Q15 through Q16 stay in this document as backup, fully or partially drafted, but are no longer the rehearsal priority.
 
 Source doc for panel mechanics, CUIAB background, landmines, and standing personal-history answers: `Interview_Prep_JC-520957.md` in this same folder. This document is the working answer sheet; that one is the reference material.
 
@@ -30,6 +32,20 @@ Rehearse as three beats, not a memorized block:
 Full spoken draft: "Three things back that up. The credentials are the baseline, my B.S. in Network Engineering and Security from WGU, and CompTIA A+, Network+, Security+, and Cloud+ on top of it. Past that, I've actually built and broken systems to prove they hold up, not just stood them up. I designed a two-availability-zone AWS environment with a self-healing network path and a Multi-AZ database, then ran 45 failure simulations across three full test cycles and measured the recovery, about two and a half minutes average, with one run logging 92 events, 15 automatic route repairs, and zero false positives. I've also got a track record of closing gaps methodically instead of guessing. In my internship I took a Windows Server from about 30 vulnerability findings down to 3, clearing every critical by the second scan. I ran a DISA STIG compliance audit that came back with 142 failing checks out of 263, selected the 10 that mattered most for that environment, remediated them with PowerShell, and verified every one with a re-scan to pass. The way I think about all of it comes back to confidentiality, integrity, and availability, everything I do is aimed at keeping a system trustworthy and available, not just running. I haven't had a job with 'server administrator' in the title yet, so there's real onboarding ahead on your specific tools and scale, but the discipline of testing instead of assuming, and verifying my own work instead of calling it done, is already there, and I ramp fast."
 
 **Rehearse this follow-up:** "why only 10, why not fix all 142?" Answer: over-remediating everything risks breaking the system, so picking the controls that fit the environment is the actual skill being demonstrated.
+
+### v2 — re-cut for keyword coverage, since this is a scored, non-interactive panel
+
+**What changed and why:** Uriah's read on the format, panelists are scoring against a checklist of what's actually said out loud, not what they can infer, so this near-certain opener-or-closer question is worth optimizing for duty-statement keyword surface, not just credibility. v1 proves depth on two projects well but never uses the words architecture, backup and recovery, monitor, root cause, or documentation, all straight from the 45% and 25% duty blocks. v2 works those words into the same two beats through better verb choice, not new facts, so it doesn't duplicate what Q3, Q5, Q6, and Q7 already own in more depth. Left out on purpose, not forced in: collaborate, SME, HIPAA, lead capacity, and lifecycle, those would each need either a new fact that duplicates another core-7 answer, or a claim he can't back up. Confidentiality, integrity, availability, and compliance were already covered in v1 and stay as-is.
+
+Full spoken draft, v2: "Three things back that up. The credentials are the baseline, my B.S. in Network Engineering and Security from WGU, and CompTIA A+, Network+, Security+, and Cloud+ on top of it.
+
+Past that, I've actually built and broken systems to prove they hold up, not just stood them up. I designed the architecture for a cost-effective, two-availability-zone AWS environment, a self-healing network path and a Multi-AZ database for backup and recovery, and documented the whole thing. Then I ran 45 failure simulations across three full test cycles and measured the recovery, about two and a half minutes average, with one run logging 92 events, 15 automatic route repairs, and zero false positives.
+
+I've also got a track record of closing gaps methodically instead of guessing. In my internship I ran vulnerability scans to monitor for exposure, and took a Windows Server from about 30 findings down to 3 by tracing each one to its root cause, clearing every critical by the second scan. I also ran a DISA STIG compliance audit that came back with 142 failing checks out of 263, selected the 10 that mattered most for that environment, remediated them with PowerShell, and verified every one with a re-scan to pass.
+
+The way I think about all of it comes back to confidentiality, integrity, and availability, everything I do is aimed at keeping a system trustworthy and available, not just running. I haven't had a job with 'server administrator' in the title yet, so there's real onboarding ahead on your specific tools and scale, but the discipline of testing instead of assuming, and verifying my own work instead of calling it done, is already there, and I ramp fast."
+
+Same follow-up rehearsal note applies: "why only 10, why not fix all 142?" Over-remediating everything risks breaking the system, picking the controls that fit the environment is the actual skill being demonstrated.
 
 ---
 
@@ -134,13 +150,66 @@ Where I'll be honest is I've never had a job with a formal escalation chain to h
 
 ## 7. How do you approach managing a server's lifecycle, including tracking end-of-life dates and planning replacements?
 
-*Not yet drafted. Overlaps with Interview_Prep landmine #3 (lifecycle management, the CUIAB strategic-plan hook) — pull that answer in when drafting this one.*
+First use in this document of the UPS detail and the strategic plan's "incremental upgrades over a wholesale rebuild" line. Q15 already touches CUIAB's modernization priority as a motivation example, so this answer pulls a different specific from the same strategic plan instead of restating that sentence.
+
+- **Beat 1, honest scope up front:** hardware experience is homelab scale, mini PCs running Proxmox, not an enterprise rack fleet or a SAN. Say this plainly before anything else, same pattern as the honest bridges in Q3 through Q5.
+- **Beat 2, the real discipline, new specific:** at homelab scale every machine's condition is tracked from memory, no tool needed for a handful of servers. The concrete proof is the UPS those servers sit on, a power event becomes a clean shutdown instead of a hard failure or lost data. Unused elsewhere in this document.
+- **Beat 3, the gap and the bridge together:** no experience with a formal asset-tracking or inventory system, the kind of tool that tracks age, support status, and replacement dates across a real fleet, name that plainly. Then pivot, the underlying judgment transfers even without the tooling, knowing what's running and not waiting for failure to force a decision applies at 5 machines or 500, and naming that a deliberate process matters more at their scale, twelve field offices, is self-awareness, not a dodge.
+- **Beat 4, CUIAB-specific close, new specific:** the 2023-2027 strategic plan's preference for incremental upgrades over a wholesale rebuild is exactly what disciplined lifecycle tracking supports, replacing pieces before they force an emergency.
+
+Flow-through:
+
+"Where I'll start is plainly, my hardware experience is homelab scale, mini PCs running Proxmox, not an enterprise rack of servers or a SAN. I want that upfront before anything else.
+
+What that scale does teach is the discipline underneath lifecycle management, even without a formal tool to enforce it. With a handful of machines I know their condition and their limits from memory, and I don't wait for something to fail before I act on it. A concrete example, my servers sit on a UPS, so a power event doesn't turn into a hard failure or bad data on a drive, it turns into a clean shutdown and nothing lost. That's the same instinct lifecycle planning runs on, plan for the failure before it happens instead of reacting after it.
+
+Where I'll be honest is I don't have experience with a formal asset-tracking or inventory system, the kind of tool that tracks age, support status, and replacement dates across a real fleet. At five machines I don't need one. Across a footprint like yours, twelve field offices, that's exactly where a deliberate process instead of memory starts to matter, and it's a real piece I'd be learning here, not bringing in already built.
+
+What I do bring is the judgment underneath it. I read your 2023-2027 strategic plan, and one thing that stood out was the preference for incremental upgrades over a wholesale rebuild, which is exactly what disciplined lifecycle tracking is for, knowing what's aging out early enough to replace it a piece at a time instead of being forced into an emergency all at once."
+
+### v2 — STAR-labeled, anchored on one real situation instead of general disclaimers
+
+**What changed and why:** v1 had no single situation to anchor it, just an honest-scope caveat, a general description of homelab habits, a gap admission, and a CUIAB close, none of them a real story. Uriah's correction: stay in STAR, situation, task, action, result, from beginning to end, since a string of disclaimers doesn't read well out loud. v2 anchors on the one real end-of-life decision he's actually made, retiring the AWS high-availability environment on purpose once it had proven its design, instead of a general claim about homelab discipline. Flag: this is the fourth answer to lean on the AWS project (Q2's numbers, Q3's design tradeoffs, Q5's monitoring setup, now this retirement decision), each a genuinely different facet, but worth knowing it's carrying a lot of the weight across the answer set.
+
+- **Situation:** the AWS high-availability environment, two AZs, self-healing route repair, Multi-AZ database, had already done its job. Built, tested, the failure simulations proved the design worked.
+- **Task:** decide what to do with infrastructure that had served its purpose, keep paying to run it for nothing, or retire it on purpose.
+- **Action:** documented the full design and the test results, then tore the environment down instead of leaving it running idle.
+- **Result:** zero ongoing cost, and because it's built in Terraform, fully rebuildable from documentation if it's ever needed again, nothing lost by retiring it deliberately instead of by neglect.
+- **Honest scope, stated plainly, not dwelled on:** that's retirement at project scale, not hardware aging out of a fleet, and there's no experience with a formal asset-tracking or inventory system that would do this kind of tracking automatically across many machines.
+- **Close:** the same judgment, know when something's past active service, decide about it on purpose, keep documentation so nothing is lost, is what the strategic plan calls incremental upgrades over a wholesale rebuild.
+
+Flow-through:
+
+"The clearest real example I have of managing something through its full lifecycle is the AWS high-availability environment I built. I'd already done what I set out to do with it, two availability zones, a self-healing route repair, a Multi-AZ database, and I'd run the failure simulations that proved the design actually worked.
+
+That put me at a decision point. I could leave it running and keep paying for infrastructure that wasn't doing any active work anymore, or retire it on purpose. I documented the full design and the test results, then tore the environment down instead of letting it sit idle.
+
+The result is it cost nothing going forward, and because the whole thing is built in Terraform, I can stand the exact same environment back up any time I actually need it. Nothing was lost by retiring it deliberately instead of just leaving it running out of habit.
+
+I'll be direct that this is retirement at project scale, not hardware aging out of a fleet, and I don't have experience with a formal asset-tracking or inventory system, the kind of tool that would do this kind of tracking automatically across a lot of machines instead of the handful I can hold in my head. That's a real piece I'd be learning here. But the underlying judgment, know when something's past the point of active service, decide about it on purpose instead of by default, and keep enough documentation that nothing is lost, is the same instinct your strategic plan calls incremental upgrades over a wholesale rebuild. I'd be applying that same instinct to your hardware instead of my own cloud infrastructure."
 
 ---
 
 ## 8. What software or tools have you used for deployment, documentation, and maintenance of systems?
 
-*Not yet drafted. Honest ground: Terraform (AWS deployment), PowerShell (remediation scripting), GitHub (documentation). No named enterprise deployment tool he hasn't used.*
+An inventory question, not a story question, so this stays three named categories with one concrete grounding detail each rather than forced S/T/A/R labels. New primary material here: an Ansible automation project (bastion host, NAT instance, dynamic inventory), pulled from its README and confirmed real, not used anywhere else in this document.
+
+- **Beat 1, deployment, new project:** Ansible, from a separate AWS automation project, a bastion host and NAT instance setup managing private EC2 instances through dynamic inventory instead of a hand-maintained IP list. Concrete grounding, a real SSH ProxyJump bug and its root cause. Terraform gets one line as an honest callback, already fully detailed elsewhere in this document.
+- **Beat 2, documentation, new specific:** GitHub, with the actual habit named, documenting the problem, the root cause, and the fix, not just the finished result. Different specific from Q4's documentation line, which was about repeatability, not structure.
+- **Beat 3, maintenance, brief:** PowerShell and Bash, already fully established, one line each, no re-explaining.
+- **Beat 4, honest scope:** no named enterprise deployment tool, nothing like Jenkins or an enterprise CI/CD pipeline.
+
+Flow-through:
+
+"I'll take this by category since it's really three different tools doing three different jobs.
+
+For deployment, the tool I lean on most is Ansible, from a project where I built a bastion host and NAT instance setup in AWS and used Ansible's dynamic inventory to manage private EC2 instances without hand-maintaining a list of IPs. I hit a real bug early on, SSH connections to the private instances kept failing, and it turned out my SSH config only matched named hosts while Ansible was connecting with raw private IPs, so the bastion proxy never actually got used. I fixed it by updating the SSH config to match the private subnet range so it auto-applies the proxy jump every time. I've also used Terraform to deploy infrastructure, a highly available AWS environment across two availability zones.
+
+For documentation, GitHub is where all of it lives, but the habit that matters more than the tool is how I write it. I don't just document what a project does, I document the actual problems I hit, what the root cause turned out to be, and exactly what fixed it, so the reasoning is still there for me or anyone else months later.
+
+For maintenance, that's PowerShell for remediation scripting in my internship, and Bash for patch automation at home.
+
+What I'll be upfront about is I haven't used a named enterprise deployment tool, nothing like Jenkins or an enterprise CI/CD pipeline. What I've used is infrastructure-as-code and automation tools I set up and ran myself, and I'd expect to pick up whatever your deployment pipeline looks like fairly quickly given that background."
 
 ---
 
