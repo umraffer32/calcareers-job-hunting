@@ -1,10 +1,21 @@
 # CalCareers Job Hunt — Progress Log
 
-_Last updated: July 15, 2026_
+_Last updated: July 17, 2026_
 
 _Newest day first._
 
 _Current month only. Prior months live verbatim in `PROGRESS_LOG_ARCHIVE.md` (rolled at the start of each month per CLAUDE.md rule 9)._
+
+## July 17, 2026
+
+### Job triage run (recommend-job) — scrape generated_at 7/17, 41 open postings, 4 new / 5 closed since 7/15
+
+- Ran the scraper fresh (4 new, 5 closed since the 7/15 run — 41 open positions tracked). After excluding 51 TRIAGE_LEDGER passes and 25 SUBMITTED folders (no data-integrity conflicts), 5 postings were un-evaluated: the 4 brand-new postings from today's scrape (525310, 525119, 525125, 525189) plus JC-524716 (Desktop Support Analyst, CalPERS), the 7/15 run's single genuine fit, which Uriah has not yet acted on (no folder started, not in the ledger).
+- **JC-524716 (Desktop Support Analyst, ITA, CalPERS Enterprise Desktop Support Section) = initially #1 STRONG FIT, re-confirmed on re-read**, then PASSED. True ITA desktop-support lane, no named tool gaps, but NO SOQ (678 + optional resume only) and the dominant 45% duty (hands-on desktop hardware support including Executives/Board) has no tie to any of Uriah's three real jobs. Deadline was 7/24/2026. 5:00 AM start also flagged again.
+- **JC-525119 (Information Technology Associate – Telework Hybrid, ITA, DMV Information Systems Division/End User Support 2 Team) = initially #2 STRONG FIT (new)**, then PASSED. 40% End User Support + 35% System Support (patching maps directly to win11-stigs/vulnerability-management, the strongest match found this round) + 10% System Design/DevOps/cloud/DB + 10% Vendor/Contract Support + 5% other. Only a 2-prompt generic written response, not a true SOQ. Deadline was 7/30/2026. Flagged an internal posting inconsistency to Uriah: the Working Conditions section claims the incumbent must "lead multi-disciplinary IT professional teams," directly contradicting the duty statement's "no direct supervisory responsibilities" — read as copy-paste template noise, not a real duty.
+- **2 clean duty/tool-fit passes, added to TRIAGE_LEDGER.md and TRIAGE_LEDGER_DETAIL.md:** JC-525189 (Information Technology Specialist I/Network Administrator, ITS I, California State Parks — 65% enterprise network console administration across Juniper/Mist/Cisco Prime/Meraki/UISP/Device42/WUG, zero hands-on with any named platform, matches the JC-523620 saturation-pass pattern), JC-525125 (Development & Technical Support Specialist, ITS I, DMV IAM team — 100% enterprise Identity and Access Management engineering, RBAC/federation/directory-integration depth beyond the homelab AD ceiling already established on JC-523777).
+- **1 clean off-lane/domain-gap pass:** JC-525310 (Information Technology Associate, ITA, CHP Enforcement Vehicle Technology Section — training-curriculum development + field support for CPVE/EV20 in-vehicle law-enforcement systems; SOQ Q1 asks directly for radio-communications-technology background he lacks; frequent statewide travel with overnight stays).
+- **Uriah then passed on both JC-524716 and JC-525119 himself, and set a new standing triage rule: prioritize SOQ-required postings in future rankings, but never disqualify a no-SOQ posting on that basis alone — only PASS for a real duty/tool/skill/project misfit.** Reasoning: with no formal IT job history yet (only the security internship and personal/homelab projects), the SOQ is the one document where he can build a differentiated case instead of relying on a bare 678 keyword screen. Both passes recorded in TRIAGE_LEDGER.md / TRIAGE_LEDGER_DETAIL.md under a new `[soq-preference]` tag, explicitly noting these are strategy declines, not discovered fit failures. The rule itself is now baked into `.claude/skills/recommend-job/SKILL.md` (a new "SOQ PRIORITY" Default plus the Step 5 tiebreaker order) so future runs apply it automatically. Net result of today's run: **zero picks recommended**, everything open has now been either evaluated-and-passed or submitted.
 
 ## July 15, 2026
 

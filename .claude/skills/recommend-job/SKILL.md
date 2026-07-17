@@ -40,6 +40,16 @@ Use these unless the data is missing or genuinely ambiguous:
   notch below. When a week is thin, say plainly that there is no clean level-matched fit
   rather than pushing a stretch to fill the list. He is rank 1 on both the ITA and ITS I
   lists, so reachability is not the constraint, honest duty-fit is. Bucket by DUTIES, not classification: an ITA-CLASSIFIED role with server or systems-administration duties (e.g. JC-522483, a CHP server-admin ITA) is a defensible STRETCH on duty domain even though the ITA classification is his level. Classification sets the pay band and reachability; the duties set the lane.
+- SOQ PRIORITY (Uriah's filing-strategy preference, confirmed 2026-07-17). Among genuine,
+  comparable fits, rank a posting that REQUIRES a Statement of Qualifications (or an
+  SOQ-equivalent written response) above one that doesn't. Reason: he has no formal IT job
+  history yet, only the security internship and personal/homelab projects, so the SOQ is
+  the one document where he can build a differentiated case instead of relying on a bare
+  678 employment-history keyword screen. This is a RANKING TIEBREAKER, NOT a pass/fail
+  filter — do not disqualify or downrank a posting merely for lacking an SOQ. Only PASS a
+  posting for a real duty/tool/skill/project misfit (tool-saturation, domain-gap,
+  seniority, SOQ-answerability, off-lane). A strong no-SOQ fit still gets recommended; it
+  just loses the tiebreak against a comparable SOQ-required fit.
 - Output a ranked top 3 (lead pick first), each with a verdict and short rationale, plus
   any remaining candidates in a compact runners-up list. If fewer than 3 are genuine fits,
   show only the real ones and say so — do not pad the list to 3 with PASS-grade jobs. Do
@@ -220,8 +230,9 @@ Give each posting a verdict: STRONG FIT / STRETCH (defensible) / PASS, with one 
 on the duty weighting, the real gaps, the deadline, and the posting URL.
 
 ## Step 5 — Recommend the top 3
-Rank the surviving postings by honest fit, then use the filing deadline as the tiebreaker
-between comparable fits (flag anything closing within ~2 days as act-now). Present the top
+Rank the surviving postings by honest fit first, then apply the SOQ PRIORITY tiebreaker
+(see Defaults) among comparable fits, then use the filing deadline as the final tiebreaker
+(flag anything closing within ~2 days as act-now). Present the top
 3:
 - Put the #1 lead pick first, with its working title and posting URL on the FIRST line,
   then its verdict and rationale.
