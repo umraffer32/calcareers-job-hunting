@@ -1,0 +1,19 @@
+{
+  "_readme": "Real callback events overriding the heuristic 4-6wk window in tools/callback_windows.py. Keys are JC numbers. status interview|offer -> window cell replaced with window_cell (REQUIRED for every event status), row bolded; rejected|withdrawn -> replaced, no bold; ack -> suppresses scanner WARNs only for log lines containing a string in lines[] (a list), row unchanged. An event entry may carry ack_lines[] to silence an unrelated editorial false positive under the same JC. An event override suppresses only its own event class and the ones it implies (interview -> interview; offer -> interview+offer; rejected/withdrawn -> all), so a NEW later event still WARNs until the status here is updated. filing_dates holds a manual Final Filing Date (YYYY-MM-DD) for any JC whose posting PDF failed extraction; when both exist the manual date wins and a NOTE is printed. RULE: whenever a real interview/rejection/withdrawal/offer for a SUBMITTED JC is logged in PROGRESS_LOG.md, add the matching entry here in the same session, and keep the JC number on the event line or its heading so the scanner can key it.",
+  "overrides": {
+    "520957": {
+      "status": "interview",
+      "window_cell": "Interview confirmed Thu 7/23, 2:00 p.m.",
+      "logged": "2026-07-15"
+    },
+    "521435": {
+      "status": "ack",
+      "lines": [
+        "Albert Hernandez (the hiring unit contact named on the posting) called to schedule an in"
+      ],
+      "logged": "2026-07-18",
+      "_note": "False positive - the JC-520957 interview-scheduled log line mentions 'pre-JC-521435 backlog' in passing; the event is 520957's, not 521435's."
+    }
+  },
+  "filing_dates": {}
+}

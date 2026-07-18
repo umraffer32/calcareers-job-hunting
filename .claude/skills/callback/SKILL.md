@@ -8,65 +8,50 @@ description: >-
   interview windows, or asks when he should expect to hear back on his
   applications. Example triggers: "generate callback window", "update the
   callback table", "refresh the interview windows", "when should I expect to
-  hear back", "show me the callback table". Runs tools/callback_windows.py for
-  the mechanical filing-closed dates and 4-6-week windows, cross-checks
-  PROGRESS_LOG.md and PROGRESS_LOG_ARCHIVE.md for any real confirmed
-  interview, callback, or rejection that should override the heuristic
-  window, then presents the result as a markdown table sorted soonest-to-
-  close first.
+  hear back", "show me the callback table". tools/callback_windows.py emits
+  the finished markdown table deterministically (M/D dates, real events merged
+  from callback_overrides.json, bolding, sort, summary); the model pastes its
+  payload verbatim and only intervenes when the tool's RESULT line says WARN.
 ---
 
 # Generate the callback-window table
 
 Local to this repo. Reports, for every application Uriah has actually filed, when a
-panel callback is realistically due.
+panel callback is realistically due. The tool does ALL the work - dates, windows,
+real-event merging, formatting, the summary line. Do not hand-compute, hand-format,
+or re-derive anything.
 
-## Step 1 — Run the mechanical tool
-Run `tools/callback_windows.py` from the repo root (`python3` in Cowork, `python` on a
-native Windows session — try one, fall back to the other). It walks every
-`JC-###### (Title) - SUBMITTED` folder, pulls the Final Filing Date from that folder's
-posting PDF, and computes the 4-6-week window (close+28 days to close+42 days) against
-today's real date. Do not hand-compute these dates or re-derive the window by hand —
-that is exactly what this tool exists to make reliable across month rollovers.
+## Step 1 - Run the tool
+From the repo root run `python tools/callback_windows.py` (`python3` in Cowork - try
+one, fall back to the other). It walks every `JC-###### (Title) - SUBMITTED` folder,
+pulls each posting's Final Filing Date, computes the 4-6-week window (close+28 to
+close+42), merges real events from `callback_overrides.json` (repo root), scans
+PROGRESS_LOG.md and PROGRESS_LOG_ARCHIVE.md for event-like prose lacking an override
+entry, and prints the finished markdown table plus summary, then a diagnostics
+section below a marker line.
 
-If a row comes back with "COULD NOT EXTRACT filing date", open that folder's posting PDF
-directly and pull the Final Filing Date manually — do not drop the row silently.
+## Step 2 - Only if the RESULT line says WARN
+Resolve each WARN by editing `callback_overrides.json`, then re-run until RESULT
+says INFO. Skip this step entirely on INFO. NOTE lines are informational and need
+no action.
+- Real event in the log (interview, rejection, withdrawal, offer) with no override
+  entry, or a NEW event for a JC whose entry records an earlier one - read only the
+  referenced log lines, then add or update the `overrides` entry. `window_cell` is
+  required for every event status; author it in M/D style with no colon except
+  clock times, e.g. "Interview confirmed Thu 7/23, 2:00 p.m."
+- Filing date could not be extracted - open that folder's posting PDF, read the
+  Final Filing Date, add it under `filing_dates` as YYYY-MM-DD. Never drop the row.
+- False-positive log mention - add an `ack` entry copying the printed excerpt
+  verbatim into its `lines` list (on a JC that already has an event entry, put the
+  excerpt in that entry's `ack_lines` instead).
 
-## Step 2 — Cross-check for anything real
-The tool only knows the heuristic window. It does NOT know about an actual scheduled
-interview, a callback, or a rejection, because those live as prose in the progress log,
-not a structured field. For every JC in the tool's output:
-- Check `PROGRESS_LOG.md` (current month) and, if the filing-closed date is more than a
-  month old, `PROGRESS_LOG_ARCHIVE.md` too, for that JC number.
-- If a real interview is confirmed, scheduled, or already happened, REPLACE that row's
-  heuristic window with the real date/time (see JC-520957 as the pattern — a confirmed
-  interview always overrides the 4-6-week estimate, it does not sit alongside it).
-- If a rejection or pass is logged, annotate the row rather than silently dropping it —
-  Uriah still benefits from seeing that an application resolved.
-- If nothing real is logged, the heuristic window stands as-is.
-
-## Step 3 — Present as a markdown table in chat
-Output the table as markdown in your response text, not through a visualization tool —
-this is tabular data, and the visualize skill's own design rules route tables to
-response text. Match the shape already established (2026-07-18):
-
-| JC | Role | Filing closed | Interview window (4-6 wks post-close) |
-|---|---|---|---|
-
-- Sort by filing-closed date ascending.
-- Bold the JC, role, and window cells for any row with a real confirmed interview.
-- Mark rows added since a screenshot or prior table Uriah pastes in for comparison as
-  *(new)*, if he provides one to diff against; otherwise just present the full current
-  set.
-- Close with a one-line summary: total applications tracked, how many are currently
-  inside their window, and a reminder that only a row with a real confirmed date is a
-  guarantee, the rest are still just the 4-6-week estimate.
+## Step 3 - Paste
+Paste everything ABOVE the diagnostics marker into chat verbatim. Do not reformat,
+re-sort, re-derive dates, add rows, or annotate. The payload is final.
 
 ## Rules
-- Read-only. This skill reports; it does not edit PROGRESS_LOG.md, rename folders, or
-  build any deliverables.
-- Never invent a confirmed interview date. If Step 2 finds nothing, the row stays a
-  heuristic window, not a guess dressed up as a fact.
-- Every SUBMITTED folder gets a row. Do not exclude one because it looks old or because
-  its window already closed — a stale window with no callback is still information
-  (it's evidence to reconsider that lead, not a reason to hide the row).
+- The ONLY file this skill may write is `callback_overrides.json`.
+- Never invent a confirmed date. An override entry must trace to a logged event or
+  a posting PDF.
+- Every SUBMITTED folder gets a row (tool-enforced). A stale window with no callback
+  is still information, not a reason to hide the row.
