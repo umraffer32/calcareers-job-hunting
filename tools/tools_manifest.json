@@ -2,6 +2,10 @@
   "_readme": "sha256 + line count of every gate tool, line-ending-normalized. check_integrity.py validates this FIRST in pre_submit. Regenerate with check_integrity.py --regen after any tool/soq_rules.json edit and commit it in the same change.",
   "generated_from": "working-tree",
   "files": {
+    "callback_windows.py": {
+      "sha256": "1fea0e7e1255a1f406bee92c9d3edda981c658d11e83ee4bedff7756c14ac281",
+      "lines": 130
+    },
     "check_678.py": {
       "sha256": "1f5f7ebba1de107de3d4a6c13b4f8d445113345c1c54c18ab17f49ff7bc6939b",
       "lines": 96
