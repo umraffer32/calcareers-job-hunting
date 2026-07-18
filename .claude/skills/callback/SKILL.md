@@ -23,7 +23,10 @@ or re-derive anything.
 
 ## Step 1 - Run the tool
 From the repo root run `python tools/callback_windows.py` (`python3` in Cowork - try
-one, fall back to the other). It walks every `JC-###### (Title) - SUBMITTED` folder,
+one, fall back to the other). On a native Windows session run it from Git Bash
+(MINGW64), not PowerShell - PowerShell's persistent PATH lacks Git's `mingw64\bin`,
+where `pdftotext` lives, so every row silently fails extraction there. It walks
+every `JC-###### (Title) - SUBMITTED` folder,
 pulls each posting's Final Filing Date, computes the 4-6-week window (close+28 to
 close+42), merges real events from `callback_overrides.json` (repo root), scans
 PROGRESS_LOG.md and PROGRESS_LOG_ARCHIVE.md for event-like prose lacking an override
