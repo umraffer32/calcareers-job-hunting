@@ -1,10 +1,17 @@
 # CalCareers Job Hunt — Progress Log
 
-_Last updated: July 17, 2026_
+_Last updated: July 18, 2026_
 
 _Newest day first._
 
 _Current month only. Prior months live verbatim in `PROGRESS_LOG_ARCHIVE.md` (rolled at the start of each month per CLAUDE.md rule 9)._
+
+## July 18, 2026
+
+### Job triage run (recommend-job) — scrape failed (CalCareers site error), reused 7/17 data
+- Attempted a fresh scrape first. CalCareers' own AdvancedJobSearch.aspx is returning a server error and redirecting to its own /Error.aspx?mode=500 in an infinite loop, confirmed by tracing the redirect chain directly (not a scraper bug, not the Cowork proxy issue — the site itself is down).
+- Fell back to the existing data/candidates.json (generated_at 2026-07-17T21:35 UTC, ~19 hours old, 41 open postings) and re-ran the exclusion check from scratch rather than trusting yesterday's log entry: all 41 resolve to either a SUBMITTED folder (523937, 523947, 524404) or a TRIAGE_LEDGER pass (the other 38 postings); no data-integrity conflicts between folders and the ledger.
+- **Zero un-evaluated candidates — same result as the 7/17 run**, since it's the identical underlying dataset. No picks to recommend today. Re-run once the CalCareers outage clears and a fresh scrape can pick up anything posted since 7/17.
 
 ## July 17, 2026
 
