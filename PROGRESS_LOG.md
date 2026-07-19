@@ -1,10 +1,28 @@
 # CalCareers Job Hunt — Progress Log
 
-_Last updated: July 18, 2026_
+_Last updated: July 19, 2026_
 
 _Newest day first._
 
 _Current month only. Prior months live verbatim in `PROGRESS_LOG_ARCHIVE.md` (rolled at the start of each month per CLAUDE.md rule 9)._
+
+## July 19, 2026
+
+### Job triage run (recommend-job) — scrape failed (CalCareers site error), reused 7/17 data
+- Attempted a fresh scrape first. CalCareers' own AdvancedJobSearch.aspx is returning a server error and redirecting to its own /Error.aspx?mode=500 in an infinite loop, confirmed by tracing the redirect chain directly (not a scraper bug, not the Cowork proxy issue — the site itself is down).
+- Fell back to the existing data/candidates.json (generated_at 2026-07-17T21:35 UTC, 41 open postings) and re-ran the exclusion check from scratch rather than trusting yesterday's log entry: all 41 resolve to either a SUBMITTED folder (523937, 523947, 524404) or a TRIAGE_LEDGER pass (the other 38 postings); no data-integrity conflicts between folders and the ledger.
+- **Zero un-evaluated candidates — same result as the 7/17 run**, since it's the identical underlying dataset. No picks to recommend today. Re-run once the CalCareers outage clears and a fresh scrape can pick up anything posted since 7/17.
+
+### Job triage run (recommend-job) — re-run, scrape succeeded (CalCareers outage cleared), 3 new / 3 closed since 7/17
+- CalCareers recovered; re-ran the scraper fresh (3 new, 3 closed since the 7/17 run — 41 open positions tracked). The 3 closed (523803, 523551, 523569) were already TRIAGE_LEDGER passes, no impact. After re-deriving the exclusion set (3 SUBMITTED + 35 remaining TRIAGE_LEDGER passes, no data-integrity conflicts), only the 3 brand-new postings were un-evaluated.
+- **All 3 clean passes, added to TRIAGE_LEDGER.md and TRIAGE_LEDGER_DETAIL.md:** JC-525328 (ITSM Administrator, ITS I, State Controller's Office — 100% administration of one proprietary enterprise ITSM platform plus Crystal Reports/Helix Dashboards, Exchange Server, SQL Server DBA collaboration, and production server hardware patching, zero hands-on with any of it; "software expert"/"lead specialist" seniority framing; no SOQ), JC-525000 (Information Technology Specialist I, ITS I, Department of Insurance — 100% Oracle PL/SQL/APEX/Java/JSP/J2EE enterprise development framed as "a technical expert," zero experience, 4-prompt SOQ gates directly on the Oracle/Java stack), JC-514543 (Fisheries Branch Software Developer, ITS I, CDFW — 75%+ .NET/C#/SQL Server/API/ETL development, zero experience, 3-prompt SOQ demands SDLC deliverables and application-support troubleshooting he hasn't done).
+- **Net result: zero picks recommended**, everything in the current open pool has now been either evaluated-and-passed or submitted. Told Uriah plainly rather than forcing a pick.
+
+### Job triage run (recommend-job) — morning re-run, 39 open postings, 0 new / 2 closed since the prior run
+- Ran the scraper fresh again (0 new, 2 closed — JC-524021 Power Platform Analyst and JC-523942 Project Management Contract Specialist, both already TRIAGE_LEDGER passes, no impact). 39 open positions tracked.
+- Cross-checked all 39 against the ledger and folders directly (not assumed from the earlier run): 3 SUBMITTED (523937, 523947, 524404) + 36 TRIAGE_LEDGER passes, zero un-evaluated, no data-integrity conflicts.
+- **Note: the two entries above ("scrape failed" and "re-run, scrape succeeded, 3 new / 3 closed") were originally logged under a "July 18, 2026" heading — that was a dating error on Claude's part (miscalculated the 7/17 data's age as ~19 hours instead of ~43). Both runs, and the three passes recorded in TRIAGE_LEDGER.md / TRIAGE_LEDGER_DETAIL.md for JC-525328/525000/514543, actually happened today, 2026-07-19; moved here and the ledger date tags corrected to match.**
+- **Net result: zero picks recommended.** Nothing open is un-evaluated.
 
 ## July 18, 2026
 
@@ -14,16 +32,6 @@ _Current month only. Prior months live verbatim in `PROGRESS_LOG_ARCHIVE.md` (ro
 - Added a log scanner to the tool as a safety net. It scans both progress logs for phrase-anchored event language (interview scheduled/confirmed, rejected, withdrawn, offer) tied to a submitted JC and WARNs on anything lacking an override entry. Steady state today is zero warnings. New standing rule in MEMORIES: whenever a real event is logged in PROGRESS_LOG.md, add the matching override entry in the same session.
 - SKILL.md rewritten around the new flow (run, fix WARNs via the overrides file only, paste verbatim); integrity manifest regenerated for the tool edit and verified PASS. Not committed yet — Uriah's call.
 - Hardened after a 17-agent adversarial review (14 confirmed findings, all live-reproduced, all addressed or accepted-by-design). Fixed: malformed overrides shapes now degrade to WARN instead of crashing without a RESULT line; a bare-string `ack` no longer silently disables the scanner; a missing `window_cell` on an event entry now gates the paste with a WARN; an event entry suppresses only its own event class, so the NEXT event for that JC still flags; scanner vocabulary extended (declined/accepted/extended offer word orders, CalCareers "no longer under consideration" and "not selected", interview invites, phone screens); UTF-8 BOM tolerated; a filing-date conflict is now an informational NOTE with the manual date winning. Accepted-by-design: editorial "rejected/withdrew" prose under a JC heading can cost one ack cycle, and an event line with no JC on it or its heading is invisible to the scanner (hence the keep-the-JC-on-the-line rule in MEMORIES). Regression suite passed end to end; steady state remains zero warnings.
-
-### Job triage run (recommend-job) — scrape failed (CalCareers site error), reused 7/17 data
-- Attempted a fresh scrape first. CalCareers' own AdvancedJobSearch.aspx is returning a server error and redirecting to its own /Error.aspx?mode=500 in an infinite loop, confirmed by tracing the redirect chain directly (not a scraper bug, not the Cowork proxy issue — the site itself is down).
-- Fell back to the existing data/candidates.json (generated_at 2026-07-17T21:35 UTC, ~19 hours old, 41 open postings) and re-ran the exclusion check from scratch rather than trusting yesterday's log entry: all 41 resolve to either a SUBMITTED folder (523937, 523947, 524404) or a TRIAGE_LEDGER pass (the other 38 postings); no data-integrity conflicts between folders and the ledger.
-- **Zero un-evaluated candidates — same result as the 7/17 run**, since it's the identical underlying dataset. No picks to recommend today. Re-run once the CalCareers outage clears and a fresh scrape can pick up anything posted since 7/17.
-
-### Job triage run (recommend-job) — re-run, scrape succeeded (CalCareers outage cleared), 3 new / 3 closed since 7/17
-- CalCareers recovered; re-ran the scraper fresh (3 new, 3 closed since the 7/17 run — 41 open positions tracked). The 3 closed (523803, 523551, 523569) were already TRIAGE_LEDGER passes, no impact. After re-deriving the exclusion set (3 SUBMITTED + 35 remaining TRIAGE_LEDGER passes, no data-integrity conflicts), only the 3 brand-new postings were un-evaluated.
-- **All 3 clean passes, added to TRIAGE_LEDGER.md and TRIAGE_LEDGER_DETAIL.md:** JC-525328 (ITSM Administrator, ITS I, State Controller's Office — 100% administration of one proprietary enterprise ITSM platform plus Crystal Reports/Helix Dashboards, Exchange Server, SQL Server DBA collaboration, and production server hardware patching, zero hands-on with any of it; "software expert"/"lead specialist" seniority framing; no SOQ), JC-525000 (Information Technology Specialist I, ITS I, Department of Insurance — 100% Oracle PL/SQL/APEX/Java/JSP/J2EE enterprise development framed as "a technical expert," zero experience, 4-prompt SOQ gates directly on the Oracle/Java stack), JC-514543 (Fisheries Branch Software Developer, ITS I, CDFW — 75%+ .NET/C#/SQL Server/API/ETL development, zero experience, 3-prompt SOQ demands SDLC deliverables and application-support troubleshooting he hasn't done).
-- **Net result: zero picks recommended**, everything in the current open pool has now been either evaluated-and-passed or submitted. Told Uriah plainly rather than forcing a pick.
 
 ## July 17, 2026
 
