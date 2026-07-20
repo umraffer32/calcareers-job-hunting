@@ -1,7 +1,8 @@
 # Flatiron Dragados - IT Field Specialist
 
-Status: Submitted
+Status: Rejected
 Date submitted: June 11, 2026
+Date rejected: unknown, likely well before July 20, 2026 (Uriah's recollection is it happened a while ago; he simply flagged it on that date)
 Source: company careers site (iCIMS)
 Requisition ID: 2026-8763
 Location: Sacramento, CA (US-CA-Sacramento)
@@ -18,5 +19,8 @@ Strong match. They prefer A+ and Network+, both of which Uriah holds. MCSE is al
 ## Notes
 - Submitted through iCIMS.
 - Certs: the structured Licenses/Certifications section was a broken lookup field that would not accept the CompTIA certs by typing, so it was left blank. The certs are listed on the attached resume instead.
-- Known issue: the wrong resume was attached, the server operations version (Uriah_Raffer_Resume_JC-520957) instead of the intended IT support / help desk one, because Save was not clicked before submitting. Decided to let it ride; the role is field and desktop support, and A+ plus Network+ and the work history still carry the signal. No response yet.
+- Known issue: the wrong resume was attached, the server operations version (Uriah_Raffer_Resume_JC-520957) instead of the intended IT support / help desk one, because Save was not clicked before submitting. Decided to let it ride; the role is field and desktop support, and A+ plus Network+ and the work history still carry the signal.
 - Lesson for next time: on this ATS, click Save in the Documents section and confirm the attached file is the tailored version before hitting Submit.
+
+## Outcome
+Rejected. Exact date unknown, likely well before July 20, 2026; Uriah has no notice on file and just flagged it that day. Closed, no further action.

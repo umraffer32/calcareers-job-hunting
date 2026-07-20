@@ -1,10 +1,15 @@
 # CalCareers Job Hunt — Progress Log
 
-_Last updated: July 19, 2026_
+_Last updated: July 20, 2026_
 
 _Newest day first._
 
 _Current month only. Prior months live verbatim in `PROGRESS_LOG_ARCHIVE.md` (rolled at the start of each month per CLAUDE.md rule 9)._
+
+## July 20, 2026
+
+### Flatiron Dragados (IT Field Specialist, private sector) -- REJECTED
+- Uriah reported the application as rejected during the weekly check-in, with no exact date; his recollection is it happened well before 7/20, not on that date. Updated Non-State Applications/README.md and its application-record.md to Rejected, folder renamed to `- REJECTED`. Closes out the only other open private-sector application; Grocery Outlet was already rejected 6/12. No further action.
 
 ## July 19, 2026
 
