@@ -47,6 +47,20 @@ The way I think about all of it comes back to confidentiality, integrity, and av
 
 Same follow-up rehearsal note applies: "why only 10, why not fix all 142?" Over-remediating everything risks breaking the system, picking the controls that fit the environment is the actual skill being demonstrated.
 
+### v3 — proof-first structure, picked by Uriah as the smoothest read (2026-07-20)
+
+**What changed and why:** same three beats and the same facts as v2, reordered. Opens with the AWS project as the hook instead of leading with the degree and certs, then the vulnerability management and STIG work, then loops back to the WGU degree and CompTIA certs as the baseline underneath both projects, then closes with the same CIA triad line and honest gap. No new facts, no dropped keywords, just a different order. Uriah read v1, v2, and this version side by side on 2026-07-20 and called this one the smoothest flow. This is now the lead version for rehearsal; v1 and v2 stay above for reference.
+
+Full spoken draft, v3: "The clearest proof is a highly available AWS environment I designed and built myself, two availability zones, a self-healing network path, and a Multi-AZ database for backup and recovery. I tested it by actually breaking it, 45 failure simulations across three full runs, about two and a half minutes average recovery, one run logging 92 events with 15 automatic route repairs and zero false positives. That's the habit this role needs, not just standing a system up, but proving it holds when something fails.
+
+I've got the same track record closing gaps on a live system. In my internship I took a Windows Server from about 30 vulnerability findings down to 3, tracing each one to its root cause and clearing every critical by the second scan. I also ran a DISA STIG compliance audit that came back with 142 failing checks out of 263, picked the 10 that actually mattered for that environment, remediated them with PowerShell, and verified every one with a re-scan.
+
+Underneath both of those is my B.S. in Network Engineering and Security from WGU, plus CompTIA A+, Network+, Security+, and Cloud+. The credentials gave me the theory, the projects are where I actually tested it against something real.
+
+Everything I build comes back to confidentiality, integrity, and availability, keeping a system trustworthy and available, not just running. I haven't had a job with 'server administrator' in the title yet, so there's a real ramp ahead on your specific tools and scale, but the habit of verifying my own work instead of calling it done is already built in."
+
+Same follow-up rehearsal note applies: "why only 10, why not fix all 142?" Over-remediating everything risks breaking the system, picking the controls that fit the environment is the actual skill being demonstrated.
+
 ---
 
 ## 3. Walk us through your experience designing server architecture or recommending a server solution based on business requirements.
