@@ -4,6 +4,8 @@ Interview: Thursday, July 23, 2026, 2:00 p.m. Format confirmed by Uriah 2026-07-
 
 **Rehearsal priority, set 2026-07-17 with six days left:** given the time remaining, narrowed from spreading evenly across all 16 to a core 9 to actually rehearse out loud, in order of certainty: Q13 and Q14 (the two SOQ prompts, near-certain to be re-asked live), Q3 through Q8 (one question per duty-statement essential-function block actually covered, about 80% of the role's duty weight), and Q1 and Q2 held in reserve as the near-universal opener-or-closer pairing (Cali State Job Coach Kent's research, corroborated independently in the Reddit corpus). Q9 through Q12 and Q15 through Q16 stay in this document as backup, fully or partially drafted, but are no longer the rehearsal priority.
 
+**Refined 2026-07-21, two days out, after the Reddit duty-statement sweep below:** asked to commit to an actual 6-7 instead of a rehearsal pool, the pick is Q13, Q14, Q15, Q2 v3, Q6, Q5b (the dedicated backup-and-recovery answer, promoted out of Q5's third beat), and Q16. All seven are now fully drafted. Q16 took the last slot over lifecycle management (Q7), an ITS-classification-specific corpus thread names a delicate-stakeholder-conversation question directly, lifecycle is Uriah's own inference from the duty weighting, weaker sourcing. Q3, Q4, Q5's monitoring and authentication beats, Q7, and Q8 stay rehearsed as backup since a fixed panel can still deviate from any prediction, but these seven get what's left of the prep time.
+
 Source doc for panel mechanics, CUIAB background, landmines, and standing personal-history answers: `Interview_Prep_JC-520957.md` in this same folder. This document is the working answer sheet; that one is the reference material.
 
 ---
@@ -143,20 +145,40 @@ Backup and recovery specifically, I'll be upfront, I haven't run an enterprise b
 
 ---
 
+## 5b. Explain your experience with backup and recovery, and how you'd verify a backup is actually recoverable.
+
+Split out from Q5's third beat into its own answer on 2026-07-21, since the duty-statement sweep below surfaced four separate phrasings all hitting this exact theme, more concentrated interest than any topic outside the two SOQ prompts. Same core evidence as Q5 and Q2, the AWS project, but re-cut to a different facet, the recovery mechanism itself and what the testing actually proved, rather than the summary numbers Q2 already owns. Flag: this is now the fifth answer leaning on the AWS project (Q1's mention, Q2's numbers, Q3's design tradeoffs, Q5's monitoring setup, now this), each a genuinely different facet, but worth knowing going in.
+
+- **Situation and task:** designing the database and network path for the AWS environment, recoverability had to be real and provable, not just assumed.
+- **Action, the design:** Multi-AZ RDS for a synchronous standby database that takes over automatically, and a repair Lambda watching the network path.
+- **Action, the proof:** didn't trust the design on paper, deliberately terminated instances across every failure combination, 45 times across three full test runs, and timed what actually happened.
+- **Result, a fresh specific:** the repair Lambda fires in well under a second once it detects a failure, but the full recovery, AWS replacing the terminated instance and the network settling, averaged about two and a half minutes across all 45 runs. Knowing exactly where that time goes is the actual answer to "how would you verify a backup is recoverable," you trigger the failure yourself and watch it.
+- **Honest gap:** no enterprise backup product day to day, matches the already-approved landmine #2 wording.
+
+Flow-through, an example of how the beats combine, not a script to memorize:
+
+"When I designed the database and network path for my AWS environment, I didn't want recoverability to be something I just hoped worked. I put the database on Multi-AZ, so there's a synchronous standby ready to take over automatically if the primary fails, and I built a repair Lambda that watches the network path and fixes it the same way.
+
+But a design on paper isn't proof. So I tested it by actually breaking it, terminating instances across every failure combination I could think of, 45 times across three full test runs. That's where I learned something specific, the repair Lambda detects a failure and fires in well under a second, but the full recovery, AWS replacing the terminated instance and the network settling back to normal, averaged about two and a half minutes across all 45 runs. Knowing exactly where that time goes, not just that it eventually works, is what I'd call actually verifying a recovery instead of assuming one.
+
+What I'll be upfront about is I haven't run an enterprise backup product day to day. I don't have hands-on time with whatever you use here, and I'd want to learn your retention policy and restore procedure early. But the instinct is the same one I'd bring to that, a recovery plan is only real once you've triggered the failure yourself and timed what actually happens, not before."
+
+---
+
 ## 6. Describe how you troubleshoot a server issue and conduct root cause analysis, including when you'd escalate it.
 
-First use in this document of the SQLite false-positive investigation, the WGU rogue DNS zone ticket, and the GLPI lab's escalation tier, all previously unused.
+First use in this document of the WGU DHCP scope exhaustion ticket, the WGU rogue DNS zone ticket, and the GLPI lab's escalation tier. Beat 1 was originally the SQLite false-positive investigation, swapped out 2026-07-21 once Q14 got fully drafted and claimed that exact story, this and Q14 are both in the top-7 rehearsal set, so they'd likely get asked back to back in the same sitting. The DHCP ticket is unused anywhere else in this document and, per the evidence bank, is the one Uriah considers the stronger root-cause example of the two WGU tickets available.
 
-- **Beat 1, root-cause methodology, new material:** the SQLite finding that flapped in and out across scans in the internship's vuln-management project. Instead of remediating on reflex, searched the system with PowerShell for the actual files, found none installed, confirmed false positive. Evidence-based diagnosis, not reflexive action.
+- **Beat 1, root-cause methodology, new material:** the WGU DHCP scope exhaustion ticket. Half a department kept intermittently dropping off the network. Traced it to an exhausted DHCP scope, then past the obvious fix (widen the scope) to the actual cause, month-long leases holding addresses from machines that were long gone. Shortened the lease time so stale addresses recycle in days. Fix the cause, not just the symptom in front of you.
 - **Beat 2, recognizing scope, new material:** the WGU rogue DNS zone ticket. A user reported one site loading wrong, asked other users to reproduce it, it failed for everyone, ruling out a single machine and pointing at shared infrastructure. Found and removed a rogue forward lookup zone. The honest bridge into "when would you escalate", recognizing when something's bigger than one report.
 - **Beat 3, the honest gap:** never had a job with a formal escalation chain, the internship is remote and self-directed, so there's no real "I escalated this to my supervisor" story. Paired immediately with the GLPI lab's actual escalation tier, an SLA rule that auto-flags a ticket and bumps its priority a day before the resolution deadline, proof of understanding the mechanics without claiming the lived experience.
 - **Beat 4, closing criterion:** a plain, honest personal rule for when he'd escalate, outside his access or authority, or clearly bigger than one system. Not an invented anecdote, just a defensible standard.
 
 Flow-through:
 
-"Root cause, I'll start with an example from my internship. I had a vulnerability finding that kept flapping, it would show up on one scan, disappear on the next, then come back. Instead of just remediating it because the scanner said to, I searched the system with PowerShell for the actual files the finding was about and found none installed. Combined with it flapping in and out, that told me it was a false positive, not a real exposure, so I documented it as one instead of forcing an unnecessary change. That's the habit, don't act on what the tool says until you've confirmed what's actually true.
+"Root cause, I'll start with an example from a lab environment at WGU. Half a department kept intermittently dropping off the network, some machines on, some off, changing through the day. I traced it to an exhausted DHCP scope, no free addresses left to lease. The quick fix would have been widening the scope and moving on, but that just delays the same failure showing up again. I dug into why the scope was exhausted in the first place and found leases were held for a full month, so addresses from machines that were long gone were still tied up. I shortened the lease time so stale addresses recycle in days instead of a month. That's the habit, fix the cause, not just the symptom sitting in front of you.
 
-Knowing when something's bigger than it looks is the other half of this. In a lab environment at WGU, a user reported one site loading the wrong page. Before I touched anything, I asked a few other people to try it too, and it failed for all of them, which told me it wasn't that one machine, it was shared infrastructure. That pointed me at DNS instead of the endpoint, and I found a rogue forward lookup zone redirecting the domain and removed it. The reproduction step is what told me this wasn't a one-user problem.
+Knowing when something's bigger than it looks is the other half of this. Another WGU lab ticket, a user reported one site loading the wrong page. Before I touched anything, I asked a few other people to try it too, and it failed for all of them, which told me it wasn't that one machine, it was shared infrastructure. That pointed me at DNS instead of the endpoint, and I found a rogue forward lookup zone redirecting the domain and removed it. The reproduction step is what told me this wasn't a one-user problem.
 
 Where I'll be honest is I've never had a job with a formal escalation chain to hand something up to, my internship is remote and self-directed, so there's no supervisor I've actually escalated a live issue to. What I do understand is the structure of it. I built a self-hosted ticketing system with an SLA and an escalation tier that automatically flags a ticket and bumps its priority a day before it's due, so I know how escalation is supposed to work mechanically, even without having lived it on the job. My own rule for when I'd escalate is simple, when it's outside what I have the access or authority to fix, or when it's clearly bigger than one system and needs more than standard procedure covers."
 
@@ -253,13 +275,47 @@ What I'll be upfront about is I haven't used a named enterprise deployment tool,
 
 ## 13. Please describe in detail what you believe are server system specialist responsibilities.
 
-*Not yet drafted. This is the SOQ Q1 prompt, reused live. The submitted SOQ answer (CIA triad framing, daily-duties list, aws-ha-infra project) is the source material — see `Uriah_Raffer_SOQ_JC-520957.pdf` in this folder. Answer should track the SOQ closely but not read as recited.*
+Drafted 2026-07-21 from the actual submitted SOQ Q1 answer (`Uriah_Raffer_SOQ_JC-520957.pdf`), restructured for speech rather than read verbatim. Shares AWS-project material with Q2, Q3, and Q5b since the SOQ itself leans on that project as its proof point, that overlap is inherent to tracking the SOQ closely, not a redundancy to fix.
+
+- **Frame:** what the server is for changes the risk, the goal underneath stays constant, the CIA triad.
+- **Confidentiality and integrity, brief:** access control and connection security, then audit logging and change control.
+- **Availability, the deep dive:** redundancy, backups actually tested, a real failure plan, the piece that takes the most engineering.
+- **Daily duties, the full list:** design, install and configure, maintain and update, monitor, troubleshoot to root cause, patch, track end of life and plan replacement, document and communicate.
+- **Proof, the AWS project:** two availability zones, self-managed NAT instances over a managed Gateway to save cost, a Lambda that repairs the route automatically, a Multi-AZ database, SSM-only access, CloudWatch and CloudTrail, tested by simulating failures and measuring recovery.
+- **Close:** designing for availability mostly means planning for the failure you hope never comes, straight from the SOQ's own closing line.
+
+Flow-through, an example of how the beats combine, not a script to memorize:
+
+"I think the responsibilities start with one question, what is this server actually for. A database server, a web server, and an internal file server don't carry the same risks, so the job shifts with the workload. What stays constant is the goal underneath all of it, and I think of that through the CIA triad, keep the data confidential, keep it intact, and keep it available.
+
+Confidentiality is making sure the server and its data are only reachable by the people and systems that should reach them, authentication, access control, locking down how you connect to the box in the first place. Integrity is the data staying accurate and uncorrupted, which is where audit logging and change control matter. Availability is the one that takes the most engineering, redundancy, backups you've actually tested, and a real plan for when something fails.
+
+Around that core sit the daily duties, designing the server and its environment, installing and configuring it, keeping it running through maintenance and updates, monitoring it, troubleshooting to the actual root cause when something breaks, patching it, tracking when hardware and software hit end of life so you can plan the replacement before it's a problem, and documenting the work so the next person, including future me, can understand the system.
+
+I built a two-availability-zone AWS environment to put the availability piece into practice specifically. I used self-managed NAT instances instead of a managed NAT Gateway to save cost, then engineered the reliability back in myself, a Lambda that automatically repairs the network route when a NAT instance gets replaced. It runs a Multi-AZ database, access is SSM-only with no SSH keys, and I tested the whole thing by simulating failures and measuring recovery. Building that project is really where I learned that designing for availability mostly means planning for the failure you hope never comes."
 
 ---
 
 ## 14. Describe your experience with patch management and system updates.
 
-*Not yet drafted. This is the SOQ Q2 prompt, reused live. The submitted SOQ answer (Tenable/PowerShell remediation cycle, the SQLite false-positive rundown, the Edge re-scan lesson, the homelab "up" alias) is the source material — see `Uriah_Raffer_SOQ_JC-520957.pdf` in this folder.*
+Drafted 2026-07-21 from the actual submitted SOQ Q2 answer (`Uriah_Raffer_SOQ_JC-520957.pdf`), restructured for speech. Covers the same Edge lesson and homelab "up" alias as Q4, but is the fuller version, it also carries the 30-to-3 headline number and the SQLite false-positive investigation that Q4 doesn't. If only one gets rehearsed, this is the one.
+
+- **Frame:** two settings, the internship lab and the homelab.
+- **Internship process and headline number:** Tenable scan, PowerShell remediation, about 30 findings down to 3 on one Windows Server, every critical cleared.
+- **The 3 that remained, proof of judgment:** two benign self-signed certificate findings, one SQLite finding investigated with PowerShell and confirmed false rather than remediated on reflex.
+- **The Edge lesson, verification cuts both ways:** a remediated fix that re-flagged because the browser needed a restart, taught him to confirm a real fix landed the same way he confirms a noisy finding is real before acting.
+- **Homelab habit:** unattended Linux upgrades, the "up" alias script, run across his servers, two Pi-holes, and pfSense.
+- **Close:** find what's out of date, fix it the same way every time, re-scan to prove it worked.
+
+Flow-through, an example of how the beats combine, not a script to memorize:
+
+"I work with patch management in two places, a hands-on internship lab and my own homelab.
+
+In the internship I run vulnerability and compliance scans against Windows and Linux machines in Microsoft Azure using Tenable, pull the findings, and remediate what I can with PowerShell. Across several rounds I took one Windows Server from about 30 findings down to 3, clearing every critical along the way.
+
+The three that were left weren't loose ends. Two were self-signed SSL certificate findings, expected in a lab using internally issued certificates. The third was a SQLite finding that kept flapping, showing on one scan, dropping off the next, then coming back. Instead of remediating it on reflex, I searched the system with PowerShell for the actual SQLite files and found none installed, which told me it was a false positive, so I documented it as one instead of forcing a change the machine didn't need. I learned verification cuts both ways from a separate case, an Edge update I remediated that re-flagged on the next scan. Edge had actually downloaded the update, it just needed to be closed and reopened before it applied. Once I did that and re-scanned, it came back clean. So now I confirm a real fix landed the same way I confirm a noisy finding is real before I act on it.
+
+At home that habit is just daily practice instead of a project. My Linux hosts run unattended upgrades automatically, but I usually patch by hand too, I wrote a short script that runs update, upgrade, autoremove, and autoclean, aliased to 'up' so I can run it from anywhere, and I run that across my servers, two Pi-holes, and my pfSense firewall. The habit underneath all of it is the same one, find out what's out of date or misconfigured, fix it the same way every time, and re-scan to actually prove it worked."
 
 ---
 
@@ -281,3 +337,113 @@ Numbers if asked for scale: about 70 returns that season, roughly $24,000 in fil
 
 - **The 2020-2022 gap:** "During COVID I traded options independently and did well at it, but I wanted a stable, building career rather than something that swings year to year, so I went back to school for network engineering and security." Don't volunteer dollar figures.
 - **Reason for leaving Robert's Retirement:** keep it to one or two sentences, calm and forward-looking, an interpersonal workplace conflict, left professionally, then pivot to what's been built since.
+
+---
+
+## Reference: exhaustive duty-statement question sweep (Reddit-sourced, 2026-07-21)
+
+A Reddit user read the duty statement independently and produced 59 candidate questions, reproduced verbatim at the bottom of this section. Cross-checked against the 16 questions above and against the duty statement's own weighting (45% architecture and design, 25% install/monitor/troubleshoot/backup-recovery/authentication-audit, 10% lifecycle management, 5% compliance, plus the "may include" SME, business-continuity-drill, HIPAA, lead-capacity, and collaboration language). None of the 59 introduce a duty the 16 above don't already trace back to. Mostly they reframe the same duty-statement blocks from a different angle and confirm which sub-topics come up most often in the wild; a handful surface real gaps worth an honest line.
+
+### Tier 1, near-certain, already fully drafted above
+- **SOQ Q1 reused live, "responsibilities of a server system specialist" (document Q13):** covers #1, #3, #4, #8.
+- **SOQ Q2 reused live, patch management (document Q14):** covers #10, #11, #26, #27.
+- **CUIAB knowledge and motivation (document Q15):** covers #55.
+- **Why are you qualified, or why should we hire you (document Q2, now drafted as v3):** covers #56, #59.
+
+### Tier 2, high probability, core duty weight, already drafted above
+- **Troubleshooting, root cause, escalation (document Q6):** covers #15, #16, #19.
+- **Backup and recovery, disaster recovery (document Q5's third beat, landmine #2):** covers #20, #21, #22, #23. Four separate phrasings all hit this one theme, more than any other topic in the sweep outside the SOQ prompts. Promoted to its own dedicated answer, document Q5b, instead of sharing space with monitoring and authentication inside Q5. The honest hook is the AWS failure-simulation testing, proof of testing recovery rather than assuming it works, but keep the framing straight if probed on the difference, the AWS mechanism is high availability, automatic same-region recovery, not classic cross-site disaster recovery (see #48 below).
+
+### Tier 3, plausible, mostly covered, worth a clean pass before Thursday
+- **Monitoring (document Q5's first beat):** covers #12, #13.
+- **Lifecycle management (document Q7):** covers #24, #25.
+- **Business requirements and cost-effective solutions (document Q3):** covers #5, #6, #7.
+- **Documentation habit (document Q8):** covers #9.
+- **Collaboration across IT teams (document Q9, still a real gap):** covers #35.
+- **Explaining technical information to a non-technical stakeholder:** covers #36, not yet drafted as its own answer, the Jason story (helping a non-technical neighbor with a hardware upgrade) is the honest material.
+- **Mistake and lesson learned (already inside document Q4, the Edge re-scan beat):** covers #54.
+- **Leading or mentoring (document Q12, honest gap):** covers #58.
+
+### Tier 4, lower probability, a "may include" duty or general filler, keep one honest line ready
+- SME, business continuity drills (document Q10, honest gap): #38, and partially #23.
+- HIPAA and regulatory compliance (document Q11, honest gap): #34.
+- Active Directory, authentication, admin access, audit logs (document Q5's authentication beat, document Q3 v2's AD beats): #28, #29, #31 (access reviews specifically is a partial gap, no formal periodic-review story).
+- Security best practices, risk mitigation (STIG and vulnerability-management material, well covered): #30, #32, #33.
+- Staying current (easy honest answer, Cyber Range classrooms plus cert maintenance, not yet drafted as its own line): #39.
+- Automation, scripting, PowerShell (document Q8, well covered): #41, #42, #43.
+- Cloud-hosted servers (AWS plus Azure, well covered): #46.
+- Networking concepts, HA versus DR (knowledge questions, answerable from the AD homelab and the AWS project): #47, #48.
+- Scenario troubleshooting: slowness, high CPU or memory, won't boot, works on one server but not another (procedural, answerable without a lived incident since these are "how would you," not "tell us about a time"): #49, #50, #51, #52.
+- Critical decision with limited information (general behavioral, the SQLite false-positive and the rogue-DNS-zone stories both apply): #53.
+- Competing priorities and tight deadlines (general behavioral): #57.
+
+### Flagged as real gaps, no invented story, answer honestly if asked
+- **#2, a server migration project.** Nothing in the record is a migration. If asked, say so plainly and pivot to the closest adjacent work, standing the AWS environment up from nothing, or decommissioning it on purpose once it had done its job (document Q7 v2's retirement story).
+- **#17 and #18, prioritizing multiple incidents, or a production server going down.** Ties directly to Interview_Prep landmine #1, no production-server tenure. Answerable as a procedure, triage by impact and scope, stabilize first, root-cause after, rather than as a real incident.
+- **#37, disagreements with stakeholders over technical decisions.** No real story. The Block Advisors story (document Q16) is the closest adjacent material but it's a client conflict, not a technical-decision disagreement, don't force the fit.
+- **#40, a process improvement that was well received.** Per the 2026-07-13 gap note in MEMORIES, his process work (the GLPI lab, the WGU lease-time fix) is solo and self-authored, nobody else witnessed or validated the outcome. Say so rather than manufacturing a stakeholder reaction.
+
+### Honesty landmine to lock down before Thursday, questions #44 and #45
+If virtualization comes up by name: Proxmox is real and current (Type 1, homelab). Azure is real (the internship's Cyber Range runs on it). VMware and Hyper-V are real only at the desktop, Type 2, level, VMware Workstation, Hyper-V, and VirtualBox for personal test VMs, never VMware ESXi or any enterprise Type 1 VMware product. This exact overclaim already happened once, on JC-521522's SOQ. If asked what virtualization platforms he's worked with, lead with Proxmox and Azure, and if VMware or Hyper-V come up, name the desktop-tier products specifically rather than letting "VMware" stand alone.
+
+### Full sweep, as received
+
+1. Tell us about your experience with Windows Server administration.
+2. Describe a server migration project you've worked on. What was your role?
+3. How do you approach designing or improving server architecture?
+4. Walk us through how you would plan and implement a new server deployment.
+5. How do you gather business requirements before recommending a technical solution?
+6. Tell us about a time you recommended a cost-effective technology solution.
+7. How do you balance business needs with technical limitations?
+8. What factors do you consider when selecting server hardware or software?
+9. Describe your process for documenting server installations and changes.
+10. How do you test server upgrades before deploying them to production?
+11. Explain your approach to change management for server updates.
+12. How do you monitor server health and performance?
+13. What tools have you used to monitor servers and infrastructure?
+14. Tell us about a performance issue you diagnosed and resolved.
+15. Walk us through your troubleshooting methodology.
+16. Describe a difficult root cause analysis you performed.
+17. How do you prioritize multiple critical server incidents?
+18. What steps do you take when a production server goes down?
+19. How do you determine whether to escalate an issue?
+20. Explain your experience with backup and disaster recovery.
+21. How would you verify that backups are recoverable?
+22. Tell us about a disaster recovery test you've participated in.
+23. How do you ensure business continuity during infrastructure failures?
+24. Describe your experience managing server lifecycles.
+25. How do you handle end-of-life hardware or software?
+26. What is your approach to patch management?
+27. How do you minimize downtime during server maintenance?
+28. Describe your experience with Active Directory and authentication.
+29. How do you secure administrative access to servers?
+30. What security best practices do you implement on Windows servers?
+31. How do you handle audit logs and access reviews?
+32. Tell us about a time you identified and mitigated a security risk.
+33. How do you respond to a suspected server security incident?
+34. How do you ensure systems remain compliant with security policies?
+35. Tell us about a project where you collaborated with multiple IT teams.
+36. Describe a time you had to explain technical information to non-technical stakeholders.
+37. How do you handle disagreements with stakeholders over technical decisions?
+38. Tell us about a time you acted as the subject matter expert (SME).
+39. How do you stay current on server technologies and best practices?
+40. Describe a time you improved an existing process.
+41. Tell us about a time you automated a repetitive server administration task.
+42. What scripting languages have you used to manage servers?
+43. Describe your experience with PowerShell.
+44. What virtualization platforms have you worked with?
+45. Describe your experience with VMware, Hyper-V, or Azure.
+46. Have you worked with cloud-hosted servers? If so, explain your experience.
+47. What DNS, DHCP, and networking concepts are important for server administrators?
+48. Explain the difference between high availability and disaster recovery.
+49. What would you do if users report intermittent slowness on a server?
+50. How would you investigate high CPU or memory utilization?
+51. How would you troubleshoot a server that won't boot?
+52. How would you troubleshoot an application that works on one server but not another?
+53. Describe a time you had to make a critical decision with limited information.
+54. Tell us about a mistake you made and what you learned from it.
+55. Why are you interested in this Server Operations Specialist position?
+56. What strengths make you successful in server operations?
+57. How do you handle competing priorities and tight deadlines?
+58. Tell us about a time you led or mentored other IT staff.
+59. Why should we hire you for this position?
