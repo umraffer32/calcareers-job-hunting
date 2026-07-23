@@ -26,6 +26,10 @@ Read all 11 postings and duty statements in full (parallel extraction agents, on
 
 Net result: 3 picks + 1 runner-up recommended, 7 passes logged. Presented to Uriah; awaiting his call on which pick(s) to start.
 
+### New applications paused until back from the Philippines trip
+
+Uriah's call, made the same day as the JC-520957 interview: after today, new CalCareers applications are on hold until he's back from the Sep 23 - Oct 29, 2026 trip. 25 applications are already in the pipeline and will surface interviews/rejections on their own regardless of new filings. He'll focus on other projects during the pause rather than triaging/applying to new postings. Not a stop, a deliberate pause — he wants to keep applying once he's back. Going forward: don't proactively run the scraper or recommend-job during this window; wait for him to bring it up.
+
 ## July 20, 2026
 
 ### Flatiron Dragados (IT Field Specialist, private sector) -- REJECTED
