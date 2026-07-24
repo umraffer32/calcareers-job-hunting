@@ -3,8 +3,12 @@
   "overrides": {
     "520957": {
       "status": "interview",
-      "window_cell": "Interview confirmed Thu 7/23, 2:00 p.m.",
-      "logged": "2026-07-15"
+      "window_cell": "Interviewed 7/23; panel thru 8/7, decision ~3-4 wks after (Uriah's est.)",
+      "logged": "2026-07-23",
+      "_note": "Panel interview held Thu 7/23 as scheduled. Uriah's self-read: didn't nail it, didn't bomb it. Panel continues interviewing other candidates through 8/7; his own estimate is an offer, if he made the cut, roughly 3-4 weeks after that. Not a confirmed HR timeline.",
+      "ack_lines": [
+        "Uriah's call, made the same day as the JC-520957 interview: after today, new CalCareers ap"
+      ]
     },
     "521435": {
       "status": "ack",

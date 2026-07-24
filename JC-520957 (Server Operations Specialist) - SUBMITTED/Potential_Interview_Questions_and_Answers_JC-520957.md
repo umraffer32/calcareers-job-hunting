@@ -10,6 +10,22 @@ Source doc for panel mechanics, CUIAB background, landmines, and standing person
 
 ---
 
+## Actual questions asked (post-interview debrief, 2026-07-23)
+
+Uriah's recall right after the interview, four questions remembered clearly:
+1. What services do enterprise companies offer?
+2. What is Active Directory?
+3. What does a Server Operations Specialist do?
+4. What is redundancy?
+
+Only #3 lands on heavily prepped material (document Q13, Tier 1). #2 and #4 are bare definitional questions, a category the 59-question sweep never generated, every one of those 59 is phrased as "describe your experience," "how do you," or "tell us about a time," never "what is X." #1 doesn't match anything in this document or the sweep. Neither "tell me about yourself" (document Q1) nor "why are you the most qualified" (document Q2 v3), the two questions this prep process was most confident about and invested the most drafting time in, three structural variants for Q2 alone, was asked at all.
+
+Logged to MEMORIES.md as a real-panel data point for future fixed-panel prep: run a plain-English glossary pass for core named terms alongside the behavioral beats prep, not just a one-line backup buried in the lowest tier.
+
+**Follow-up catch, same day (Uriah, driving home):** he never said the word "documentation" live, even though it was the closing item on Q13's rehearsed daily-duties list, "design, install and configure, maintain and update, monitor, troubleshoot to root cause, patch, track end of life and plan replacement, document and communicate." Likely dropped for exactly the reason it sat there, last item in an eight-item list recited from memory under real pressure. Logged to MEMORIES.md as a keyword-placement lesson, front-load or double up the highest-value keywords in any list-structured answer instead of trusting the tail end to land.
+
+---
+
 ## 1. Tell me about yourself.
 
 "I finished my B.S. in Network Engineering and Security at WGU this past October. Before that I spent a few years in tax prep and customer service, and I went back to school because I wanted a career that kept building instead of resetting every season. Along the way I picked up four CompTIA certs, A+, Network+, Security+, and Cloud+.

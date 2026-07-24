@@ -30,6 +30,13 @@ Net result: 3 picks + 1 runner-up recommended, 7 passes logged. Presented to Uri
 
 Uriah's call, made the same day as the JC-520957 interview: after today, new CalCareers applications are on hold until he's back from the Sep 23 - Oct 29, 2026 trip. 25 applications are already in the pipeline and will surface interviews/rejections on their own regardless of new filings. He'll focus on other projects during the pause rather than triaging/applying to new postings. Not a stop, a deliberate pause — he wants to keep applying once he's back. Going forward: don't proactively run the scraper or recommend-job during this window; wait for him to bring it up.
 
+### JC-520957 (Server Operations Specialist, ITS I, CUIAB) — panel interview completed
+- Interview held Thursday 7/23, 2:00 p.m. as scheduled. Uriah's self-assessment: didn't nail it, didn't bomb it either.
+- Panel will keep interviewing other candidates through August 7, 2026. Uriah's own estimate, not a confirmed HR timeline, is that an offer, if he made the cut, would land roughly 3-4 weeks after that, so late August into early September.
+- No decision yet. That estimated window lands well clear of the Sep 23 Philippines trip. Per the settled MEMORIES policy, no action needed now; if this reaches an offer or start-date conversation, disclose the trip dates then and ask for a start date after 10/29.
+- **Post-interview debrief, four questions Uriah remembered:** what services enterprise companies offer, what is Active Directory, what does a Server Operations Specialist do, what is redundancy. Only the third matches material the prep doc treated as near-certain; the other two "what is X" questions are a category the 59-question Reddit sweep never generated, and the two most heavily rehearsed questions in the whole prep doc (tell me about yourself, why are you the most qualified) were not asked at all. Full comparison against the prep doc, and the resulting glossary-pass rule for future fixed panels, written into `Potential_Interview_Questions_and_Answers_JC-520957.md` and MEMORIES.md's Interview prep format section.
+- **Second catch, same day (Uriah, driving home):** he never said "documentation" live, even though it was the closing item on Q13's eight-item rehearsed daily-duties list, the one question confirmed to have landed on prepped material. Logged as a keyword-placement lesson in the same two files, front-load or double up the highest-value duty-statement keywords in a list-structured answer instead of tail-loading them.
+
 ## July 20, 2026
 
 ### Flatiron Dragados (IT Field Specialist, private sector) -- REJECTED
