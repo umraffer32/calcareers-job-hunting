@@ -1,10 +1,26 @@
 # CalCareers Job Hunt — Progress Log
 
-_Last updated: July 20, 2026_
+_Last updated: July 24, 2026_
 
 _Newest day first._
 
 _Current month only. Prior months live verbatim in `PROGRESS_LOG_ARCHIVE.md` (rolled at the start of each month per CLAUDE.md rule 9)._
+
+## July 24, 2026
+
+### Job triage run (recommend-job) — scrape generated_at 7/24 (10:05 PM Pacific), 51 open postings, 15 new / 1 closed since the 7/23 scrape
+
+Ran the scraper fresh (15 new, 1 closed — JC-524252 Media Specialist, already a TRIAGE_LEDGER pass, no impact — 51 open positions tracked, up from 37). Cross-checked all 51 against TRIAGE_LEDGER.md, PROGRESS_LOG.md, and the repo's SUBMITTED folders (25 SUBMITTED, unchanged from 7/23): 33 already TRIAGE_LEDGER passes, including JC-521207, a CalPERS ITS I re-surfaced by the broader keyword search that was actually already passed back on 6/19/2026 for ~55% ServiceNow + project-lead framing — same posting, caught cleanly by JC number, no data-integrity conflict. That left 18 candidates: 14 brand-new from today's scrape plus the 4 still-open, still-undecided postings from the 7/23 run (525615, 524669, 525673, 524814) that Uriah hasn't acted on during the application pause.
+
+Read all 18 postings and duty statements in full (parallel extraction agents for the 14 new ones; the 4 carried-over postings were re-verified directly against their already-complete 7/23 duty-fit write-ups, confirming nothing changed — same deadlines, same SOQ prompts, same filing requirements — plus pulling the one field the 7/23 write-up hadn't captured, working hours).
+
+**Top 3 + runner-up are unchanged from 7/23** (postings still open, still un-acted-on during the pause; full reasoning stays in the 7/23 entry above): JC-525615 (DMV ITA, #1 STRONG FIT, 8:00 a.m.-5:00 p.m. core hours, on-call cell phone/weekends is welcome OT) → JC-524669 (Delta Stewardship Council ITS I, #2 STRONG FIT, no explicit shift stated) → JC-525673 (CDCR IT Field Support Associate, #3 STRONG FIT, 8:00 a.m.-5:00 p.m., in-office) → JC-524814 (DOJ Bureau of Gambling Control, runner-up/no-SOQ, Day shift M-F). All four deadlines confirmed unchanged (8/4, 8/4, 8/5, 8/5).
+
+**New this run: JC-526085 (ANALYST, ITA, California Highway Patrol, Software Development Group) = STRETCH (defensible)**, a fourth-tier option below the runner-up. 50% Client Services (application support/training/help-desk tickets on in-house CHP software) + 35% Software Engineering (functional QA — test plans/scripts, defect write-ups) + 10% Business Technology Management (requirements/design assistance) + 5% other. No named tool dominates, so it survives the mechanical saturation test, but nothing in Uriah's history is real end-user software support or software QA — the required 2-prompt SOQ is answerable only by stitching adjacent material (Block Advisors, the GLPI lab, Terraform/STIG testing) across nearly every clause, a real stretch across the whole duty set rather than one weak bucket. 100% in-office, 8:00 a.m.-5:00 p.m., Sacramento. Deadline 8/4/2026.
+
+**13 clean passes, added to TRIAGE_LEDGER.md and TRIAGE_LEDGER_DETAIL.md** (full reasoning there): JC-525965 (CHP, 911/GIS/telecom-liaison off-lane), JC-526011 (CalPERS Product Manager/Product Analyst, formal PM/BA/Agile), JC-525916 (Cal ICH Business Intelligence Specialist, SQL/BI saturation), JC-526090 (DSH Software Application Developer, C#/SQL/Scrum saturation), JC-526132 (EDD Associate Application Developer, .NET/C#/SQL Server saturation), JC-526109 (EDD Disclosure Specialist, legal/contract-compliance off-lane), JC-526114 (CalSTRS Project Portfolio Coordinator, formal PMO), JC-526113 (Dept of Conservation Application Developer, C#/.NET/SQL/GIS saturation), JC-511423 (FISCal Financial Data Analyst and Reports Developer, SQL saturation), JC-525803 (DOJ Project Manager, formal PM/BA), JC-525890 (FTB Network Engineer, enterprise network-gear saturation), JC-525991 (Dept of Cannabis Control Reporting and Data Governance Specialist, SQL/BI saturation), JC-526032 (EDD Associate Data Analytics and Report Developer, SQL/Snowflake/SSRS/Tableau saturation).
+
+Net result: the same 3 picks + 1 runner-up as 7/23 (still unclaimed), plus 1 new stretch option and 13 new passes logged. This batch of "new" postings skewed almost entirely to developer/PM/BA/data-analytics/enterprise-network work outside Uriah's ITA support lane — not a single new STRONG FIT surfaced. Presented to Uriah at his own request; still paused on new applications until back from the Philippines trip per his 7/23 call — this was a status refresh, not a resumption of active filing.
 
 ## July 23, 2026
 
