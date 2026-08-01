@@ -1,10 +1,22 @@
 # CalCareers Job Hunt — Progress Log
 
-_Last updated: July 31, 2026_
+_Last updated: August 1, 2026_
 
 _Newest day first._
 
 _Current month only. Prior months live verbatim in `PROGRESS_LOG_ARCHIVE.md` (rolled at the start of each month per CLAUDE.md rule 9)._
+
+## August 1, 2026
+
+### JC-519717 rejected — Security Analyst (ITS I, California Military Department)
+
+Uriah supplied the letter, dated 7/31/2026, subject "Hiring Activity Completed." Standard non-selection wording, "we have selected another candidate who more closely matched our needs." Saved into the folder as `Rejection_Letter_JC-519717.pdf` and the folder renamed from `- SUBMITTED` to `- CLOSED`. No `callback_overrides.json` entry, per the documented exception in CLAUDE.md — the rename alone drops the row out of the callback table, and the tool's log scanner only keys on JCs that still have a SUBMITTED folder.
+
+Timeline worth keeping. This was the second application ever filed under this project, submitted June 12, 2026, the same day filing closed. The rejection landed 7 weeks after close, just past the top of the callback tool's 4-6 week heuristic window rather than far outside it.
+
+It was also one of the ITS I security stretches flagged in the 2026-06-18 triage note, applying up from a new grad with a security internship into a role under the department CISO. Nothing here contradicts the honest-fit read that put it in the stretch bucket.
+
+Active submitted-application count drops from 24 to 23.
 
 ## July 31, 2026
 
