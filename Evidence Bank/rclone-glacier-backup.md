@@ -1,9 +1,9 @@
 # rclone-backups (Pickleboy Glacier Backup) — resume/SOQ project brief
-DATE: 2026-08-10 | CONFIRMED-BY: Uriah
-PROVES: Cloud storage architecture (S3 Glacier Deep Archive tiering), IAM least-privilege design proven with a real smoke test (scoped no-delete policy), backup/DR design (copy-only sync, versioning, restore procedure), verification-driven QA (8-check byte-exact reconciliation across 13,929 objects), cost engineering (multipart chunk-size tuning, full cost model), and a real debugging catch (a config line that silently broke every write, missed by three review passes, found by testing an actual write).
-CONSTRAINTS: Personal homelab project, never professional/production framing. Follow the used-not-wrote rule for the shell scripts themselves — they were AI-generated (Claude/Fable directed) from Uriah's decisions, per CLAUDE.md in the repo. The IAM policy design, the six locked architecture decisions, the rclone remote config choices, the verification-check design, and the cost analysis are his own calls and safe to claim as his work; say he "used/built and tested" the scripts, never "wrote" them. The mid-project incident (a runaway `grep` crashing the server twice, corrupting the media drive's mount) originated from an unrelated AI/Claude session process in that directory — real and honestly claimable as troubleshooting/incident response if it comes up, but it's flavor, not core evidence, and never imply he caused it by writing bad code himself. Fresh capture — read in full 2026-08-10 the same day the project finished; unspent in any resume/SOQ/678 so far.
-USED-IN: none yet — captured 2026-08-10.
-SOURCE: full repo read via `gh api` (private repo `umraffer32/rclone-backups`), README.md + CLAUDE.md + all three scripts + IAM policy, 2026-08-10.
+DATE: 2026-08-10, updated 2026-08-11 | CONFIRMED-BY: Uriah
+PROVES: Cloud storage architecture (S3 Glacier Deep Archive AND Glacier Instant Retrieval tiering, chosen deliberately per use case), IAM least-privilege design proven with a real smoke test (scoped no-delete policy, two separate policies for two buckets), backup/DR design (copy-only sync, versioning, restore procedures, unattended-cron hardening), verification-driven QA (8-check byte-exact reconciliation across two libraries, 13,929 + 82,455 objects), cost engineering (multipart chunk-size tuning, full cost models, a storage-tier cost/latency tradeoff argued in writing), and two real debugging catches (a config line that silently broke every write, missed by three review passes; a runaway process that crashed the server and corrupted a drive mount, root-caused and fixed same day with zero data loss).
+CONSTRAINTS: Personal homelab project, never professional/production framing. Follow the used-not-wrote rule for the shell scripts themselves — they were AI-generated (Claude/Fable directed) from Uriah's decisions, per CLAUDE.md in the repo. The IAM policy design, the architecture decisions (six for movies, the GIR-vs-Deep-Archive call for pictures), the rclone remote config choices, the verification-check design, and the cost analysis are his own calls and safe to claim as his work; say he "used/built and tested" the scripts, never "wrote" them. The mid-project incident (a runaway `grep` crashing the server twice, corrupting the media drive's mount) originated from an unrelated AI/Claude session process in that directory — real and honestly claimable as troubleshooting/incident response if it comes up, but it's flavor, not core evidence, and never imply he caused it by writing bad code himself. Unspent in any resume/SOQ/678 so far.
+USED-IN: none yet — captured 2026-08-10, updated 2026-08-11.
+SOURCE: full repo read via `gh api` (private repo `umraffer32/rclone-backups`), README.md + CLAUDE.md + all scripts + both IAM policies, 2026-08-10 (movies project) and 2026-08-11 (pictures project added, re-read in full).
 ---
 
 # Pickleboy Glacier Backup — Resume/SOQ Project Brief
@@ -32,6 +32,60 @@ more, and there's a 5-check smoke test script (`test-iam-user.sh`) that proves i
 ever touches the bucket for real: list succeeds, put succeeds, read-back succeeds, delete
 correctly fails, cleanup only works through a separate admin profile. That's a policy actually
 tested against its own boundary, not just written and trusted.
+
+---
+
+## Second project, added 2026-08-11: Pictures → S3 Glacier Instant Retrieval
+
+Same repo, second backup, same no-delete design, deliberately different storage tier. The full
+Immich photo library (`/mnt/media/PICTURES`, minus `lost+found/`) — 175.12 GiB across ~82,455
+objects — backed up to a separate S3 bucket on **Glacier Instant Retrieval (GIR)**, not Deep
+Archive. Upload ran 2026-08-11, 11:01:03 to 15:05:44 PDT (4h4m41s, zero errors), reconciled
+against S3 the same afternoon, 82,455/82,455 objects byte-exact, 0 differences.
+
+**The storage-tier choice is the sharpest piece of reasoning in this addition.** He picked GIR
+over Deep Archive for one specific, named reason: partial-restore ergonomics. Pulling back a
+single album is a plain `rclone copy` with millisecond access, no 12 to 48 hour restore-request
+wait, no temporary Standard-rate copy billed alongside the restore. That's worth roughly 52 cents
+a month more than Deep Archive at this size. He explicitly ruled out the tier's 90-day minimum
+storage duration as a reason, since the design's no-delete credential and complete absence of
+lifecycle rules mean that floor can never actually bill either way. This is a real argued
+cost-versus-retrieval-latency tradeoff with a dollar figure attached, not just "picked the
+cheaper option."
+
+Scope was also a deliberate, documented decision: the plan started originals-only, then widened
+on 2026-08-11 to include Immich's regenerable thumbnails and video transcodes too, reasoning that
+roughly $2/year buys a restore that comes back instantly warm instead of waiting on regeneration
+jobs.
+
+Infrastructure mirrors the movies bucket but is kept structurally separate on purpose: its own
+bucket, its own rclone remote (`pickleboy-glacier-ir`, `storage_class = GLACIER_IR`), and its own
+inline IAM policy (`policies/iam-policy-glacier-ir-pictures.json`) rather than an edit to the
+existing one, specifically so a mistake on the new bucket's config can't touch the already-proven
+movies deployment. The backup script was also hardened for something the movies script never
+needed: real unattended cron. A `mountpoint` guard aborts into the log if the drive isn't mounted,
+because with a static photo library "0 files transferred" is what a completely healthy run looks
+like, so an unmounted drive would otherwise be silently indistinguishable from success. The
+monthly cron itself is written and tested but deliberately not installed yet, held back by
+choice, not blocked on anything.
+
+**Verified numbers for pictures:** 175.12 GiB / 82,455 objects across six prefixes (`upload`
+130.92 GiB/26,652 files being the irreplaceable originals; `thumbs`, `encoded-video`, `library`,
+`profile`, `backups` the rest); 5-check IAM smoke test 5/5 pass; 8-check reconciliation script,
+`rclone check` reporting 0 differences on every compared prefix, every object confirmed
+`GLACIER_IR`. Cost: about $0.70/mo / $8.4/yr steady state, about $1.65 one-time upload fees, a
+full restore about $12.8 in a single month or about $6.1 split across two (175 GiB fits inside
+two months of AWS's free egress tier).
+
+**A second real incident, same build window:** a runaway `grep` process from an unrelated
+Claude/Fable plan-mode session running in the same repo directory crashed the home server twice,
+which left the 8TB media drive's dirty bit set and stopped it from mounting — for a moment the
+entire Jellyfin movie library looked like it had been deleted, since the mount point resolved to
+an empty folder on the root SSD instead. Root-caused and resolved the same day with zero data
+loss; `earlyoom` was installed afterward since the box had no out-of-memory protection at all,
+which is why one runaway process could take the whole server down. Same honesty constraint as the
+acl-bug catch below — real and citable as incident response/troubleshooting if it comes up, not
+something he caused by writing bad code, and it's flavor, not core evidence.
 
 ---
 
