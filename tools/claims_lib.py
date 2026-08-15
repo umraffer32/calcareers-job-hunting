@@ -32,17 +32,27 @@ def snippet(t, i, w=32):
     return ("..." if a > 0 else "") + t[a:b].replace("\n", " ") + ("..." if b < len(t) else "")
 
 
+def docx_paragraphs(doc):
+    """Text-bearing paragraphs of a document.xml string, in order:
+    {text, jc (alignment or None), numpr}. jc/numpr feed soq_gate's
+    formatting advisories; text-only callers just read ["text"]."""
+    out = []
+    for p in re.findall(r"<w:p\b[^>]*>.*?</w:p>", doc, re.S):
+        t = unescape("".join(re.findall(r"<w:t[^>]*>(.*?)</w:t>", p, re.S)))
+        if not t.strip():
+            continue
+        jc = re.search(r'<w:jc w:val="(\w+)"', p)
+        out.append({"text": t, "jc": jc.group(1) if jc else None,
+                    "numpr": "<w:numPr>" in p})
+    return out
+
+
 def docx_text(path):
     """Full text of a .docx body, one line per non-empty paragraph - the same
     string soq_gate feeds its content checks, so verdicts match exactly."""
     with zipfile.ZipFile(path) as z:
         doc = z.read("word/document.xml").decode("utf-8", "ignore")
-    paras = []
-    for p in re.findall(r"<w:p\b[^>]*>.*?</w:p>", doc, re.S):
-        t = unescape("".join(re.findall(r"<w:t[^>]*>(.*?)</w:t>", p, re.S)))
-        if t.strip():
-            paras.append(t)
-    return "\n".join(paras)
+    return "\n".join(p["text"] for p in docx_paragraphs(doc))
 
 
 def file_text(path):
@@ -50,6 +60,24 @@ def file_text(path):
     if path.lower().endswith(".docx"):
         return docx_text(path)
     return open(path, encoding="utf-8", errors="ignore").read()
+
+
+def overlaps(span, spans):
+    """True when (start, end) span overlaps any span in spans."""
+    a, b = span
+    return any(not (b <= c or a >= d) for c, d in spans)
+
+
+NUMBER_RE = re.compile(r"(?<![A-Za-z0-9_])\$?\d[\d,]*(?:\.\d+)?%?")
+
+
+def find_numbers(text, exempt_patterns=()):
+    """(token, (start, end)) for each number token in text, skipping tokens
+    that fall entirely inside a match of any exempt pattern (the rules file's
+    number_exempt list: JC numbers, versions, years)."""
+    exempt = [m.span() for pat in exempt_patterns for m in re.finditer(pat, text)]
+    return [(m.group(0), m.span()) for m in NUMBER_RE.finditer(text)
+            if not any(a <= m.start() and m.end() <= b for a, b in exempt)]
 
 
 def _hits(text, entries):

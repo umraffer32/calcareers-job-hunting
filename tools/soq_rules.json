@@ -12,9 +12,24 @@
   ],
   "banned_claims": [
     {
-      "id": "servicenow",
-      "pattern": "\\bServiceNow\\b",
-      "why": "ZERO hands-on. PDI waitlisted and never provisioned; the servicenow-itsm repo is PARKED. Never claim on any doc (MEMORIES: ServiceNow gap)."
+      "id": "servicenow-kb",
+      "pattern": "ServiceNow.{0,200}\\b(Knowledge Base|KB article)|\\b(Knowledge Base|KB article).{0,200}ServiceNow",
+      "why": "ServiceNow knowledge-base authoring is NOT built (personal PDI lab, 4/9 steps done as of 2026-07-29: incident management, request management, and a self-built catalog item + Flow Designer workflow are done; KB articles are only drafted as markdown, not yet published in-instance). Never claim ServiceNow KB authoring (MEMORIES: ServiceNow gap)."
+    },
+    {
+      "id": "servicenow-rbac",
+      "pattern": "\\bRBAC\\b|Role-Based Access Control",
+      "why": "Zero hands-on role-based access control administration on any platform, including the ServiceNow PDI lab (MEMORIES: ServiceNow gap)."
+    },
+    {
+      "id": "servicenow-cmdb",
+      "pattern": "\\bCMDB\\b|Configuration Management Database",
+      "why": "Zero hands-on with any CMDB, including in the ServiceNow PDI lab (MEMORIES: ServiceNow gap)."
+    },
+    {
+      "id": "servicenow-dashboard",
+      "pattern": "ServiceNow.{0,200}\\b(dashboards?|reporting module)|\\b(dashboards?|reporting module)\\b.{0,200}ServiceNow",
+      "why": "ServiceNow dashboards/reporting are NOT built (PDI lab, 4/9 steps done as of 2026-07-29). Do not confuse with the real AWS CloudWatch operations dashboard, which is a separate, legitimately claimable project (MEMORIES: aws-ha-infra-numbers)."
     },
     {
       "id": "intune",
@@ -163,7 +178,7 @@
     {
       "id": "servicenow-watch",
       "pattern": "\\bServiceNow\\b",
-      "why": "Also a banned claim; the watchlist is the safety net if a ban is ever excused by allow_near. Zero hands-on."
+      "why": "Partial hands-on, personal PDI lab only (provisioned 2026-07-09; 4/9 build steps done as of 2026-07-29). Claimable at lab scope: incident lifecycle management, service-catalog request fulfillment, building/debugging a Flow Designer approval workflow. Confirm each mention stays scoped to a personal lab, never implies professional/enterprise tenure, and doesn't drift into KB/RBAC/CMDB/dashboard territory (those are separate hard bans)."
     },
     {
       "id": "endpoint-mgmt-watch",
@@ -471,24 +486,6 @@
         "band"
       ],
       "note": "condo-wifi-deadzone: 2.4 GHz band call (Evidence Bank, confirmed 2026-07-10)"
-    },
-    {
-      "value": "8",
-      "context": [
-        "hunt",
-        "hunts",
-        "multi-stage"
-      ],
-      "note": "sentinel-hunt-automation: validated across 8 multi-stage hunts (Evidence Bank/sentinel-hunt-automation.md, added 2026-07-12 JC-524404) [SUPERSEDED 2026-07-12: now 10 hunts / 348 questions]"
-    },
-    {
-      "value": "290",
-      "context": [
-        "question",
-        "questions",
-        "graded"
-      ],
-      "note": "sentinel-hunt-automation: ~290 questions total / 290+ graded questions (Evidence Bank/sentinel-hunt-automation.md, added 2026-07-12 JC-524404) [SUPERSEDED 2026-07-12: now 10 hunts / 348 questions]"
     },
     {
       "value": "263",

@@ -19,7 +19,7 @@ TOOLS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REPO = os.path.dirname(TOOLS)
 PY = sys.executable
 GOOD = os.path.join(REPO, "JC-524404 (Security Operations Associate) - SUBMITTED")
-KNOWN = os.path.join(REPO, "JC-523777 (System Security Associate) - SUBMITTED")
+KNOWN = os.path.join(REPO, "JC-523777 (System Security Associate) - CLOSED")
 
 RESULTS = []
 

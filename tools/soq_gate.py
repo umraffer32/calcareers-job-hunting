@@ -30,9 +30,9 @@ Checks and severities:
      appearing in 2+ answers; a project may repeat only if the facet differs)
   7. style-tic counters .................... WARN ("X, not Y" contrasts above
      threshold, short-sentence triads, buzzwords, throat-clearing openers)
-  8. keyword-coverage report ............... INFO only, NEVER pass/fail and
-     never a target; uncovered keywords Uriah can't honestly claim stay
-     uncovered (additions route through the honesty banks, not the doc)
+
+Keyword coverage moved to check_keywords.py (the full SOQ/resume/678 matrix
+pre_submit runs as its own INFO row).
 
 It does NOT judge the honesty of novel claims - that stays a human read
 against MEMORIES.md. Exit 0 when no hard FAIL, 1 otherwise. Warnings and
@@ -53,17 +53,9 @@ import zipfile
 import argparse
 import subprocess
 
-from claims_lib import banned_hits
+from claims_lib import banned_hits, snippet, docx_paragraphs, find_numbers
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-
-XML_ENTITIES = {"&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&apos;": "'"}
-
-
-def unescape(s):
-    for k, v in XML_ENTITIES.items():
-        s = s.replace(k, v)
-    return s
 
 
 def norm_quotes(s):
@@ -75,27 +67,9 @@ def norm_ws(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
-def snippet(t, i, w=32):
-    a, b = max(0, i - w), min(len(t), i + w)
-    return ("..." if a > 0 else "") + t[a:b].replace("\n", " ") + ("..." if b < len(t) else "")
-
-
 def read_docx_xml(path):
     with zipfile.ZipFile(path) as z:
         return z.read("word/document.xml").decode("utf-8", "ignore")
-
-
-def get_paragraphs(doc):
-    """Text-bearing paragraphs in order: {text, jc (alignment or None), numpr}."""
-    out = []
-    for p in re.findall(r"<w:p\b[^>]*>.*?</w:p>", doc, re.S):
-        t = unescape("".join(re.findall(r"<w:t[^>]*>(.*?)</w:t>", p, re.S)))
-        if not t.strip():
-            continue
-        jc = re.search(r'<w:jc w:val="(\w+)"', p)
-        out.append({"text": t, "jc": jc.group(1) if jc else None,
-                    "numpr": "<w:numPr>" in p})
-    return out
 
 
 def sentence_spans(text):
@@ -142,9 +116,6 @@ def check_banned_claims(full_text, rules):
 
 
 def check_numbers(full_text, rules):
-    exempt_spans = []
-    for pat in rules.get("number_exempt", []):
-        exempt_spans += [m.span() for m in re.finditer(pat, full_text)]
     sents = sentence_spans(full_text)
 
     def sentence_of(pos):
@@ -155,19 +126,16 @@ def check_numbers(full_text, rules):
 
     whitelist = {e["value"]: e for e in rules.get("verified_numbers", [])}
     drift, unknown = [], []
-    for m in re.finditer(r"(?<![A-Za-z0-9_])\$?\d[\d,]*(?:\.\d+)?%?", full_text):
-        if any(a <= m.start() and m.end() <= b for a, b in exempt_spans):
-            continue
-        token = m.group(0)
+    for token, (start, _end) in find_numbers(full_text, rules.get("number_exempt", [])):
         value = token.lstrip("$").rstrip("%").replace(",", "").rstrip(".")
-        sent = sentence_of(m.start())
+        sent = sentence_of(start)
         entry = whitelist.get(value)
         if entry is None:
-            unknown.append((token, snippet(full_text, m.start())))
+            unknown.append((token, snippet(full_text, start)))
         else:
             hay = sent.lower()
             if not any(c.lower() in hay or c in token for c in entry["context"]):
-                drift.append((token, entry, snippet(full_text, m.start())))
+                drift.append((token, entry, snippet(full_text, start)))
     if not drift and not unknown:
         return ("PASS", "Numbers: all digits match the verified-quantifiables list")
     lines = []
@@ -317,13 +285,8 @@ def check_double_spend(paras, heading_idxs, rules):
         return ("NOTE", "Double-spend: fewer than 2 question sections detected; skipped")
     num_where, anchor_where = {}, {}
     for n, body in answers:
-        spans = []
-        for pat in rules.get("number_exempt", []):
-            spans += [m.span() for m in re.finditer(pat, body)]
-        for m in re.finditer(r"(?<![A-Za-z0-9_])\$?\d[\d,]*(?:\.\d+)?%?", body):
-            if any(a <= m.start() and m.end() <= b for a, b in spans):
-                continue
-            v = m.group(0).lstrip("$").rstrip("%").replace(",", "").rstrip(".")
+        for token, _span in find_numbers(body, rules.get("number_exempt", [])):
+            v = token.lstrip("$").rstrip("%").replace(",", "").rstrip(".")
             num_where.setdefault(v, set()).add(n)
         low = body.lower()
         for anchor in rules.get("story_anchors", []):
@@ -396,23 +359,6 @@ def check_style_tics(paras, full_text, rules):
                     + "\n".join("  " + f for f in findings))
 
 
-def check_keyword_coverage(full_text, spec):
-    kws = (spec or {}).get("keywords", [])
-    if not kws:
-        return ("NOTE", "Keyword coverage: no keywords in spec; skipped")
-    low = full_text.lower()
-    covered = [k for k in kws if k.lower() in low]
-    missing = [k for k in kws if k.lower() not in low]
-    lines = [f"Keyword coverage: {len(covered)}/{len(kws)} present (INFORMATIONAL ONLY, never a target)"]
-    if covered:
-        lines.append("  covered: " + ", ".join(covered))
-    if missing:
-        lines.append("  not covered: " + ", ".join(missing))
-        lines.append("  a keyword Uriah can't honestly claim STAYS uncovered; any addition")
-        lines.append("  routes through the honesty banks (MEMORIES), never straight into the doc")
-    return ("INFO", "\n".join(lines))
-
-
 def main():
     ap = argparse.ArgumentParser(description="Content-level SOQ gate (see SOQ_GATE_PLAN.md).")
     ap.add_argument("docx")
@@ -443,7 +389,7 @@ def main():
     pdf_path = a.pdf or os.path.splitext(os.path.abspath(a.docx))[0] + ".pdf"
 
     doc = read_docx_xml(a.docx)
-    paras = get_paragraphs(doc)
+    paras = docx_paragraphs(doc)
     full_text = "\n".join(p["text"] for p in paras)
     heading_idxs = find_heading_indexes(paras, spec) if spec else {}
 
@@ -461,7 +407,6 @@ def main():
                                 "in the folder; spec-dependent checks skipped"))
     results.append(check_double_spend(paras, heading_idxs, rules))
     results.append(check_style_tics(paras, full_text, rules))
-    results.append(check_keyword_coverage(full_text, spec))
     results.append(check_colons(paras, heading_idxs))
 
     bar = "=" * 64

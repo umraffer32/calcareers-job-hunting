@@ -27,14 +27,9 @@ import os
 import json
 import argparse
 
-from claims_lib import file_text, banned_hits, watchlist_hits
+from claims_lib import file_text, banned_hits, watchlist_hits, overlaps
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-
-
-def overlaps(span, spans):
-    a, b = span
-    return any(not (b <= c or a >= d) for c, d in spans)
 
 
 def main():

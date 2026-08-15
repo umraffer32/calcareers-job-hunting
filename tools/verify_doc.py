@@ -10,8 +10,10 @@ pre-submit items from PRE_SUBMIT_CHECKLIST.md sections 2-4:
     - page count of the LibreOffice-rendered PDF against the posting's limit
     - page margins
     - em / en dashes (zero tolerance)
-    - colons (SOQ only, zero tolerance; numeric times/ratios exempt)
     - acronyms spelled out exactly once on first use (warn-level, advisory)
+
+The SOQ zero-colon rule lives in soq_gate.py (its version exempts colons inside
+verbatim prompt headings), which pre_submit runs on every SOQ.
 
 It does NOT judge honesty or claims (checklist section 1). That stays a human
 read against MEMORIES.md. This tool only mechanizes the deterministic checks.
@@ -24,16 +26,10 @@ Exit code is 0 when no hard check FAILs, 1 otherwise. Warnings never fail the ga
 """
 import sys, re, os, zipfile, argparse, subprocess, tempfile, glob
 
+from claims_lib import unescape, snippet, docx_paragraphs
+
 # Universally known or CalCareers-native abbreviations that do not need spelling out.
 ACRONYM_ALLOWLIST = {"IT", "JC", "CA", "US", "AM", "PM", "RPA", "SOQ", "STD"}
-
-XML_ENTITIES = {"&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&apos;": "'"}
-
-
-def unescape(s):
-    for k, v in XML_ENTITIES.items():
-        s = s.replace(k, v)
-    return s
 
 
 def read_docx_xml(path):
@@ -75,20 +71,6 @@ def get_runs(doc):
             "size": int(sm.group(1)) if sm else None,
         })
     return out
-
-
-def get_paragraphs(doc):
-    out = []
-    for p in re.findall(r"<w:p\b[^>]*>.*?</w:p>", doc, re.S):
-        t = unescape("".join(re.findall(r"<w:t[^>]*>(.*?)</w:t>", p, re.S)))
-        if t.strip():
-            out.append(t)
-    return out
-
-
-def snippet(t, i, w=30):
-    a, b = max(0, i - w), min(len(t), i + w)
-    return ("..." if a > 0 else "") + t[a:b].replace("\n", " ") + ("..." if b < len(t) else "")
 
 
 def page_count(path):
@@ -170,23 +152,6 @@ def check_dashes(paras):
     return ("PASS", "Em dashes: none")
 
 
-def check_colons(paras):
-    """SOQ policy is ZERO colons (settled 2026-06-21). An SOQ answer flows as one
-    paragraph with no formatted lists, so there is no list for a colon to
-    introduce. Every colon is a FAIL except a true numeric colon (clock time or
-    ratio). This check is SOQ-only; the resume keeps its label-colons by design."""
-    hits = []
-    for t in paras:
-        for m in re.finditer(r":", t):
-            i = m.start()
-            if i > 0 and i + 1 < len(t) and t[i - 1].isdigit() and t[i + 1].isdigit():
-                continue  # time / ratio like 8:00 or 3:1
-            hits.append(snippet(t, i))
-    if hits:
-        return ("FAIL", "Colon (SOQ allows none): " + "; ".join(f'"{s}"' for s in hits[:3]))
-    return ("PASS", "Colons: none")
-
-
 def check_acronyms(paras):
     full = " \n ".join(paras)
     defs = {}
@@ -247,7 +212,7 @@ def main():
     doc, styles = read_docx_xml(a.docx)
     dfont, dsize = default_font_size(styles)
     runs = get_runs(doc)
-    paras = get_paragraphs(doc)
+    paras = [p["text"] for p in docx_paragraphs(doc)]
 
     results = []
     results.append(check_font(runs, dfont, font))
@@ -258,7 +223,6 @@ def main():
         results.append(check_margins(doc, margins))
     results.append(check_dashes(paras))
     if is_soq:
-        results.append(check_colons(paras))  # SOQ-only: resume keeps label-colons
         results.append(check_acronyms(paras))
 
     spec = [font]

@@ -15,12 +15,12 @@
       "lines": 158
     },
     "check_678_scrutiny.py": {
-      "sha256": "2c3a570be7f910bd44a5bae0c1f697de201d61419eddd79bc624a1a4718c4b68",
-      "lines": 125
+      "sha256": "65958692ab0d63e3292ab429929a9f58772d7061f7c8196e2c240f23949ab436",
+      "lines": 116
     },
     "check_claims.py": {
-      "sha256": "4a51d9da9a49e8ade3058e3d95ca2d7c4399bbddba09bf2d2a4154f40dcd916d",
-      "lines": 90
+      "sha256": "1de592fa62c71876e29b92d383f683623c8682390ddc89d4dc06e97d479ae5cf",
+      "lines": 85
     },
     "check_cross_doc.py": {
       "sha256": "f9fc04a876ca8ba98ac583287d147cfb6a9afd6a3bedad462e849ce6eb847aea",
@@ -39,28 +39,28 @@
       "lines": 50
     },
     "claims_lib.py": {
-      "sha256": "1c6ed42fcf1ca7fd7f45a9d3a45aea5da1cf196ecbf90090393c4b278c4c8efe",
-      "lines": 79
+      "sha256": "20e2ae183405b115dee7e0ee9aa723f7e997fac57ddd41bdd441a0179048ef17",
+      "lines": 107
     },
     "pre_submit.py": {
       "sha256": "efd393749bdf4ffb85c3bda81061a9b25022acec33f98292029ff1f1b661092e",
       "lines": 207
     },
     "soq_gate.py": {
-      "sha256": "fd74e2aa1724c481406eea58b9ca5d6862f3893264369afba719a0f58d415997",
-      "lines": 489
+      "sha256": "d199f35ea1ee58d0c88c31668eab325d4b691dc87a276faa369c751d3f6e37ee",
+      "lines": 434
     },
     "spell_check.py": {
       "sha256": "1fba3fddc3b462de0884848d46893b7c09104788cf2c59ba5912bc6a4f0e78f4",
       "lines": 93
     },
     "verify_doc.py": {
-      "sha256": "e48cf333f52d974e60c0ffe4a2d726d3f6659ebd692e132d6d5202eb2c36b9df",
-      "lines": 293
+      "sha256": "dbf14f84ad6181a03cd7e023d3566ec09538ff08860d2f1bf41c6ff0b317a32a",
+      "lines": 257
     },
     "soq_rules.json": {
-      "sha256": "5ab15b6c1aac0c253d33e6203f8ec9721c6171cd77e909e5877be5276b1f4eb3",
-      "lines": 669
+      "sha256": "64f51651a5f2c2c739f0142b00e6e01782826beb23d8f09a226db46af20a1279",
+      "lines": 666
     }
   }
 }

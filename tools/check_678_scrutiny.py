@@ -22,9 +22,9 @@ it and decides.
 Usage: python3 tools/check_678_scrutiny.py <duties.txt> [--spec soq_spec.json] [--rules soq_rules.json]
 Always exits 0 (informational).
 """
-import sys, os, re, json, argparse, subprocess
+import sys, os, json, argparse, subprocess
 
-from claims_lib import banned_hits, watchlist_hits
+from claims_lib import banned_hits, watchlist_hits, overlaps, find_numbers
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -34,11 +34,6 @@ def is_primary(path):
     -Label). Labeled past-job blocks (-BlockAdvisors, -RobertsRetirement) may
     honestly carry no metric, so the quantification WARN is scoped to the primary."""
     return "STD678-duties-" not in os.path.basename(path)
-
-
-def _overlaps(span, spans):
-    a, b = span
-    return any(not (b <= c or a >= d) for c, d in spans)
 
 
 def main():
@@ -77,7 +72,7 @@ def main():
     print(" [2] HONESTY")
     banned = banned_hits(text, rules)
     banned_spans = [h[3] for h in banned]
-    watch = [h for h in watchlist_hits(text, rules) if not _overlaps(h[3], banned_spans)]
+    watch = [h for h in watchlist_hits(text, rules) if not overlaps(h[3], banned_spans)]
     if not banned and not watch:
         print("     clean - no banned claims or watchlist terms")
     for hid, sn, why, _ in banned:
@@ -102,11 +97,7 @@ def main():
 
     # 4. quantification (primary block only)
     print(" [4] QUANTIFICATION")
-    exempt_spans = []
-    for pat in rules.get("number_exempt", []):
-        exempt_spans += [m.span() for m in re.finditer(pat, text)]
-    nums = [m.group(0) for m in re.finditer(r"(?<![A-Za-z0-9_])\$?\d[\d,]*(?:\.\d+)?%?", text)
-            if not any(sa <= m.start() and m.end() <= sb for sa, sb in exempt_spans)]
+    nums = [t for t, _span in find_numbers(text, rules.get("number_exempt", []))]
     if nums:
         print(f"     {len(nums)} metric(s) present: {', '.join(nums)}")
     elif is_primary(a.duties):
