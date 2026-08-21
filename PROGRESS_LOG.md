@@ -1,10 +1,20 @@
 # CalCareers Job Hunt — Progress Log
 
-_Last updated: August 8, 2026_
+_Last updated: August 21, 2026_
 
 _Newest day first._
 
 _Current month only. Prior months live verbatim in `PROGRESS_LOG_ARCHIVE.md` (rolled at the start of each month per CLAUDE.md rule 9)._
+
+## August 21, 2026
+
+### JC-520934 rejected — Systems Security Specialist (ITS I, POST)
+
+Uriah supplied the letter, dated 8/20/2026. Standard non-selection wording, "many applications were received and the most qualified were selected for an interview... although you were not selected." Application date on the letter is 6/14/2026. Saved into the folder as `Rejection_Letter_JC-520934.pdf` and the folder renamed from `- SUBMITTED` to `- CLOSED`. No `callback_overrides.json` entry, per the documented exception in CLAUDE.md — the rename alone drops the row out of the callback table.
+
+Filed 6/14/2026, rejected 8/20/2026 — about 9.5 weeks, well past the callback tool's 4-6 week heuristic window.
+
+Active submitted-application count drops from 22 to 21.
 
 ## August 8, 2026
 
