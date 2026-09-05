@@ -12,26 +12,6 @@
   ],
   "banned_claims": [
     {
-      "id": "servicenow-kb",
-      "pattern": "ServiceNow.{0,200}\\b(Knowledge Base|KB article)|\\b(Knowledge Base|KB article).{0,200}ServiceNow",
-      "why": "ServiceNow knowledge-base authoring is NOT built (personal PDI lab, 4/9 steps done as of 2026-07-29: incident management, request management, and a self-built catalog item + Flow Designer workflow are done; KB articles are only drafted as markdown, not yet published in-instance). Never claim ServiceNow KB authoring (MEMORIES: ServiceNow gap)."
-    },
-    {
-      "id": "servicenow-rbac",
-      "pattern": "\\bRBAC\\b|Role-Based Access Control",
-      "why": "Zero hands-on role-based access control administration on any platform, including the ServiceNow PDI lab (MEMORIES: ServiceNow gap)."
-    },
-    {
-      "id": "servicenow-cmdb",
-      "pattern": "\\bCMDB\\b|Configuration Management Database",
-      "why": "Zero hands-on with any CMDB, including in the ServiceNow PDI lab (MEMORIES: ServiceNow gap)."
-    },
-    {
-      "id": "servicenow-dashboard",
-      "pattern": "ServiceNow.{0,200}\\b(dashboards?|reporting module)|\\b(dashboards?|reporting module)\\b.{0,200}ServiceNow",
-      "why": "ServiceNow dashboards/reporting are NOT built (PDI lab, 4/9 steps done as of 2026-07-29). Do not confuse with the real AWS CloudWatch operations dashboard, which is a separate, legitimately claimable project (MEMORIES: aws-ha-infra-numbers)."
-    },
-    {
       "id": "intune",
       "pattern": "\\bIntune\\b",
       "why": "Microsoft endpoint MANAGEMENT tools = zero hands-on (MEMORIES 2026-06-18). Intune lab is planned, NOT done. Unlock only when Uriah confirms the lab is finished."
@@ -178,7 +158,7 @@
     {
       "id": "servicenow-watch",
       "pattern": "\\bServiceNow\\b",
-      "why": "Partial hands-on, personal PDI lab only (provisioned 2026-07-09; 4/9 build steps done as of 2026-07-29). Claimable at lab scope: incident lifecycle management, service-catalog request fulfillment, building/debugging a Flow Designer approval workflow. Confirm each mention stays scoped to a personal lab, never implies professional/enterprise tenure, and doesn't drift into KB/RBAC/CMDB/dashboard territory (those are separate hard bans)."
+      "why": "Complete hands-on ITSM build in a personal PDI (all 9 steps done 2026-09-01): incident and request management, a self-built catalog item + Flow Designer workflow, published knowledge base articles, RBAC, a CMDB example, and a dashboard (MEMORIES: Verified real experience). Confirm each mention stays scoped to a personal PDI lab and never implies professional/enterprise tenure."
     },
     {
       "id": "endpoint-mgmt-watch",

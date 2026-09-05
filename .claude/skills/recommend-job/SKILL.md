@@ -197,10 +197,14 @@ Then judge each posting honestly:
   Title means little — score the DUTIES.
 - CRITICAL tool/skill-saturation test: estimate what share of the essential functions depend
   on a specific tool, system, or duty Uriah has NO hands-on experience with. If a tool he
-  lacks runs through a large share of the role (the canonical kill was JC-520758:
-  ServiceNow named in ~65% of duties), that is a PASS, not a stretch — adjacent/lab
-  experience and "fast ramp" do not survive an interview built around that tool. An
-  incidental tool used at a basic level (e.g. logging tickets in a system) is NOT a blocker.
+  lacks runs through a large share of the role, that is a PASS, not a stretch —
+  adjacent/lab experience and "fast ramp" do not survive an interview built around that
+  tool. An incidental tool used at a basic level (e.g. logging tickets in a system) is NOT
+  a blocker. Note: the canonical example of this kill used to be JC-520758 (ServiceNow at
+  ~65% of duties), but ServiceNow is no longer a tool he lacks — see the Verified real
+  experience section in MEMORIES.md for the completed PDI build (incident/request
+  management, a Flow Designer workflow, knowledge base, RBAC, CMDB, and a dashboard). A
+  heavily ServiceNow-saturated posting is now a genuine fit signal, not an automatic pass.
 - SOQ-PROMPT ANSWERABILITY TEST (run whenever an SOQ is required). For each SOQ prompt, ask
   whether Uriah can answer it truthfully from real experience in his documents, memory, the
   GitHub portfolio, or past sessions. If the lead prompt or a heavily weighted prompt demands
