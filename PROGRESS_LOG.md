@@ -1,10 +1,24 @@
 # CalCareers Job Hunt — Progress Log
 
-_Last updated: August 21, 2026_
+_Last updated: September 19, 2026_
 
 _Newest day first._
 
 _Current month only. Prior months live verbatim in `PROGRESS_LOG_ARCHIVE.md` (rolled at the start of each month per CLAUDE.md rule 9)._
+
+## September 19, 2026
+
+### Job triage run (recommend-job) — scrape generated_at 9/19, 13 open ITA postings, 4 new since the last ITA-only scrape
+
+Uriah changed `searches.json` today to track ITA (Information Technology Associate) only and drop the ITS I (Information Technology Specialist I) search/filter entirely. Ran the scraper fresh under the new config: 4 new, 25 "closed" — but 22 of those 25 were ITS I postings that didn't actually close, they dropped out of the manifest because the ITS I filter was removed, not because the recruitments ended. 13 open ITA postings now tracked. Cross-checked all 13 against TRIAGE_LEDGER.md, PROGRESS_LOG.md, and this repo's folders: 10 already TRIAGE_LEDGER passes (531338, 531766, 531936, 531795, 531803, 532047, 519812, 527762, 532523, 530089), leaving 3 un-evaluated: 532637, 532638, 532562. No data-integrity conflicts.
+
+Read all 3 postings and duty statements in full.
+
+**JC-532637 (ServiceNow Application Developer, ITA, CalPERS, ServiceNow Development & Support team) = STRONG FIT — the first posting where the finished ServiceNow PDI lab (completed 2026-09-01) changes the verdict.** 80% of duties are ServiceNow ITSM development and administration (translating business requirements into ServiceNow solutions, workflows, catalog items, forms, "with a high level of independence... with guidance from senior developers") plus 15% assisting senior developers with patches/releases/config changes and 20% platform triage/docs. Desirable qualifications (ServiceNow workflows/catalog items/forms configuration, JavaScript/web-app-dev principles) line up almost exactly with the finished PDI build: a self-built catalog item wired to a self-authored 4-step Flow Designer workflow, full incident and request-management lifecycles, RBAC, a CMDB example, and a reporting dashboard. Required 3-prompt SOQ (2 pages) is unusually well-matched: prompt 1 explicitly invites personal-project ServiceNow experience by name ("through employment, internships, education, training, certifications, personal projects, or other activities"), prompt 2 asks for a learning-a-new-technology story (the PDI build itself, or AWS/Terraform), prompt 3 asks what he has personally developed or configured, a direct match to the catalog item/workflow/CMDB work. JavaScript is a genuine soft gap (desirable, not essential). Permanent, hybrid (2 remote/3+ onsite), Sacramento, Live Scan required, no RPA found. **Filing-timing flag: anticipated interviews begin the week of October 12, 2026, which falls inside Uriah's Sep 23 - Oct 29 Philippines trip window** — a real scheduling conflict if he applies now and gets called. Deadline 9/28/2026.
+
+**2 clean BA-pattern passes, added to TRIAGE_LEDGER.md and TRIAGE_LEDGER_DETAIL.md:** JC-532638 (Business Systems Associate, ITA, CA Housing Finance Agency — 95%+ formal Business Analyst work, JAD/requirements/BRDs/process mapping, no hands-on technical duty, matches the long-standing BA-pass pattern), JC-532562 (Business Analyst, ITA, State Controller's Office CSPS project — payroll-system data-migration BA role, data cleansing/interface testing/UAT, no SOQ to differentiate).
+
+Net result: **1 pick (JC-532637)**, presented per the fewer-than-3 rule rather than padded to a top 3. This is also the first live test of the 2026-09-01 MEMORIES.md update noting ServiceNow saturation is "now a genuine fit signal, not an automatic pass" — worth watching whether future ServiceNow-heavy postings score similarly. Still nominally within the application pause Uriah called on 7/23 (through ~10/29); presented at his explicit request today (both the scraper run and this triage), not a resumption of proactive filing. No action taken on JC-532637 pending his call, and the interview-timing conflict means that call may functionally be a pass-for-now regardless of duty fit.
 
 ## August 21, 2026
 
